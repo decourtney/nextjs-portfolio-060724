@@ -59,14 +59,12 @@ const config: Config = {
             },
           },
           colors: {
-            background: "#FFFFFF", // or DEFAULT
-            foreground: "#11181C", // or 50 to 900 DEFAULT
+            background: "#FFFFFF",
+            foreground: "#11181C",
             primary: {
-              //... 50 to 900
               foreground: "#FFFFFF",
               DEFAULT: "#006FEE",
             },
-            // ... rest of the colors
           },
         },
         dark: {
@@ -85,11 +83,10 @@ const config: Config = {
             },
           },
           colors: {
-            background: "#000000", // or DEFAULT
-            foreground: "#ECEDEE", // or 50 to 900 DEFAULT
+            background: "#000000",
+            foreground: "#ECEDEE",
             primary: {
-              //... 50 to 900
-              foreground: "#FFFFFF",
+              foreground: "#000000",
               DEFAULT: "#006FEE",
             },
           },

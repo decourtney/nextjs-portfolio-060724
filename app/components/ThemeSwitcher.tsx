@@ -25,7 +25,7 @@ const ThemeSwitcher = () => {
       size={"sm"}
       radius="full"
       onClick={() =>
-        currentTheme == "dark" ? setTheme("light") : setTheme("dark")
+        theme == "dark" ? setTheme("light") : setTheme("dark")
       }
     >
       {currentTheme == "dark" ? <BsFillMoonStarsFill /> : <FaSun />}
