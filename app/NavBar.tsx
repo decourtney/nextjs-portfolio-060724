@@ -1,15 +1,13 @@
 import React from "react";
 import ThemeSwitcher from "./components/ThemeSwitcher";
-import { Container, Flex } from "@radix-ui/themes";
+import { Box, Container, Flex } from "@radix-ui/themes";
 
 const NavBar = () => {
   return (
-    <nav className="p-3">
-      <Container size={"4"}>
-        <Flex justify={"end"}>
-          <ThemeSwitcher />
-        </Flex>
-      </Container>
+    <nav className="p-3 bg-gray-500">
+      <Flex >
+        <ThemeSwitcher />
+      </Flex>
     </nav>
   );
 };
