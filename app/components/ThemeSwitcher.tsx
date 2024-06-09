@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
-import { Button, ButtonGroup } from "@nextui-org/button";
+import { Button } from "@nextui-org/react";
 // import { Button } from "@radix-ui/themes";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { FaSun } from "react-icons/fa";
@@ -25,7 +25,7 @@ const ThemeSwitcher = () => {
     <Button
       isIconOnly
       variant="light"
-      size={"lg"}
+      size="sm"
       radius="full"
       onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
     >

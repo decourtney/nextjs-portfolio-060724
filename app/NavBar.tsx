@@ -4,8 +4,8 @@ import { Box, Container, Flex } from "@radix-ui/themes";
 
 const NavBar = () => {
   return (
-    <nav className="p-3 bg-gray-500">
-      <Flex >
+    <nav className="p-3">
+      <Flex justify={"end"}>
         <ThemeSwitcher />
       </Flex>
     </nav>
