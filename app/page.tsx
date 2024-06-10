@@ -16,9 +16,7 @@ export default function Home() {
         <Box position={"relative"} width={"100%"} mt="-1">
           <ScrollLineSVG />
         </Box>
-        
       </Box>
-  
     </Flex>
   );
 }
