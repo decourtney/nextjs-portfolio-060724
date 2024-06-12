@@ -7,9 +7,6 @@ import { Button } from "@nextui-org/react";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { FaSun } from "react-icons/fa";
 
-import { SunSVG, MoonSVG } from "./SVGs";
-import { Box, Container } from "@radix-ui/themes";
-
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
@@ -27,6 +24,7 @@ const ThemeSwitcher = () => {
       variant="light"
       size="sm"
       radius="full"
+      color="primary"
       onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
     >
       {currentTheme == "dark" ? <BsFillMoonStarsFill /> : <FaSun />}

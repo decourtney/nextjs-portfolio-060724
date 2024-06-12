@@ -17,13 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // suppressHydrationWarning is used to prevent the warning that appears when the page is loaded
+    <html lang="en" suppressHydrationWarning={true}> 
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Theme>
             <Providers>
               <NavBar />
-              <main className="p-5">{children}</main>
+              <main>{children}</main>
             </Providers>
           </Theme>
         </ThemeProvider>
