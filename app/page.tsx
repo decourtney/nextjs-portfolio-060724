@@ -2,14 +2,14 @@
 
 import { useRef } from "react";
 import {
-  NameSVG,
-  LetterYSVG,
   FullNameSVG,
-  ScrollLineSVG,
-  ScrollLineSVGTEST,
+  // ScrollLineSVG,
+  // ScrollLineSVGTEST,
+  TestPictures,
 } from "./components/SVGs";
 import { Card, Flex, Text, Box, Container, Grid } from "@radix-ui/themes";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Image } from "@nextui-org/react";
 
 export default function Home() {
   const targetRef = useRef(null);
@@ -20,25 +20,16 @@ export default function Home() {
   });
 
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -360]);
-  const translateY = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  
+  const translateY = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
+
   return (
     <motion.div className="flex justify-center">
       <motion.section
         ref={targetRef}
-        className="flex-col items-center justify-center w-full md:w-3/4 lg:w-1/2 overflow-hidden"
-        style={{ rotate, translateY }}
-        // direction={"column"}
-        // position={"relative"}
-        // width={{ initial: "100%", md: "75%", lg: "50%" }}
+        className="flex-col items-center justify-center w-full md:w-3/4 lg:w-1/2 "
       >
         <FullNameSVG />
-
-        <ScrollLineSVGTEST />
-
-        <ScrollLineSVGTEST />
-
-        <ScrollLineSVGTEST />
+        <TestPictures />
       </motion.section>
     </motion.div>
   );
