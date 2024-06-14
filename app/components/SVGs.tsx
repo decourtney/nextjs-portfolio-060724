@@ -7,6 +7,7 @@ import {
   useMotionValueEvent,
   useScroll,
   useTransform,
+  useSpring,
   cubicBezier,
   circIn,
   circOut,
@@ -14,8 +15,10 @@ import {
   easeIn,
   easeOut,
   easeInOut,
+  useMotionValue,
 } from "framer-motion";
 import { Image } from "@nextui-org/react";
+import * as d3 from "d3";
 
 const pictures = ["hammock", "lake", "moutains", "rocks", "tree"];
 export const TestPictures = () => {
@@ -76,24 +79,22 @@ export const TestPictures = () => {
 };
 
 export const FullNameSVG = () => {
-  const targetRef = useRef(null);
-  const controls = useAnimation();
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["-100px", "end start"],
-  });
+  const ref = useRef(null);
+  const parsedPath = parseSvgPath(
+    "M25.2725 0L35.4543 0L35.4543 33.6364H25.2725L25.2725 0ZM9.09071 0L19.2725 0L19.2725 33.6364H9.09071L9.09071 0Z"
+  );
+  console.log(parsedPath);
 
-  const size = useWindowSize();
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, -360]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.1]);
-  const pathLength = useTransform(scrollYProgress, [0, 0.4, 0.8], [0, 0.4, 1]);
+  useEffect(() => {
+    console.log(ref.current);
+  }, [ref.current]);
 
-  console.log(scrollYProgress);
   return (
     <>
       <section className="px-5">
         <Box height={{ initial: "300px", sm: "400px", lg: "500px" }}>
           <svg
+            ref={ref}
             viewBox="0 0 508 161"
             height={"100%"}
             width={"100%"}
@@ -116,153 +117,203 @@ export const FullNameSVG = () => {
           </svg>
         </Box>
 
-        <Box ref={targetRef} mt={"-1"}>
-          <svg
-            viewBox={`0 0 127 250`}
-            height={"100%"}
-            width={"100%"}
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMinYMax meet"
-          >
-            <motion.path
-              id="scroll-line-svg"
-              d={`M120.65 0 V250`}
-              strokeWidth="1"
-              stroke="hsl(var(--nextui-default-900))"
-              style={{ pathLength }}
-              strokeLinecap={"round"}
-              onUpdate={({ pathLength }) => {
-                if (pathLength === 1) {
-                  console.log("end of line");
-                }
-              }}
-            />
-            <motion.circle
-              cx={120.65}
-              cy={0}
-              r={1}
-              fill="hsl(var(--nextui-default-900))"
-              style={{
-                translateX: useTransform(pathLength, [0, 1], [0, 0]),
-                translateY: useTransform(pathLength, [0, 1], [0, 250]),
-                WebkitFilter: "drop-shadow(0px 0px 50px #ff0066)",
-                filter: "drop-shadow(0px 0px 50px #ff0066)",
-              }}
-              filter="drop-shadow(0px 0px 50px #ff0066)"
-            />
-          </svg>
-        </Box>
+        <ScrollLineSVG startX={120.65} startY={-1} />
       </section>
     </>
   );
 };
 
-function useWindowSize() {
-  // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-  const [windowSize, setWindowSize] = useState({
-    width: 900,
-    height: 900,
-  });
-
-  useEffect(() => {
-    // only execute all the code below in client side
-    // Handler to call on window resize
-    function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-
-    // Call handler right away so state gets updated with initial window size
-    handleResize();
-
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
-  return windowSize;
-}
-
-export const ScrollLineSVG = () => {
-  const controls = useAnimation();
-  const targetRef = useRef(null);
-  const { scrollYProgress, scrollY } = useScroll({
+export const ScrollLineSVG = ({
+  startX,
+  startY,
+}: {
+  startX: number;
+  startY: number;
+}) => {
+  const targetRef = useRef(null); // targetRef is the element that will be watched for scroll
+  const pathRef = useRef<any>(null); // pathRef is the path element that will be used to get the total length of the path
+  const progressX = useMotionValue(startX); // progressX is the x position of the circle
+  const progressY = useMotionValue(startY); // progressY is the y position of the circle
+  const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["end end", "end start"],
+    offset: ["-100px", "end start"],
+  }); // scrollYProgress is the progress of the scroll from 0 to 1
+
+  // const smoothYProgress = useSpring(scrollYProgress, { damping: 10 });
+  const pathLength = useTransform(scrollYProgress, [0, 0.4, 0.8], [0, 0.4, 1]);
+
+  useMotionValueEvent(pathLength, "change", (latest) => {
+    const totalPathLength = pathRef.current.getTotalLength();
+    const latestPathProgress = pathRef.current.getPointAtLength(
+      latest * totalPathLength
+    );
+
+    progressX.set(latestPathProgress.x);
+    progressY.set(latestPathProgress.y);
   });
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    controls.start({ pathLength: latest });
-  });
-
-  const pLength = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.1]);
-
   return (
-    // <Box ref={targetRef} className="bg-gray-400">
-    <svg
-      // width="100%"
-      // height="100%"
-      viewBox="0 0 127 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <motion.path
-        id="scroll-line-svg"
-        d="M120.65 0 V100"
-        strokeWidth="3"
-        stroke="hsl(var(--nextui-default-900))"
-        style={{ pathLength: pLength }}
-        onUpdate={({ pathLength }) => {
-          if (pathLength === 1) {
-            console.log("end of line");
-          }
-        }}
-      />
-    </svg>
-    // </Box>
-  );
-};
-
-export const ScrollLineSVGTEST = () => {
-  const targetRef = useRef(null);
-  const containerRef = useRef(null);
-  const controls = useAnimation();
-  const { scrollYProgress, scrollY } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  return (
-    <Box
-      ref={targetRef}
-      height={"100dvh"}
-      width={"100%"}
-      className="top-0 left-0 bg-gray-600"
-    >
+    <Box ref={targetRef}>
       <svg
-        // width="37"
-        // height="514"
+        viewBox={`0 0 127 250`}
         height={"100%"}
-        viewBox="0 0 37 514"
+        width={"100%"}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid meet"
+        preserveAspectRatio="xMinYMax meet"
       >
         <motion.path
-          d="M36 1C36 1 -42.2546 124 36 257C-42.75 363 36 513 36 513"
+          ref={pathRef}
+          id="scroll-line"
+          d={`M${startX} ${startY} L120.65 100 L100.65 150 V250`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
+          strokeWidth="1"
           stroke="hsl(var(--nextui-default-900))"
-          style={{ pathLength: scrollYProgress }}
-          strokeWidth={1}
-          initial={{ pathLength: 0 }}
+          style={{ pathLength }}
+          strokeLinecap={"round"}
+          onUpdate={({ pathLength }) => {
+            if (pathLength === 1) {
+              console.log("end of line");
+            }
+          }}
+        />
+        <motion.circle
+          id="scroll-line-circle"
+          cx={progressX}
+          cy={progressY}
+          r={1}
+          fill="hsl(var(--nextui-default-900))"
         />
       </svg>
     </Box>
   );
 };
+
+
+
+interface ParsedCommand {
+  command: string;
+  coords: number[][];
+}
+
+interface PathSegment {
+  startCommand: ParsedCommand;
+  subsequentCommands: ParsedCommand[];
+}
+
+function parseSvgPath(svgPath: string): { segments: PathSegment[] } {
+  const pattern = /([MmLlHhVvCcSsQqTtAaZz])|(-?\d*\.?\d+(?:e[-+]?\d+)?)/g;
+
+  const tokens = svgPath.match(pattern);
+
+  if (!tokens) {
+    return { segments: [] };
+  }
+
+  const segments: PathSegment[] = [];
+  let currentSegment: PathSegment | null = null;
+  let currentCommand: string | null = null;
+  let currentCoords: number[][] = [];
+
+  function extractCoords(n: number): number[][] {
+    const coords: number[][] = [];
+    for (let i = 0; i < n; i++) {
+      const x = parseFloat(tokens!.shift()!);
+      const y = parseFloat(tokens!.shift()!);
+      coords.push([x, y]);
+    }
+    return coords;
+  }
+
+  while (tokens.length > 0) {
+    const token = tokens.shift()!;
+
+    if (/^[MmLlHhVvCcSsQqTtAaZz]$/.test(token)) {
+      if (currentCommand) {
+        if (currentSegment) {
+          currentSegment.subsequentCommands.push({
+            command: currentCommand,
+            coords: currentCoords,
+          });
+        }
+      }
+      currentCommand = token;
+      currentCoords = [];
+
+      if (token === "M" || token === "m") {
+        if (currentSegment) {
+          segments.push(currentSegment);
+        }
+        currentSegment = {
+          startCommand: { command: token, coords: extractCoords(1) },
+          subsequentCommands: [],
+        };
+      }
+    } else {
+      tokens.unshift(token);
+      switch (currentCommand) {
+        case "M":
+        case "L":
+        case "m":
+        case "l":
+          currentCoords.push(...extractCoords(1));
+          break;
+        case "C":
+        case "c":
+        case "S":
+        case "s":
+        case "Q":
+        case "q":
+          currentCoords.push(...extractCoords(3));
+          break;
+        case "T":
+        case "t":
+          currentCoords.push(...extractCoords(1));
+          break;
+        case "A":
+        case "a":
+          const rx = parseFloat(tokens.shift()!);
+          const ry = parseFloat(tokens.shift()!);
+          const xAxisRotation = parseFloat(tokens.shift()!);
+          const largeArcFlag = parseFloat(tokens.shift()!);
+          const sweepFlag = parseFloat(tokens.shift()!);
+          const x = parseFloat(tokens.shift()!);
+          const y = parseFloat(tokens.shift()!);
+          currentCoords.push([
+            rx,
+            ry,
+            xAxisRotation,
+            largeArcFlag,
+            sweepFlag,
+            x,
+            y,
+          ]);
+          break;
+        case "H":
+        case "h":
+          const hx = parseFloat(tokens.shift()!);
+          currentCoords.push([hx]);
+          break;
+        case "V":
+        case "v":
+          const vy = parseFloat(tokens.shift()!);
+          currentCoords.push([vy]);
+          break;
+        case "Z":
+        case "z":
+          if (currentSegment) {
+            currentSegment.subsequentCommands.push({
+              command: currentCommand,
+              coords: [],
+            });
+          }
+          currentCommand = null;
+          break;
+      }
+    }
+  }
+
+  if (currentSegment) {
+    segments.push(currentSegment);
+  }
+
+  return { segments };
+}

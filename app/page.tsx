@@ -3,8 +3,7 @@
 import { useRef } from "react";
 import {
   FullNameSVG,
-  // ScrollLineSVG,
-  // ScrollLineSVGTEST,
+  ScrollLineSVG,
   TestPictures,
 } from "./components/SVGs";
 import { Card, Flex, Text, Box, Container, Grid } from "@radix-ui/themes";
