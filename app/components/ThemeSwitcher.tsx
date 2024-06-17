@@ -21,7 +21,7 @@ const ThemeSwitcher = () => {
   return (
     <Button
       isIconOnly
-      variant="light"
+      variant="flat"
       size="sm"
       radius="full"
       color="primary"

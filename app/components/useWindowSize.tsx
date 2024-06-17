@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 const useWindowSize = () => {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
   const [windowSize, setWindowSize] = useState({
-    width: 900,
-    height: 900,
+    width: 0,
+    height: 0,
   });
 
   useEffect(() => {
@@ -29,6 +29,6 @@ const useWindowSize = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty array ensures that effect is only run on mount
   return windowSize;
-}
+};
 
-export default useWindowSize
+export default useWindowSize;

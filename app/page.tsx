@@ -1,17 +1,45 @@
 "use client";
 
-import { Flex } from "@radix-ui/themes";
+import { Box, Flex } from "@radix-ui/themes";
 import { useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import HomeSection from "./components/HomeSection";
 import LazySection from "./components/LazySection";
+import LandingPage from "./Landing/page";
+import { useRouter } from "next/navigation";
+import HomeScrollLine from "./components/HomeScrollLine";
+import AboutSection from "./components/AboutSection";
 
-export default function Home() {
+export default function App() {
+  const router = useRouter();
+  const [showLandingPage, setShowLandingPage] = useState(true);
+
+  useEffect(() => {
+    // Check if the landing page has been shown in the current session
+    const hasSeenLandingPage = sessionStorage.getItem("hasSeenLandingPage");
+    if (hasSeenLandingPage) {
+      setShowLandingPage(false);
+    } else {
+      // Redirect to the landing page
+      router.push("/Landing");
+    }
+  }, []);
+
+  if (showLandingPage) {
+    return null; // Return nothing while redirecting
+  }
+
   return (
-    <Flex justify={"center"} width={"100%"}>
-      <LazySection name="home">
-        <HomeSection />
-      </LazySection>
+    <Flex justify={"center"}>
+      <Box width={{ initial: "100%", md: "75%", lg: "50%" }} px={"2"}>
+        <LazySection name="home">
+          <HomeSection />
+        </LazySection>
+
+        <LazySection name="about">
+          <AboutSection />
+        </LazySection>
+      </Box>
     </Flex>
   );
 }

@@ -23,13 +23,15 @@ export default function RootLayout({
 }>) {
   return (
     // suppressHydrationWarning is used to prevent the warning that appears when the page is loaded
-    <html lang="en" suppressHydrationWarning={true}> 
+    <html lang="en" suppressHydrationWarning={true}>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Theme>
             <Providers>
               <NavBar />
-              <main>{children}</main>
+              <main>
+                {children}
+              </main>
             </Providers>
           </Theme>
         </ThemeProvider>
