@@ -1,10 +1,8 @@
-import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
-import NavBar from "./NavBar";
 import { Providers } from "./providers";
 import "@radix-ui/themes/styles.css";
-import { Theme } from "@radix-ui/themes";
+import type { Metadata, Viewport } from "next";
+import NavBar from "./NavBar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +12,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   initialScale: 1,
   width: "device-width",
-}
+};
 
 export default function RootLayout({
   children,
@@ -23,18 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     // suppressHydrationWarning is used to prevent the warning that appears when the page is loaded
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="en" suppressHydrationWarning={true} className="dark">
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Theme>
-            <Providers>
-              <NavBar />
-              <main>
-                {children}
-              </main>
-            </Providers>
-          </Theme>
-        </ThemeProvider>
+        <Providers>
+          <NavBar />
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   );

@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <Flex justify={"center"}>
-      <Box width={{ initial: "100%", md: "75%", lg: "50%" }} px={"2"}>
+      <Box width={{ initial: "80%", md: "75%", lg: "65%" }}>
         <LazySection name="home">
           <HomeSection />
         </LazySection>

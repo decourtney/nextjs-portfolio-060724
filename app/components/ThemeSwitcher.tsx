@@ -21,10 +21,10 @@ const ThemeSwitcher = () => {
   return (
     <Button
       isIconOnly
-      variant="flat"
+      variant="light"
       size="sm"
       radius="full"
-      color="primary"
+      color="secondary"
       onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
     >
       {currentTheme == "dark" ? <BsFillMoonStarsFill /> : <FaSun />}
