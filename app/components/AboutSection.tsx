@@ -1,6 +1,14 @@
 import { Card, CardBody } from "@nextui-org/react";
 import { Box, TextArea } from "@radix-ui/themes";
-import { inView, motion, useAnimate, useInView } from "framer-motion";
+import {
+  inView,
+  motion,
+  useAnimate,
+  useInView,
+  animationControls,
+  useAnimation,
+  transform,
+} from "framer-motion";
 import React, {
   MouseEventHandler,
   ReactEventHandler,
@@ -8,49 +16,70 @@ import React, {
   useRef,
   useState,
 } from "react";
-import MotionInfoCard from "./InfoCard";
-import { transform } from "next/dist/build/swc";
+import { filter, transition } from "d3";
 
 const AboutSection = () => {
   const [scope, animate] = useAnimate();
-  const isInView = useInView(scope, { amount: 1 });
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 1 });
 
   useEffect(() => {
     if (isInView) {
-      animate(
-        scope.current,
-        {
-          opacity: 1,
-          boxShadow:
-            "10px 30px 2px 0px hsl(var(--nextui-foreground)), 10px 30px 20px 0px #E0DFFE",
-        },
-        { duration: 1, type: "spring", stiffness: 100 }
-      );
+      const openSequence = async () => {
+        await animate(
+          scope.current,
+          {
+            boxShadow:
+              "0px 0px 10px 0px hsl(var(--nextui-foreground)), 1px 3px 2px 0px #E0DFFE",
+          },
+          { type: "spring", stiffness: 100 }
+        );
+
+        animate(
+          scope.current,
+          {
+            x: -10,
+            y: -30,
+            boxShadow:
+              "10px 30px 2px 0px hsl(var(--nextui-foreground)), 10px 30px 20px 0px #E0DFFE",
+          },
+          { type: "spring", stiffness: 100 }
+        );
+
+        animate(
+          "p",
+          { opacity: 1 },
+          { delay: 1, type: "spring", stiffness: 100 }
+        );
+      };
+
+      openSequence();
     } else {
-      animate(
-        scope.current,
-        {
-          opacity: 0,
-          boxShadow: "none",
-        },
-        { duration: 1, type: "spring", stiffness: 50 }
-      );
+      const closeSequence = async () => {
+        animate(
+          scope.current,
+          {
+            x: 0,
+            y: 0,
+            boxShadow: "none",
+          },
+          { type: "tween", ease: "easeInOut", duration: 0.5 }
+        );
+
+        animate("p", { opacity: 0 });
+      };
+
+      closeSequence();
     }
   }, [isInView]);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const card = ref.current!.getBoundingClientRect();
-  //     setIsInView(card.top >= 0 && card.bottom <= window.innerHeight);
-  //   };
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
   return (
-    <section id="about" className="relative w-full h-dvh">
-      <Box className={`max-w-[500px]`}>
-        <MotionInfoCard ref={scope}>
+    <section id="about" className="w-full h-dvh">
+      <Box ref={ref} className="relative h-fit max-w-[500px] z-50">
+        <motion.div
+          ref={scope}
+          className="w-full p-3 bg-[hsl(var(--nextui-background))] shadow-none rounded-lg"
+        >
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus
             incidunt delectus et. Ipsa distinctio facilis inventore veniam
@@ -65,40 +94,7 @@ const AboutSection = () => {
             hic culpa minus doloribus quos quas blanditiis a, consectetur,
             officia, magni totam qui architecto!
           </p>
-        </MotionInfoCard>
-        {/* <Card
-          fullWidth
-          radius="sm"
-          style={{
-            transform: isInView ? `translate(0) ` : "translate(10px, 30px)",
-            boxShadow: isInView
-              ? "10px 30px 2px 0px hsl(var(--nextui-foreground)), 10px 30px 20px 0px #E0DFFE"
-              : "none",
-            color: "hsl(var(--nextui-primary)",
-            textShadow: "0px 1px 1px #E0DFFE",
-            backgroundColor: isInView
-              ? "hsl(var(--nextui-content1))"
-              : "hsl(var(--nextui-background))",
-            transition: "all .5s",
-          }}
-        >
-          <CardBody>
-            <p style={{ opacity: isInView ? "1" : "0", transition: "all .5s" }}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus
-              incidunt delectus et. Ipsa distinctio facilis inventore veniam
-              quisquam quibusdam cumque sequi optio placeat neque eum
-              consectetur, beatae, accusantium laboriosam provident mollitia.
-              In, vero ipsum at, doloremque molestias provident amet nulla illo
-              labore quia ducimus aliquid qui? Mollitia nobis maxime rerum
-              saepe, odit corrupti magni fuga voluptatum unde debitis impedit?
-              Minus aliquid nostrum reiciendis omnis autem reprehenderit qui
-              molestiae libero adipisci incidunt doloremque, saepe commodi culpa
-              placeat distinctio eos. Laudantium minima quisquam sapiente
-              officiis nulla unde eius hic culpa minus doloribus quos quas
-              blanditiis a, consectetur, officia, magni totam qui architecto!
-            </p>
-          </CardBody>
-        </Card> */}
+        </motion.div>
       </Box>
     </section>
   );

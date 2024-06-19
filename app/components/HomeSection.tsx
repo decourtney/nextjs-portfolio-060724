@@ -7,7 +7,7 @@ const HomeSection = () => {
 
   useEffect(() => {
     if (ref.current) {
-      console.log(ref.current);
+      // console.log(ref.current);
     }
   }, [ref.current]);
 

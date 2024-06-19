@@ -49,7 +49,7 @@ const config: Config = {
             background: "#FFFFFF",
             foreground: "#11181C",
             primary: {
-              DEFAULT: "#111111",
+              DEFAULT: "#111113",
             },
             secondary: {
               DEFAULT: "#006FEE",
@@ -63,7 +63,7 @@ const config: Config = {
         dark: {
           layout: {},
           colors: {
-            background: "#111111",
+            background: "#111113",
             foreground: "#EEEEEE",
             primary: {
               DEFAULT: "#EEEEEE",
