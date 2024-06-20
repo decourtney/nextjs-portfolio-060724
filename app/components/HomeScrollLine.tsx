@@ -35,7 +35,7 @@ const HomeScrollLine = ({
     progressY.set(latestPathProgress.y);
   });
   return (
-    <section ref={targetRef}>
+    <section ref={targetRef}  className="absolute w-full">
       <svg
         viewBox={`0 0 127 250`}
         // height={"100%"}

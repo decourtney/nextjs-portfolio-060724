@@ -1,21 +1,24 @@
 import React, { useEffect, useRef } from "react";
 import HomeScrollLine from "./HomeScrollLine";
-import { Box } from "@radix-ui/themes";
+import { Box, Text } from "@radix-ui/themes";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import Subtitle from "./Subtitle";
+
+const useParallax = (value: MotionValue<number>, distance: number) => {
+  return useTransform(value, [0, 1], [1, 0]);
+};
 
 const HomeSection = () => {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    if (ref.current) {
-      // console.log(ref.current);
-    }
-  }, [ref.current]);
+  const { scrollYProgress } = useScroll();
+  const xPercent = useTransform(scrollYProgress, [0, 1], [0, 0]);
 
   return (
-    <section id="home" className="h-dvh">
-      <Box height={{ initial: "300px", sm: "400px", lg: "500px" }}>
+    <section id="hero" className="relative  h-dvh">
+      <Box
+        height={{ initial: "300px", sm: "400px", lg: "500px" }}
+        width={"100%"}
+      >
         <svg
-          ref={ref}
           viewBox="0 0 508 161"
           height={"100%"}
           width={"100%"}
@@ -28,9 +31,23 @@ const HomeSection = () => {
             fill="hsl(var(--nextui-default-900))"
           />
         </svg>
+
+        <HomeScrollLine startX={120.65} startY={-1} />
       </Box>
 
-      {/* <HomeScrollLine startX={120.65} startY={-1} /> */}
+      <Subtitle />
+
+      <div className=" w-full h-dvh bg-blue-400">
+        <motion.div
+          className={`sticky grid grid-cols-2 top-1/4 h-fit text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black bg-blue-300`}
+          style={{ x: xPercent }}
+        >
+          <p className="col-span-1 text-end pr-2">I make</p>
+          <p className="col-span-1 pl-2">stuff</p>
+        </motion.div>
+      </div>
+
+      <div className="h-[1000px] bg-green-400"></div>
     </section>
   );
 };
