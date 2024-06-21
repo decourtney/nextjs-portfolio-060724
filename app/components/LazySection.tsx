@@ -27,7 +27,6 @@ const LazySection: React.FC<LazySectionProps> = ({ children, name }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: inView ? 1 : 0 }}
       transition={{ duration: 0.5 }}
-      className={"flex w-full "}
       id={name}
     >
       {loaded ? children : null}

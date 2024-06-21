@@ -8,10 +8,12 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {},
+  themes: {
+    extend: {
+      colors: {},
+    },
   },
-  darkMode: "class",
+  // darkMode: "class",
   plugins: [
     nextui({
       prefix: "nextui", // prefix for themes variables
@@ -48,15 +50,9 @@ const config: Config = {
           colors: {
             background: "#EEEEEE",
             foreground: "#111111",
-            primary: {
-              DEFAULT: "#111111",
-            },
-            secondary: {
-              DEFAULT: "#006FEE",
-            },
-            content1: {
-              DEFAULT: "#EEEEF0",
-            },
+            primary: "#111111",
+            secondary: "#006FEE",
+            content1: "#EEEEF0",
           },
         },
 
@@ -65,15 +61,9 @@ const config: Config = {
           colors: {
             background: "#111111",
             foreground: "#EEEEEE",
-            primary: {
-              DEFAULT: "#EEEEEE",
-            },
-            secondary: {
-              DEFAULT: "#006FEE",
-            },
-            content1: {
-              DEFAULT: "#1A191B",
-            },
+            primary: "#EEEEEE",
+            secondary: "#006FEE",
+            content1: "#1A191B",
           },
         },
       },

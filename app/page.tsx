@@ -1,14 +1,10 @@
 "use client";
 
-import { Box, Flex } from "@radix-ui/themes";
-import { useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import AboutSection from "./components/AboutSection";
 import HomeSection from "./components/HomeSection";
 import LazySection from "./components/LazySection";
-import LandingPage from "./Landing/page";
-import { useRouter } from "next/navigation";
-import HomeScrollLine from "./components/HomeScrollLine";
-import AboutSection from "./components/AboutSection";
 
 export default function App() {
   const router = useRouter();
@@ -30,8 +26,8 @@ export default function App() {
   }
 
   return (
-    <Flex justify={"center"}>
-      <Box width={{ initial: "80%", md: "75%", lg: "65%" }}>
+    <section id="page-content">
+      <div className="w-[80%] mx-auto -mt-[48px]">
         <LazySection name="home">
           <HomeSection />
         </LazySection>
@@ -39,7 +35,7 @@ export default function App() {
         <LazySection name="about">
           <AboutSection />
         </LazySection>
-      </Box>
-    </Flex>
+      </div>
+    </section>
   );
 }

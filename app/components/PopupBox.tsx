@@ -1,6 +1,5 @@
-import { Box } from '@radix-ui/themes';
 import { motion, useAnimate, useInView } from 'framer-motion';
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react';
 
 const PopupBox = () => {
   const [scope, animate] = useAnimate();
@@ -62,7 +61,7 @@ const PopupBox = () => {
   }, [isInView]);
   
   return (
-    <Box ref={ref} className="relative h-fit max-w-[500px] z-50">
+    <section ref={ref} className="relative h-fit max-w-[500px] z-50">
       <motion.div
         ref={scope}
         className="w-full p-3 text-[hsl(var(--nextui-background))] bg-[hsl(var(--nextui-background))] shadow-none rounded-lg"
@@ -82,7 +81,7 @@ const PopupBox = () => {
           qui architecto!
         </p>
       </motion.div>
-    </Box>
+    </section>
   );
 }
 

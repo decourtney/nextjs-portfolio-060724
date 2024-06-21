@@ -1,27 +1,22 @@
-import React from "react";
+import { Button } from "@nextui-org/react";
 import ThemeSwitcher from "./components/ThemeSwitcher";
-import { Box, Container, Flex, Text } from "@radix-ui/themes";
 
 const NavBar = () => {
   return (
-    <nav className="sticky top-0 left-0 bg-[hsl(var(--nextui-background))]">
-      <Flex
-        justify={"between"}
-        align={"center"}
-        // height={"32px"}
-        width={"100%"}
-        px={"3"}
-        py={"3"}
-      >
-        <Text
-          align={"right"}
-          size={"1"}
-          style={{ color: "hsl(var(--nextui-secondary))" }}
+    <nav className="sticky top-0 left-0">
+      <div className="flex justify-between items-center w-full px-3 py-2">
+        <Button
+          // isIconOnly
+          variant="light"
+          size="sm"
+          radius="full"
+          color="secondary"
+          className="text-lg font-bold"
         >
-          archive
-        </Text>
+          <p className="text-xs">archive</p>
+        </Button>
         <ThemeSwitcher />
-      </Flex>
+      </div>
     </nav>
   );
 };

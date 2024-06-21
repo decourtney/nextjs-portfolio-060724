@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Providers } from "./providers";
-import "@radix-ui/themes/styles.css";
+// import "@radix-ui/themes/styles.css";
+// import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import NavBar from "./NavBar";
 
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     // suppressHydrationWarning is used to prevent the warning that appears when the page is loaded
-    <html lang="en" suppressHydrationWarning={true} className="dark">
+    <html lang="en" suppressHydrationWarning={true}>
       <body>
         <Providers>
           <NavBar />

@@ -1,9 +1,8 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import React, { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
-// import { Button } from "@radix-ui/themes";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { FaSun } from "react-icons/fa";
 

@@ -1,9 +1,8 @@
 "use client";
 
 import { Button } from "@nextui-org/react";
-import { Box, Flex, Heading } from "@radix-ui/themes";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 const LandingPage = () => {
   const router = useRouter();
@@ -18,8 +17,8 @@ const LandingPage = () => {
   };
 
   return (
-    <Flex direction={"column"} justify={"center"} align={"center"}>
-      <Box height={{ initial: "300px", sm: "400px", lg: "500px" }}>
+    <section id="intro-page">
+      <div className="w-[80%] max-w-[300px] mx-auto">
         <svg
           cache-id="1cb2f9039a9d4ca1960dd859154067ff"
           id="euto1GbIvJT1"
@@ -52,13 +51,13 @@ const LandingPage = () => {
             </g>
           </g>
         </svg>
-      </Box>
-      <Box>
-        <Button onClick={handleProceed} size="lg">
-          home
-        </Button>
-      </Box>
-    </Flex>
+        <div>
+          <Button onClick={handleProceed} size="lg">
+            home
+          </Button>
+        </div>
+      </div>
+    </section>
   );
 };
 

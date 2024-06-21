@@ -1,12 +1,12 @@
-import { Box } from "@radix-ui/themes";
-import {
-  useMotionValue,
-  useScroll,
-  useTransform,
-  useMotionValueEvent,
-  motion,
-} from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import
+  {
+    motion,
+    useMotionValue,
+    useMotionValueEvent,
+    useScroll,
+    useTransform,
+  } from "framer-motion";
+import { useRef } from "react";
 
 const HomeScrollLine = ({
   startX,

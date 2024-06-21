@@ -5,16 +5,11 @@
 :root {
 }
 
+html {
+}
+
 body {
-  background-color: hsl(var(--nextui-background));
 }
 
 main {
-  background-color: hsl(var(--nextui-background));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
 }
