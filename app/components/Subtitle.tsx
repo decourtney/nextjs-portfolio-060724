@@ -12,8 +12,8 @@ const Subtitle = () => {
   // console.log(x, y);
 
   return (
-    <section className="mt-5 w-full bg-slate-300">
-      <motion.div className=" " style={{ x, y }}>
+    <section className="w-full">
+      {/* <motion.div className=" " style={{ x, y }}> */}
         <motion.p
           className={`text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black `}
           animate={{
@@ -26,7 +26,7 @@ const Subtitle = () => {
         >
           DEVELOPER
         </motion.p>
-      </motion.div>
+      {/* </motion.div> */}
     </section>
   );
 };

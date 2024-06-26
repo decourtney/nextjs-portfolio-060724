@@ -4,69 +4,99 @@ import {
   motion,
   useMotionValueEvent,
   useInView,
+  useMotionValue,
+  useSpring,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import useWindowSize from "./useWindowSize";
 
-const WordCycle = () => {
-  const ref = useRef(null);
-  const windowSize = useWindowSize();
-  // const [newWindowSize, setNewWindowSize] = useState(windowSize);
-  const { scrollYProgress, scrollY } = useScroll({
+const WordCycle = ({}) => {
+  const [containerSize, setContainerSize] = useState<{
+    width: number;
+    height: number;
+  } | null>(null);
+
+  useEffect(() => {
+    if (!ref.current) return console.error("Ref not found");
+
+    const handleResize = () => {
+      setContainerSize({
+        width: ref.current!.clientWidth,
+        height: ref.current!.clientHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const ref = useRef<HTMLDivElement>(null);
+  const verbs = ["make", "develop", "design", "build", "create", "making"];
+  const nouns = [
+    "stuff",
+    "art",
+    "products",
+    "experiences",
+    "solutions",
+    "stuff",
+  ];
+
+  const { scrollYProgress } = useScroll({
     target: ref,
-    offset: [`end end`, "end start"],
+    offset: ["end end", "end start"],
   });
-  const isInView = useInView(ref);
 
-  const verbs = ["make", "create", "design", "build", "develop"];
-  const nouns = ["stuff", "art", "products", "experiences", "solutions"];
+  const y = useTransform(scrollYProgress, [0, 0.8], [0, containerSize?.height]);
 
-  useEffect(() => {
-    // setNewWindowSize(windowSize);
-  }, [windowSize]);
+  const verbIndex = useMotionValue(0);
+  const nounIndex = useMotionValue(nouns.length - 1);
 
-  // TODO also try useSpring instead of useTransform
-  const y = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.9, 1],
-    [
-      windowSize.height,
-      windowSize.height * .75,
-      windowSize.height * 0.8,
-      0,
-    ]
-  );
+  const verbSpring = useSpring(verbIndex, { stiffness: 300, damping: 30 });
+  const nounSpring = useSpring(nounIndex, { stiffness: 300, damping: 30 });
 
-  // console.log("Window size: ", windowSize);
-  // console.log("New window size: ", newWindowSize);
-  // console.log("Y: ", y);
-
-  useEffect(() => {
-    if (isInView) {
-      // console.log("In view");
-    }
-  }, [isInView]);
+  const verbY = useTransform(verbSpring, (value) => value * -80);
+  const nounY = useTransform(nounSpring, (value) => value * -80);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    // console.log("Page scroll: ", latest);
+    const nearestVerbIndex = Math.round(latest * (verbs.length - 1));
+    const nearestNounIndex = Math.round((1 - latest) * (nouns.length - 1));
+    verbIndex.set(nearestVerbIndex);
+    nounIndex.set(nearestNounIndex);
   });
 
   return (
-    <div ref={ref} className="w-full h-[70%] bg-blue-300">
+    <section ref={ref} className="h-dvh bg-green-300">
       <motion.div
-        className="grid grid-cols-2 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black bg-blue-300"
+        className="grid grid-cols-2 h-[80px] text-xl sm:text-3xl md:text-5xl lg:text-6xl leading-[80px] font-black overflow-hidden"
         style={{ y }}
       >
-        <div className="col-span-1 inline-block text-end space-x-3">
-          <p className="inline-block">I</p>
-          <p className="inline-block">love</p>
-          <p className="inline-block">make</p>
+        <div className="col-span-1 text-end leading-[80px]">
+          <p className="inline-block align-top">I</p>
+
+          {/* <p className="inline-block">love</p> */}
+
+          <motion.ul
+            className="inline-block px-2 w-fit text-center"
+            style={{ translateY: verbY }}
+          >
+            {verbs.map((verb, index) => (
+              <li key={index}>{verb}</li>
+            ))}
+          </motion.ul>
         </div>
-        <div>
-          <p className="col-span-1 pl-2">stuff</p>
-        </div>
+        <motion.ul
+          className="col-span-1 pl-1 leading-[80px]"
+          style={{ translateY: nounY }}
+        >
+          {nouns.map((noun, index) => (
+            <li key={index}>{noun}</li>
+          ))}
+        </motion.ul>
       </motion.div>
-    </div>
+    </section>
   );
 };
 

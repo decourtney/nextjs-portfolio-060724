@@ -1,18 +1,57 @@
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  MotionValue,
+  useMotionValue,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import HomeScrollLine from "./HomeScrollLine";
 import Subtitle from "./Subtitle";
 import WordCycle from "./WordCycle";
+import useWindowSize from "./useWindowSize";
+import { use, useEffect, useRef, useState } from "react";
 
 const useParallax = (value: MotionValue<number>, distance: number) => {
   return useTransform(value, [0, 1], [1, 0]);
 };
 
 const HomeSection = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [containerSize, setContainerSize] = useState<{
+    width: number;
+    height: number;
+  } | null>(null);
 
+  useEffect(() => {
+    if (!ref.current) return console.error("Ref not found");
+
+    const handleResize = () => {
+      setContainerSize({
+        width: ref.current!.clientWidth,
+        height: ref.current!.clientHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: [`end end`, "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, containerSize?.height]);
 
   return (
-    <section id="hero" className="h-[120dvh] bg-green-300">
-      <div className="h-[30%] mx-auto pt-20 bg-orange-300">
+    // TODO section height will need to be changed once WordCycle is working as intended
+    <section ref={ref} id="hero" className="relative h-full">
+      <div className="mx-auto pt-20 pb-5">
         <svg
           viewBox="0 0 508 161"
           height={"100%"}
@@ -26,13 +65,13 @@ const HomeSection = () => {
             fill="hsl(var(--nextui-default-900))"
           />
         </svg>
-
-        {/* <HomeScrollLine startX={120.65} startY={-1} /> */}
       </div>
 
-      <Subtitle />
+      {/* <Subtitle /> */}
 
       <WordCycle />
+
+      {containerSize && <HomeScrollLine containerSize={containerSize} />}
     </section>
   );
 };

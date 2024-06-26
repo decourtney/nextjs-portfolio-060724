@@ -1,29 +1,26 @@
-import
-  {
-    motion,
-    useMotionValue,
-    useMotionValueEvent,
-    useScroll,
-    useTransform,
-  } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { useRef } from "react";
 
 const HomeScrollLine = ({
-  startX,
-  startY,
+  containerSize,
 }: {
-  startX: number;
-  startY: number;
+  containerSize: { width: number; height: number };
 }) => {
   const targetRef = useRef<HTMLDivElement>(null); // targetRef is the element that will be watched for scroll
   const pathRef = useRef<any>(null); // pathRef is the path element that will be used to get the total length of the path
-  const progressX = useMotionValue(startX); // progressX is the x position of the circle
-  const progressY = useMotionValue(startY); // progressY is the y position of the circle
+  const progressX = useMotionValue(containerSize.width * 0.5); // progressX is the x position of the circle
+  const progressY = useMotionValue(0); // progressY is the y position of the circle
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["-100px", "end start"],
+    offset: ["end 92%", "end start"],
   }); // scrollYProgress is the progress of the scroll from 0 to 1
-  const pathLength = useTransform(scrollYProgress, [0, 0.4, 0.7], [0, 0.4, 1]); // pathLength is the length of the path that will be drawn
+  const pathLength = useTransform(scrollYProgress, [0, 0.8], [0, 1]); // pathLength is the length of the path that will be drawn
 
   useMotionValueEvent(pathLength, "change", (latest) => {
     const totalPathLength = pathRef.current.getTotalLength();
@@ -34,28 +31,26 @@ const HomeScrollLine = ({
     progressX.set(latestPathProgress.x);
     progressY.set(latestPathProgress.y);
   });
+
   return (
-    <section ref={targetRef}  className="absolute w-full">
+    <section ref={targetRef} className="absolute top-0 w-full h-full">
       <svg
-        viewBox={`0 0 127 250`}
-        // height={"100%"}
-        // width={"100%"}
+        viewBox={`0 0 ${containerSize.width} ${containerSize.height}`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMinYMax meet"
+        preserveAspectRatio="xMidYMid meet"
       >
         <motion.path
           ref={pathRef}
           id="scroll-line"
-          d={`M${startX} ${startY} L120.65 100 L63.5 150 V250`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
-          strokeWidth="1"
+          d={`M${containerSize.width * 0.5} 0 V${containerSize.height}`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
+          strokeWidth="5"
           stroke="hsl(var(--nextui-default-900))"
           style={{ pathLength }}
           strokeLinecap={"round"}
           onUpdate={({ pathLength }) => {
             if (pathLength === 1) {
               console.log("end of line");
-              console.log(`${progressX.get()}, ${progressY.get()}`);
             }
           }}
         />
@@ -63,7 +58,7 @@ const HomeScrollLine = ({
           id="scroll-line-circle"
           cx={progressX}
           cy={progressY}
-          r={1}
+          r={5}
           fill="hsl(var(--nextui-default-900))"
         />
       </svg>

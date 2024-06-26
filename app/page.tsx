@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import AboutSection from "./components/AboutSection";
 import HomeSection from "./components/HomeSection";
 import LazySection from "./components/LazySection";
+import useWindowSize from "./components/useWindowSize";
+import HomeScrollLine from "./components/HomeScrollLine";
 
 export default function App() {
   const router = useRouter();
@@ -27,7 +29,7 @@ export default function App() {
 
   return (
     <section id="page-content">
-      <div className="w-[80%] mx-auto -mt-[48px]">
+      <div className="relative w-[80%] mx-auto -mt-[48px]">
         <LazySection name="home">
           <HomeSection />
         </LazySection>
