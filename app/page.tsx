@@ -29,7 +29,7 @@ export default function App() {
 
   return (
     <section id="page-content">
-      <div className="relative w-[80%] mx-auto -mt-[48px]">
+      <div className=" w-[80%] mx-auto -mt-[48px]">
         <LazySection name="home">
           <HomeSection />
         </LazySection>
@@ -38,7 +38,7 @@ export default function App() {
           <AboutSection />
         </LazySection>
 
-        <div className="h-[500px]"></div>
+        {/* <div className="h-[500px]"></div> */}
       </div>
     </section>
   );

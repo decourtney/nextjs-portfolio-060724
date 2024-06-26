@@ -22,7 +22,7 @@ const HomeSection = () => {
   const [containerSize, setContainerSize] = useState<{
     width: number;
     height: number;
-  }>({ width: 0, height: 0 });
+  } | null>(null);
 
   useEffect(() => {
     if (!ref.current) return console.error("Ref not found");
@@ -41,16 +41,8 @@ const HomeSection = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: [`end end`, "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, containerSize?.height]);
-
   return (
-    // TODO section height will need to be changed once WordCycle is working as intended
-    <section ref={ref} id="hero" className="relative h-full">
+    <section ref={ref} id="hero" className="relative">
       <div className="mx-auto pt-20 pb-5">
         <svg
           viewBox="0 0 508 161"
@@ -67,9 +59,9 @@ const HomeSection = () => {
         </svg>
       </div>
 
-      {/* <Subtitle /> */}
-
-      {containerSize && <WordCycle containerSize={containerSize} />}
+      <div className="h-[220dvh]">
+        <WordCycle />
+      </div>
 
       {containerSize && <HomeScrollLine containerSize={containerSize} />}
     </section>

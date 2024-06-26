@@ -61,10 +61,10 @@ const PopupBox = () => {
   }, [isInView]);
   
   return (
-    <section ref={ref} className="relative h-fit max-w-[500px] z-50">
+    <section ref={ref} className="w-full p-2">
       <motion.div
         ref={scope}
-        className="w-full p-3 text-[hsl(var(--nextui-background))] bg-[hsl(var(--nextui-background))] shadow-none rounded-lg"
+        className="w-full p-3 text-[hsl(var(--nextui-background))] bg-[hsl(var(--nextui-background))] shadow-none rounded-lg text-tiny"
       >
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus
@@ -72,13 +72,7 @@ const PopupBox = () => {
           quisquam quibusdam cumque sequi optio placeat neque eum consectetur,
           beatae, accusantium laboriosam provident mollitia. In, vero ipsum at,
           doloremque molestias provident amet nulla illo labore quia ducimus
-          aliquid qui? Mollitia nobis maxime rerum saepe, odit corrupti magni
-          fuga voluptatum unde debitis impedit? Minus aliquid nostrum reiciendis
-          omnis autem reprehenderit qui molestiae libero adipisci incidunt
-          doloremque, saepe commodi culpa placeat distinctio eos. Laudantium
-          minima quisquam sapiente officiis nulla unde eius hic culpa minus
-          doloribus quos quas blanditiis a, consectetur, officia, magni totam
-          qui architecto!
+          aliquid qui? 
         </p>
       </motion.div>
     </section>
