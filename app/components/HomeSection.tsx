@@ -22,7 +22,7 @@ const HomeSection = () => {
   const [containerSize, setContainerSize] = useState<{
     width: number;
     height: number;
-  } | null>(null);
+  }>({ width: 0, height: 0 });
 
   useEffect(() => {
     if (!ref.current) return console.error("Ref not found");
@@ -69,7 +69,7 @@ const HomeSection = () => {
 
       {/* <Subtitle /> */}
 
-      <WordCycle />
+      {containerSize && <WordCycle containerSize={containerSize} />}
 
       {containerSize && <HomeScrollLine containerSize={containerSize} />}
     </section>

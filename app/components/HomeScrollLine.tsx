@@ -18,9 +18,9 @@ const HomeScrollLine = ({
   const progressY = useMotionValue(0); // progressY is the y position of the circle
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["end 92%", "end start"],
+    offset: ["end end", "end start"],
   }); // scrollYProgress is the progress of the scroll from 0 to 1
-  const pathLength = useTransform(scrollYProgress, [0, 0.8], [0, 1]); // pathLength is the length of the path that will be drawn
+  const pathLength = useTransform(scrollYProgress, [0, 0.6], [0, 1]); // pathLength is the length of the path that will be drawn
 
   useMotionValueEvent(pathLength, "change", (latest) => {
     const totalPathLength = pathRef.current.getTotalLength();

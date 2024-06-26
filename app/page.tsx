@@ -37,6 +37,8 @@ export default function App() {
         <LazySection name="about">
           <AboutSection />
         </LazySection>
+
+        <div className="h-[500px]"></div>
       </div>
     </section>
   );

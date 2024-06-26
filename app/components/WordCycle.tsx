@@ -10,30 +10,16 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import useWindowSize from "./useWindowSize";
 
-const WordCycle = ({}) => {
-  const [containerSize, setContainerSize] = useState<{
+const WordCycle = ({
+  containerSize,
+}: {
+  containerSize: { width: number; height: number };
+}) => {
+  const targetRef = useRef<HTMLDivElement>(null);
+  const [targetSize, setTargetSize] = useState<{
     width: number;
     height: number;
-  } | null>(null);
-
-  useEffect(() => {
-    if (!ref.current) return console.error("Ref not found");
-
-    const handleResize = () => {
-      setContainerSize({
-        width: ref.current!.clientWidth,
-        height: ref.current!.clientHeight,
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const ref = useRef<HTMLDivElement>(null);
+  }>({ width: 0, height: 0 });
   const verbs = ["make", "develop", "design", "build", "create", "making"];
   const nouns = [
     "stuff",
@@ -44,12 +30,28 @@ const WordCycle = ({}) => {
     "stuff",
   ];
 
+  useEffect(() => {
+    const handleResize = () => {
+      setTargetSize({
+        width: targetRef.current!.clientWidth,
+        height: targetRef.current!.clientHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // offset determined by hero viewport height
   const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end end", "end start"],
+    target: targetRef,
+    offset: ["-161px", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 0.8], [0, containerSize?.height]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, targetSize.height]);
 
   const verbIndex = useMotionValue(0);
   const nounIndex = useMotionValue(nouns.length - 1);
@@ -61,14 +63,17 @@ const WordCycle = ({}) => {
   const nounY = useTransform(nounSpring, (value) => value * -80);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const nearestVerbIndex = Math.round(latest * (verbs.length - 1));
-    const nearestNounIndex = Math.round((1 - latest) * (nouns.length - 1));
+    const latestOffset = latest * 1.11;
+    const nearestVerbIndex = Math.round(latestOffset * (verbs.length - 1));
+    const nearestNounIndex = Math.round(
+      (1 - latestOffset) * (nouns.length - 1)
+    );
     verbIndex.set(nearestVerbIndex);
     nounIndex.set(nearestNounIndex);
   });
 
   return (
-    <section ref={ref} className="h-dvh bg-green-300">
+    <section ref={targetRef} className="h-[200dvh] bg-green-300">
       <motion.div
         className="grid grid-cols-2 h-[80px] text-xl sm:text-3xl md:text-5xl lg:text-6xl leading-[80px] font-black overflow-hidden"
         style={{ y }}
