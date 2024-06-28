@@ -45,7 +45,7 @@ const HomeScrollLine = ({
           id="scroll-line"
           d={`M${containerSize.width * 0.5} 0 V${containerSize.height}`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
           strokeWidth="5"
-          stroke="hsl(var(--nextui-default-900))"
+          stroke="hsl(var(--nextui-primary))"
           style={{ pathLength }}
           strokeLinecap={"round"}
           onUpdate={({ pathLength }) => {
@@ -59,7 +59,7 @@ const HomeScrollLine = ({
           cx={progressX}
           cy={progressY}
           r={5}
-          fill="hsl(var(--nextui-default-900))"
+          fill="hsl(var(--nextui-primary))"
         />
       </svg>
     </section>
