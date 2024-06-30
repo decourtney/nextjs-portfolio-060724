@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import React, { use, useEffect, useRef, useState } from "react";
 import PopupBox from "./PopupBox";
-import { DevelopSVG, SolutionsSVG } from "./svgs";
+import { DevelopSVG } from "./svgs";
 
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];
@@ -51,7 +51,7 @@ const WordCycle = () => {
 
   return (
     // <section ref={targetRef} className="">
-    <motion.div ref={targetRef} className="flex flex-col h-full">
+    <div ref={targetRef} className="relative flex flex-col h-full">
       <motion.div
         className="grid grid-cols-2 h-[85px] text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black overflow-hidden"
         style={{ y }}
@@ -96,21 +96,21 @@ const WordCycle = () => {
             <DevelopSVG />
           </motion.div>
           <div className="absolute top-0 w-full h-full translate-y-[70%]">
-            <PopupBox />
+            {/* <PopupBox /> */}
           </div>
         </div>
         <div className="relative col-span-1">
           <div className="absolute top-0 w-full h-full translate-y-[50%]">
-            <SolutionsSVG />
+            {/* <PopupBox /> */}
           </div>
           <div className="absolute top-0 w-full h-full translate-y-[90%]">
-            <PopupBox />
+            {/* <PopupBox /> */}
           </div>
         </div>
       </div>
 
       {/* <div className="flex flex-grow bg-slate-400">stuff</div> */}
-    </motion.div>
+    </div>
     // </section>
   );
 };

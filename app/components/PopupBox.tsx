@@ -30,7 +30,7 @@ const PopupBox = () => {
           {
             x: -5,
             y: -30,
-            backgroundColor: "hsl(var(--nextui-content1))",
+            backgroundColor: "hsl(var(--nextui-content1)",
             boxShadow:
               "5px 30px 2px 0px hsl(var(--nextui-foreground)), 5px 30px 10px 0px #E0DFFE",
           },
