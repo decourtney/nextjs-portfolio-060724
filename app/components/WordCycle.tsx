@@ -85,16 +85,11 @@ const WordCycle = () => {
         </div>
       </motion.div>
 
-      {/* Need to add animations here to move the popupbox div down the Y while scrolling. progressively getting slower and then fading out*/}
+      {/* Need to add animations here to move the popupbox div down the Y while scrolling. progressively getting slower and then fading out and POSSIBLY sliding along x/y axis*/}
       {/* svg animations for icons to display */}
-      <div className="grid grid-cols-2 h-full">
-        <div className="relative col-span-1 ">
-          <motion.div
-            className="absolute top-0 w-full h-full translate-y-[35%]"
-            initial={{ transform: "translateY(35%)" }}
-          >
-            <DevelopSVG />
-          </motion.div>
+      <div className="grid grid-cols-2 h-full overflow-y-hidden">
+        <div className="relative col-span-1 h-[120dvh] translate-y-[0%]">
+          <DevelopSVG />
           <div className="absolute top-0 w-full h-full translate-y-[70%]">
             {/* <PopupBox /> */}
           </div>

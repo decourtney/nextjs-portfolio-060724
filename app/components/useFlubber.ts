@@ -24,7 +24,7 @@ const useFlubber = (
   const getIndex = paths.map((_, i) => i);
   const motionPaths = paths.map((pathObject) => {
     return useTransform(progress, [0,1], [pathObject.pathFrom, pathObject.pathTo], {
-      mixer: (a, b) => interpolate(a, b, { maxSegmentLength: 0.1 }),
+      mixer: (a, b) => interpolate(a, b, { maxSegmentLength: 1}),
     });
   });
   
