@@ -22,6 +22,7 @@ const HomeScrollLine = ({
   }); // scrollYProgress is the progress of the scroll from 0 to 1
   const pathLength = useTransform(scrollYProgress, [0, 0.6], [0, 1]); // pathLength is the length of the path that will be drawn
 
+  // useMotionValueEvent is used to update the position of the circle based on the progress of the path
   useMotionValueEvent(pathLength, "change", (latest) => {
     const totalPathLength = pathRef.current.getTotalLength();
     const latestPathProgress = pathRef.current.getPointAtLength(

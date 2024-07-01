@@ -14,7 +14,7 @@ import { DevelopSVG } from "./svgs";
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];
 
-const WordCycle = () => {
+const HomeScrollContent = () => {
   const targetRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -38,7 +38,7 @@ const WordCycle = () => {
   const nounY = useTransform(nounSpring, (value) => value * -85);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const latestOffset = latest * 1.11;
+    const latestOffset = latest * 0.9;
     const nearestVerbIndex = Math.round(latestOffset * (verbs.length - 1));
     const nearestNounIndex = Math.round(
       (1 - latestOffset) * (nouns.length - 1)
@@ -50,7 +50,6 @@ const WordCycle = () => {
   useEffect(() => {}, []);
 
   return (
-    // <section ref={targetRef} className="">
     <div ref={targetRef} className="relative flex flex-col h-full">
       <motion.div
         className="grid grid-cols-2 h-[85px] text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black overflow-hidden"
@@ -85,29 +84,36 @@ const WordCycle = () => {
         </div>
       </motion.div>
 
-      {/* Need to add animations here to move the popupbox div down the Y while scrolling. progressively getting slower and then fading out and POSSIBLY sliding along x/y axis*/}
-      {/* svg animations for icons to display */}
       <div className="grid grid-cols-2 h-full overflow-y-hidden">
-        <div className="relative col-span-1 h-[120dvh] translate-y-[0%]">
-          <DevelopSVG />
-          <div className="absolute top-0 w-full h-full translate-y-[70%]">
-            {/* <PopupBox /> */}
+        <div className="col-span-1">
+          <div className="relative h-[100dvh]">
+            <div className="absolute bottom-0 right-0">
+              <DevelopSVG />
+            </div>
+          </div>
+          <div className="relative h-[115dvh]">
+            <div className="absolute bottom-0 right-0">
+              <DevelopSVG />
+            </div>
           </div>
         </div>
-        <div className="relative col-span-1">
-          <div className="absolute top-0 w-full h-full translate-y-[50%]">
-            {/* <PopupBox /> */}
+        <div className="col-span-1">
+          <div className="relative h-[155dvh]">
+            <div className="absolute bottom-0 left-0">
+              <DevelopSVG />
+            </div>
           </div>
-          <div className="absolute top-0 w-full h-full translate-y-[90%]">
-            {/* <PopupBox /> */}
+          <div className="relative h-[115dvh]">
+            <div className="absolute bottom-0 left-0">
+              <DevelopSVG />
+            </div>
           </div>
         </div>
       </div>
 
       {/* <div className="flex flex-grow bg-slate-400">stuff</div> */}
     </div>
-    // </section>
   );
 };
 
-export default WordCycle;
+export default HomeScrollContent;

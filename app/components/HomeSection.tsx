@@ -9,9 +9,9 @@ import {
 } from "framer-motion";
 import HomeScrollLine from "./HomeScrollLine";
 import Subtitle from "./Subtitle";
-import WordCycle from "./WordCycle";
 import useWindowSize from "./useWindowSize";
 import { use, useEffect, useRef, useState } from "react";
+import HomeScrollContent from "./HomeScrollContent";
 
 const useParallax = (value: MotionValue<number>, distance: number) => {
   return useTransform(value, [0, 1], [1, 0]);
@@ -59,8 +59,8 @@ const HomeSection = () => {
         </svg>
       </div>
 
-      <div className="h-[220dvh]">
-        <WordCycle />
+      <div className="h-[300dvh]">
+        <HomeScrollContent />
       </div>
 
       {containerSize && <HomeScrollLine containerSize={containerSize} />}
