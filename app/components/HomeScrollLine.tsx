@@ -5,13 +5,17 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useRef } from "react";
+import { useReducer, useRef } from "react";
+import { useStateContext } from "../hooks/useStateContex";
 
 const HomeScrollLine = ({
   containerSize,
+  toggleKey,
 }: {
   containerSize: { width: number; height: number };
+  toggleKey: string;
 }) => {
+  const { setToggle } = useStateContext();
   const targetRef = useRef<HTMLDivElement>(null); // targetRef is the element that will be watched for scroll
   const pathRef = useRef<any>(null); // pathRef is the path element that will be used to get the total length of the path
   const progressX = useMotionValue(containerSize.width * 0.5); // progressX is the x position of the circle
@@ -52,6 +56,7 @@ const HomeScrollLine = ({
           onUpdate={({ pathLength }) => {
             if (pathLength === 1) {
               console.log("end of line");
+              setToggle(toggleKey, true);
             }
           }}
         />

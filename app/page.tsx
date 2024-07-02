@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import AboutSection from "./components/AboutSection";
 import HomeSection from "./components/HomeSection";
 import LazySection from "./components/LazySection";
-import useWindowSize from "./components/useWindowSize";
+import useWindowSize from "./hooks/useWindowSize";
 import HomeScrollLine from "./components/HomeScrollLine";
 
 export default function App() {
@@ -35,7 +35,7 @@ export default function App() {
         </LazySection>
 
         <LazySection name="about">
-          <AboutSection />
+          <AboutSection toggleKey="aboutSection" />
         </LazySection>
 
         {/* <div className="h-[500px]"></div> */}

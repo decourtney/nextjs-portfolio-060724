@@ -1,21 +1,7 @@
-import {
-  motion,
-  MotionValue,
-  useMotionValue,
-  useMotionValueEvent,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import HomeScrollLine from "./HomeScrollLine";
-import Subtitle from "./Subtitle";
-import useWindowSize from "./useWindowSize";
-import { use, useEffect, useRef, useState } from "react";
+import { MotionValue, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import HomeScrollContent from "./HomeScrollContent";
-
-const useParallax = (value: MotionValue<number>, distance: number) => {
-  return useTransform(value, [0, 1], [1, 0]);
-};
+import HomeScrollLine from "./HomeScrollLine";
 
 const HomeSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -63,7 +49,7 @@ const HomeSection = () => {
         <HomeScrollContent />
       </div>
 
-      {containerSize && <HomeScrollLine containerSize={containerSize} />}
+      {containerSize && <HomeScrollLine containerSize={containerSize} toggleKey="aboutSection"/>}
     </section>
   );
 };
