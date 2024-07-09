@@ -47,9 +47,10 @@ const HomeSection = () => {
         </svg>
       </div>
 
-      <div className="h-[300dvh]">
+      {/* <div className="h-[300dvh]">
         <HomeScrollContent />
-      </div>
+      </div> */}
+      <div id={"test-data"} className="h-[500px]"></div>
 
       {containerSize && (
         <HomeScrollLine

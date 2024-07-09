@@ -21,8 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // suppressHydrationWarning is used to prevent the warning that appears when the page is loaded
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang={"en"} suppressHydrationWarning={true}>
       <body>
         <Providers>
           <NavBar />

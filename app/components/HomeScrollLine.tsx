@@ -20,7 +20,7 @@ const HomeScrollLine = ({
   const targetRef = useRef<HTMLDivElement>(null); // targetRef is the element that will be watched for scroll
   const pathRef = useRef<any>(null); // pathRef is the path element that will be used to get the total length of the path
   const circleRadius = useResponsiveCircleRadius(); // circleRadius is the radius of the circle and the width of the path divided by 2
-  const progressX = useMotionValue(containerSize.width - 10); // progressX is the x position of the circle
+  const progressX = useMotionValue(15); // progressX is the x position of the circle
   const progressY = useMotionValue(-5); // progressY is the y position of the circle
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -51,9 +51,7 @@ const HomeScrollLine = ({
           ref={pathRef}
           id="scroll-line"
           // TODO hardcoded values will need to change with screen size
-          d={`M${containerSize.width - 10} 0 V${
-            containerSize.height + circleRadius
-          }`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
+          d={`M${15} 0 V${containerSize.height}`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
           strokeWidth={circleRadius * 0.5} // strokeWidth is the width of the path
           stroke="hsl(var(--nextui-primary))"
           style={{ pathLength }}
@@ -67,13 +65,13 @@ const HomeScrollLine = ({
             }
           }}
         />
-        <motion.circle
+        {/* <motion.circle
           id="scroll-line-circle"
           cx={progressX}
           cy={progressY}
           r={circleRadius}
           fill="hsl(var(--nextui-primary))"
-        />
+        /> */}
       </svg>
     </section>
   );
