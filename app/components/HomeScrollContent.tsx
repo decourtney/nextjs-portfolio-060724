@@ -16,6 +16,7 @@ const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];
 
 const HomeScrollContent = () => {
   const targetRef = useRef<HTMLDivElement>(null);
+  const [isEnabled, setIsEnabled] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -38,20 +39,23 @@ const HomeScrollContent = () => {
   const nounY = useTransform(nounSpring, (value) => value * -85);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const latestOffset = latest * 0.9;
+    const latestOffset = latest * 1;
     const nearestVerbIndex = Math.round(latestOffset * (verbs.length - 1));
     const nearestNounIndex = Math.round(
       (1 - latestOffset) * (nouns.length - 1)
     );
+
     verbIndex.set(nearestVerbIndex);
     nounIndex.set(nearestNounIndex);
   });
 
   useEffect(() => {}, []);
 
+  // This needs to adjust columns based on screen size SO i need to structure columns differently
   return (
     <div ref={targetRef} className="relative flex flex-col h-full">
       <motion.div
+      // dont need to change grid cols here
         className="grid grid-cols-2 h-[85px] text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black overflow-hidden"
         style={{ y }}
       >
@@ -84,7 +88,7 @@ const HomeScrollContent = () => {
         </div>
       </motion.div>
 
-      <div className="grid grid-cols-2 h-full overflow-y-hidden">
+      <div className="grid grid-cols-1 h-full overflow-y-hidden">
         <div className="col-span-1">
           <div className="relative h-[100dvh]">
             <div className="absolute bottom-0 right-0">

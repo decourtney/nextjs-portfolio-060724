@@ -2,30 +2,32 @@ import { MotionValue, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import HomeScrollContent from "./HomeScrollContent";
 import HomeScrollLine from "./HomeScrollLine";
+import {useContainerSize} from "../customHooks";
 
 const HomeSection = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [containerSize, setContainerSize] = useState<{
-    width: number;
-    height: number;
-  } | null>(null);
+  const { containerSize, ref } = useContainerSize();
+  // const ref = useRef<HTMLDivElement>(null);
+  // const [containerSize, setContainerSize] = useState<{
+  //   width: number;
+  //   height: number;
+  // } | null>(null);
 
-  useEffect(() => {
-    if (!ref.current) return console.error("Ref not found");
+  // useEffect(() => {
+  //   if (!ref.current) return console.error("Ref not found");
 
-    const handleResize = () => {
-      setContainerSize({
-        width: ref.current!.clientWidth,
-        height: ref.current!.clientHeight,
-      });
-    };
+  //   const handleResize = () => {
+  //     setContainerSize({
+  //       width: ref.current!.clientWidth,
+  //       height: ref.current!.clientHeight,
+  //     });
+  //   };
 
-    window.addEventListener("resize", handleResize);
+  //   window.addEventListener("resize", handleResize);
 
-    handleResize();
+  //   handleResize();
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
   return (
     <section ref={ref} id="hero" className="relative">
@@ -49,7 +51,12 @@ const HomeSection = () => {
         <HomeScrollContent />
       </div>
 
-      {containerSize && <HomeScrollLine containerSize={containerSize} toggleKey="aboutSection"/>}
+      {containerSize && (
+        <HomeScrollLine
+          containerSize={containerSize}
+          toggleKey="aboutSection"
+        />
+      )}
     </section>
   );
 };

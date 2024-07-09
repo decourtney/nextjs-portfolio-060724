@@ -28,8 +28,8 @@ const LandingPage = () => {
           width={"100%"}
           height={"100%"}
           fill="hsl(var(--nextui-default-900))"
-          shape-rendering="geometricPrecision"
-          text-rendering="geometricPrecision"
+          shapeRendering="geometricPrecision"
+          textRendering="geometricPrecision"
         >
           <g transform="translate(-101.2402-71.286941)">
             <path

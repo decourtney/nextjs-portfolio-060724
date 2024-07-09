@@ -8,7 +8,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { use, useEffect, useRef, useState } from "react";
-import useFlubber from "../hooks/useFlubber";
+import useFlubber from "../customHooks/useFlubber";
 
 const shapeFrom = [
   "M173.659129,42.756738c4.964735-2.526798,12.870404-3.21757,14.215631,1.236142c1.820601,6.027557-5.587753,6.113627-4.401397,9.504556c1.284105,3.670322,15.960826.309309,19.853177,2.856864c1.98497,1.299169,2.236473,3.816993,3.70843,4.94457c1.646031,1.260925,19.99143,2.93407,24.72285,5.56264c3.8402,2.13344,4.351224,7.783144,7.41685,10.50721c4.711975,4.186986,7.465828-1.392532,11.74335,8.653-6.655821-8.373658-6.750011-2.816445-12.747604-7.361243-3.494996-2.648405-3.948538-8.335723-7.355402-10.281475-4.882419-2.788481-21.983973-3.728216-24.860347-5.614718-2.070829-1.358176-1.807297-3.705709-3.692569-4.783008-3.931012-2.246294-18.961738,1.018042-20.402832-3.64432-1.718702-5.560504,5.695304-4.987604,4.381003-9.570807-.931796-3.249341-5.649155-2.70621-12.58114-2.009411Z",
@@ -45,12 +45,12 @@ export const DevelopSVG = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(scrollYProgress.get());
+    // console.log(scrollYProgress.get());
   });
 
   // idea for anim - have the svg translate towards opposite side of screen; bring line down so that the svg appears to sink into the line
   return (
-    <motion.div ref={ref} style={{opacity}}>
+    <motion.div ref={ref} style={{ opacity }}>
       <svg
         cache-id="d8e484af1c65446fa8638ec5c5b398f4"
         id="develop-solutions"
