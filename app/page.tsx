@@ -6,7 +6,7 @@ import AboutSection from "./components/AboutSection";
 import HomeSection from "./components/HomeSection";
 import LazySection from "./components/LazySection";
 import useWindowSize from "./customHooks/useWindowSize";
-import HomeScrollLine from "./components/HomeScrollLine";
+import HomeScrollLine from "./components/VerticalLine";
 
 export default function App() {
   const router = useRouter();
@@ -29,13 +29,13 @@ export default function App() {
 
   return (
     <section id="page-content">
-      <div className=" w-full mx-auto p-2 -mt-[48px]">
+      <div className=" w-full mx-auto px-2 -mt-[48px]">
         <LazySection name="home">
           <HomeSection />
         </LazySection>
 
         <LazySection name="about">
-          <AboutSection toggleKey="aboutSection" />
+          <AboutSection />
         </LazySection>
 
         {/* <div className="h-[500px]"></div> */}

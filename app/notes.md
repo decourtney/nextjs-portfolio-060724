@@ -1,5 +1,7 @@
 \*\*\* currently working on About section
 
+\*\* useStateContext hook works as a event/subscriber system allowing me to utilize the scroll line to enable/disable sections
+
 1. Landing Page - is to be the home of the animation currently sitting on SVGator. Not entirely sure it will fit perfectly so its still an optional page.
 
 2. Home Section

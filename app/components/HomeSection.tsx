@@ -1,8 +1,8 @@
 import { MotionValue, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import HomeScrollContent from "./HomeScrollContent";
-import HomeScrollLine from "./HomeScrollLine";
-import {useContainerSize} from "../customHooks";
+import VerticalLine from "./VerticalLine";
+import { useContainerSize } from "../customHooks";
 
 const HomeSection = () => {
   const { containerSize, ref } = useContainerSize();
@@ -53,9 +53,12 @@ const HomeSection = () => {
       <div id={"test-data"} className="h-[500px]"></div>
 
       {containerSize && (
-        <HomeScrollLine
+        <VerticalLine
           containerSize={containerSize}
-          toggleKey="aboutSection"
+          toggleKey="about-section"
+          offset={["end end", "end start"]}
+          inputRange={[0, 0.6]}
+          outputRange={[0, 1]}
         />
       )}
     </section>
