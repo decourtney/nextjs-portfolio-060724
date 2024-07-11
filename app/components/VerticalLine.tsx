@@ -62,8 +62,8 @@ const HomeScrollLine = ({
           d={`M${15} -1 V${containerSize.height}`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
           strokeWidth={2} // strokeWidth is the width of the path
           stroke="hsl(var(--nextui-primary))"
-          style={{ pathLength }}
           strokeLinecap={"round"}
+          style={{ pathLength }}
           onUpdate={({ pathLength }) => {
             if (pathLength === 1) {
               console.log("end of line");

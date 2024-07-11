@@ -57,7 +57,7 @@ const HomeSection = () => {
           containerSize={containerSize}
           toggleKey="about-section"
           offset={["end end", "end start"]}
-          inputRange={[0, 0.6]}
+          inputRange={[0, 0.5]}
           outputRange={[0, 1]}
         />
       )}

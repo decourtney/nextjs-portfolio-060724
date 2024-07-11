@@ -4,6 +4,7 @@ import { useStateContext } from "../customHooks/useStateContex";
 import { useContainerSize } from "../customHooks";
 import AboutHeader from "./AboutHeader";
 import VerticalLine from "./VerticalLine";
+import AboutContent from "./AboutContent";
 
 const AboutSection = () => {
   const { state } = useStateContext();
@@ -20,13 +21,15 @@ const AboutSection = () => {
       {state.toggles["about-section"] && containerSize && (
         <>
           <AboutHeader containerSize={containerSize} />
-          <VerticalLine
+
+          <AboutContent />
+          {/* <VerticalLine
             containerSize={containerSize}
             toggleKey="section"
-            offset={["start end", "end start"]}
+            offset={["70% end", "start start"]}
             inputRange={[0, 1]}
             outputRange={[0, 1]}
-          />
+          /> */}
         </>
       )}
 
