@@ -60,7 +60,7 @@ const HomeScrollLine = ({
           id="scroll-line"
           // TODO hardcoded values will need to change with screen size
           d={`M${15} -1 V${containerSize.height}`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
-          strokeWidth={2} // strokeWidth is the width of the path
+          strokeWidth={4} // strokeWidth is the width of the path
           stroke="hsl(var(--nextui-primary))"
           strokeLinecap={"round"}
           style={{ pathLength }}
