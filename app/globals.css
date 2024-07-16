@@ -2,14 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-}
+@layer base {
+  :root {
+    --light-primary: 17 17 17;
+    --dark-primary: 238 238 238;
+  }
 
-html {
-}
+  html {
+  }
 
-body {
-}
+  body {
+  }
 
-main {
+  main {
+  }
+
+  .content-text {
+    color: hsl(var(--nextui-primary-900));
+    /* background-clip: text; */
+    text-shadow: 0px 0px 20px hsl(var(--nextui-primary-50)),
+      -1px 1px 2px hsl(var(--nextui-primary-800)),
+      -2px 2px 2px hsl(var(--nextui-primary-700)),
+      -3px 3px 2px hsl(var(--nextui-primary-600)),
+      -4px 4px 2px hsl(var(--nextui-primary-500)),
+      -5px 5px 2px hsl(var(--nextui-primary-400)),
+      -6px 6px 2px hsl(var(--nextui-primary-300)),
+      -7px 7px 0px hsl(var(--nextui-primary-300)),
+      -20px 20px 15px hsl(var(--nextui-content4-900)),
+      -22px 22px 25px hsl(var(--nextui-content4-600));
+  }
 }

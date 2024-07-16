@@ -30,7 +30,7 @@ const HomeSection = () => {
   // }, []);
 
   return (
-    <section ref={ref} id="hero" className="relative">
+    <section ref={ref} id="home-section" className="relative">
       <div className="mx-auto pt-20 pb-5">
         <svg
           viewBox="0 0 508 161"
@@ -50,7 +50,7 @@ const HomeSection = () => {
       {/* <div className="h-[300dvh]">
         <HomeScrollContent />
       </div> */}
-      <div id={"test-data"} className="h-[500px]"></div>
+      {/* <div id={"test-data"} className="h-[500px]"></div> */}
 
       {containerSize && (
         <VerticalLine

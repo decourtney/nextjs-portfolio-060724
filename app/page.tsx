@@ -7,6 +7,7 @@ import HomeSection from "./components/HomeSection";
 import LazySection from "./components/LazySection";
 import useWindowSize from "./customHooks/useWindowSize";
 import HomeScrollLine from "./components/VerticalLine";
+import ProjectSection from "./components/ProjectSection";
 
 export default function App() {
   const router = useRouter();
@@ -38,7 +39,9 @@ export default function App() {
           <AboutSection />
         </LazySection>
 
-        <div className="h-[500px] bg-slate-900"></div>
+        <LazySection name="projects">
+          <ProjectSection />
+        </LazySection>
       </div>
     </section>
   );

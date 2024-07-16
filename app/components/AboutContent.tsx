@@ -15,7 +15,7 @@ const AboutContent = ({ content }: { content: string }) => {
   return (
     <div
       ref={ref}
-      className="w-full pt-16 text-4xl font-black space-y-10"
+      className="content-text w-full pt-16 text-6xl font-black space-y-10 uppercase"
     >
       <p
         style={{
