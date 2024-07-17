@@ -34,13 +34,13 @@ const AboutSection = () => {
   // if (!ref) return null;
 
   return (
-    <section id="about-section" ref={ref} className="relative w-full h-full">
+    <section id="about-section" ref={ref} className="relative w-full min-h-dvh">
       {state.toggles["about-section"] && containerSize && (
         <AboutHeader containerSize={containerSize} />
       )}
-      {content.map((content, index) => (
-        <AboutContent key={index} content={content} />
-      ))}
+      {/* {content.map((content, index) => ( */}
+        <AboutContent  />
+      {/* ))} */}
     </section>
   );
 };
