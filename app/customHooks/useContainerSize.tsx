@@ -3,11 +3,11 @@ import { useEffect, useRef, useState } from "react";
 type Size = {
   width: number;
   height: number;
-} | null;
+};
 
 const useContainerSize = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [containerSize, setContainerSize] = useState<Size>(null);
+  const [containerSize, setContainerSize] = useState<Size | null>(null);
 
   useEffect(() => {
     if (!ref.current) return console.error("Ref not found");

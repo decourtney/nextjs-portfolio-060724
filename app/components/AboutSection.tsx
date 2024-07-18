@@ -34,7 +34,7 @@ const AboutSection = () => {
   // if (!ref) return null;
 
   return (
-    <section id="about-section" ref={ref} className="relative w-full min-h-dvh">
+    <section id="about-section" ref={ref} className="relative w-full min-h-[500dvh]">
       {state.toggles["about-section"] && containerSize && (
         <AboutHeader containerSize={containerSize} />
       )}
