@@ -12,14 +12,20 @@ interface Ball {
   friction: number;
 }
 
+const radius = 40;
+const gravity = 0.0;
+const friction = 0.99;
+
 const BouncingBallCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { scrollY } = useScroll();
   const previousScrollY = useRef(0);
   const ballsInitialized = useRef(false); // Track if balls have been initialized
   const ballsRef = useRef<Ball[]>([]);
-  const force = -10;
+  const force = -5;
   const imagesRef = useRef<HTMLImageElement[]>([]); // Reference to the images
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null); // Debounce timer reference
+  const debounceDelay = 100; // Delay in milliseconds
 
   const loadImages = (srcArray: string[]): Promise<HTMLImageElement[]> => {
     return Promise.all(
@@ -38,22 +44,24 @@ const BouncingBallCanvas = () => {
   const initializeBalls = (canvas: HTMLCanvasElement) => {
     const balls: Ball[] = [];
     const images = imagesRef.current;
+    const maxAttempts = 100; // Maximum attempts to position a ball without overlap
 
     for (let i = 0; i < images.length; i++) {
       let ball: Ball;
       let overlapping: boolean;
+      let attempts = 0;
 
       do {
         overlapping = false;
         ball = {
-          x: Math.random() * (canvas.width - 40) + 20,
-          y: Math.random() * (canvas.height - 40) + 20,
+          x: Math.random() * (canvas.width - radius * 2) + radius,
+          y: Math.random() * (canvas.height - radius * 2) + radius,
           vx: Math.random() * 4 - 2,
           vy: Math.random() * 4 - 2,
-          radius: 20,
+          radius,
           image: images[i % images.length], // Assign image to ball
-          gravity: 0.0,
-          friction: 0.98,
+          gravity,
+          friction,
         };
 
         for (const otherBall of balls) {
@@ -65,6 +73,11 @@ const BouncingBallCanvas = () => {
             overlapping = true;
             break;
           }
+        }
+
+        attempts++;
+        if (attempts >= maxAttempts) {
+          overlapping = false; // Force exit after max attempts
         }
       } while (overlapping);
 
@@ -239,12 +252,23 @@ const BouncingBallCanvas = () => {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const deltaY = latest - previousScrollY.current;
-    if (deltaY > 0) {
-      ballsRef.current.forEach((ball) => {
-        ball.vy += force + Math.random() * 4 - 2; // Apply upward force with random variance
-        ball.vx += Math.random() * 4 - 2; // Apply random horizontal force
-      });
+
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
     }
+
+    debounceTimerRef.current = setTimeout(() => {
+      ballsRef.current.forEach((ball) => {
+        if (deltaY > 0) {
+          ball.vy += force + Math.random() * 4 - 2; // Apply upward force with random variance
+          ball.vx += Math.random() * 4 - 2; // Apply random horizontal force
+        } else if (deltaY < 0) {
+          ball.vy -= force + Math.random() * 4 - 2; // Apply downward force with random variance
+          ball.vx -= Math.random() * 4 - 2; // Apply random horizontal force
+        }
+        console.log(ball.vy);
+      });
+    }, debounceDelay);
 
     previousScrollY.current = latest;
   });
