@@ -267,9 +267,7 @@ const BouncingBallCanvas = () => {
         context.save();
         context.translate(ball.x - ball.radius, ball.y - ball.radius);
         context.scale(ball.radius / 64, ball.radius / 64); // Scale SVG to fit ball radius
-        context.fillStyle = getComputedStyle(context.canvas).getPropertyValue(
-          "--svg-icons"
-        ); // Set fill color
+        context.fillStyle = getComputedStyle(context.canvas).getPropertyValue("--test-stuff"); // Set fill color
         context.fill(path);
         context.restore();
       });

@@ -13,7 +13,7 @@ const AboutTitle = () => {
     <h2
       id="about-title"
       ref={ref}
-      className="content-3dtext flex flex-col justify-center text-left lg:space-x-2 lg:flex-row w-full text-3xl font-black uppercase"
+      className="content-3dtext flex flex-col justify-center text-left lg:space-x-2 lg:flex-row w-full text-3xl lg:text-5xl font-black uppercase"
     >
       <span
         style={{

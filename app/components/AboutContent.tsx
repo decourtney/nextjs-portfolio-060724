@@ -17,16 +17,16 @@ import AboutBio from "./AboutBio";
 import BouncingBallCanvas from "./BouncingBallCanvas";
 
 const AboutContent = () => {
-
   return (
     <div className="sticky top-0 pt-[5rem]">
-      <AboutTitle />
+      {/* <AboutTitle /> */}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 mt-20">
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 mt-20">
         <div className="col-span-1 flex justify-center">
           <AboutBio />
         </div>
-        <div className="col-span-1">
+
+        <div className="col-span-1 absolute top-0 w-full h-full">
           <BouncingBallCanvas />
         </div>
       </div>
