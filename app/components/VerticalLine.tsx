@@ -9,21 +9,25 @@ import { useReducer, useRef } from "react";
 import { useStateContext } from "../customHooks";
 import useResponsiveCircleRadius from "../customHooks/useResponsiveCircleRadius";
 
-interface HomeScrollLineProps {
+interface VerticalLineProps {
   containerSize: { width: number; height: number };
   toggleKey: string;
   offset: any;
   inputRange: number[];
   outputRange: number[];
+  xPosition?: number;
+  lineWidth?: number;
 }
 
-const HomeScrollLine = ({
+const VerticalLine = ({
   containerSize,
   toggleKey,
   offset,
   inputRange,
   outputRange,
-}: HomeScrollLineProps) => {
+  xPosition = 15,
+  lineWidth = 4
+}: VerticalLineProps) => {
   const { setToggle } = useStateContext();
   const targetRef = useRef<HTMLDivElement>(null); // targetRef is the element that will be watched for scroll
   const pathRef = useRef<SVGPathElement>(null); // pathRef is the path element that will be used to get the total length of the path
@@ -48,7 +52,7 @@ const HomeScrollLine = ({
   // });
 
   return (
-    <section ref={targetRef} className="absolute top-0 w-full h-full">
+    <section ref={targetRef} className="absolute top-0 w-full h-full z-10">
       <svg
         viewBox={`0 0 ${containerSize.width} ${containerSize.height}`}
         xmlns="http://www.w3.org/2000/svg"
@@ -59,13 +63,13 @@ const HomeScrollLine = ({
           ref={pathRef}
           id="scroll-line"
           // TODO hardcoded values will need to change with screen size
-          d={`M${15} -1 V${containerSize.height}`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
-          strokeWidth={4} // strokeWidth is the width of the path
-          stroke="hsl(var(--nextui-primary))"
+          d={`M${xPosition} -1 V${containerSize.height}`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
+          strokeWidth={lineWidth} // strokeWidth is the width of the path
+          stroke="hsl(var(--nextui-primary-100))"
           strokeLinecap={"round"}
           style={{ pathLength }}
           onUpdate={({ pathLength }) => {
-            if (pathLength === 1) {
+            if (pathLength === 1 && toggleKey != "") {
               console.log("end of line");
               setToggle(toggleKey, true);
             } else {
@@ -85,4 +89,4 @@ const HomeScrollLine = ({
   );
 };
 
-export default HomeScrollLine;
+export default VerticalLine;

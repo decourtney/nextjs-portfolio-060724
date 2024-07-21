@@ -26,7 +26,7 @@ const AboutContent = () => {
           <AboutBio />
         </div>
 
-        <div className="col-span-1 absolute top-0 w-full h-full">
+        <div className="col-span-1 w-full h-full">
           <BouncingBallCanvas />
         </div>
       </div>

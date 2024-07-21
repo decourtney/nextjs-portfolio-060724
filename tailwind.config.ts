@@ -51,11 +51,11 @@ const config: Config = {
             background: "#F4F4F4",
             foreground: "#2F2F2F",
             primary: {
-              "100": "#F4F4F4",
-              "200": "#EAEAEA",
+              "100": "#2F2F2F",
+              "200": "#828282",
               "300": "#C0C0C0",
-              "400": "#828282",
-              "500": "#2F2F2F",
+              "400": "#EAEAEA",
+              "500": "#F4F4F4",
             },
             secondary: {
               "100": "#CBECFE",
@@ -84,11 +84,11 @@ const config: Config = {
             background: "#1B0E12",
             foreground: "#F4F4F4",
             primary: {
-              "100": "#2F2F2F",
-              "200": "#828282",
+              "100": "#F4F4F4",
+              "200": "#EAEAEA",
               "300": "#C0C0C0",
-              "400": "#EAEAEA",
-              "500": "#F4F4F4",
+              "400": "#828282",
+              "500": "#2F2F2F",
             },
             secondary: {
               "100": "#CBECFE",

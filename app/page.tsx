@@ -30,10 +30,10 @@ export default function App() {
 
   return (
     <section id="page-content">
-      <div className=" w-full mx-auto px-2 -mt-[48px]">
-        {/* <LazySection name="home">
+      <div className=" w-full mx-auto  -mt-[48px]">
+        <LazySection name="home">
           <HomeSection />
-        </LazySection> */}
+        </LazySection>
 
         {/* <LazySection name="about">
           <AboutSection />
