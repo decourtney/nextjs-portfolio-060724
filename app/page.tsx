@@ -1,22 +1,48 @@
-import {
-  NameSVG,
-  LetterYSVG,
-  FullNameSVG,
-  ScrollLineSVG,
-} from "./components/SVGs";
-import { Card, Flex, Text, Box, Container } from "@radix-ui/themes";
+"use client";
 
-export default function Home() {
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import AboutSection from "./components/AboutSection";
+import HomeSection from "./components/HomeSection";
+import LazySection from "./components/LazySection";
+import useWindowSize from "./customHooks/useWindowSize";
+import HomeScrollLine from "./components/VerticalLine";
+import ProjectSection from "./components/ProjectSection";
+
+export default function App() {
+  const router = useRouter();
+  const [showLandingPage, setShowLandingPage] = useState(true);
+
+  useEffect(() => {
+    // Check if the landing page has been shown in the current session
+    const hasSeenLandingPage = sessionStorage.getItem("hasSeenLandingPage");
+    if (hasSeenLandingPage) {
+      setShowLandingPage(false);
+    } else {
+      // Redirect to the landing page
+      router.push("/Landing");
+    }
+  }, []);
+
+  if (showLandingPage) {
+    return null; // Return nothing while redirecting
+  }
+
   return (
-    <Flex direction={"column"} align={"center"}>
-      <Box minWidth={{ initial: "100%", md: "75%", lg: "50%" }}>
-        <Box>
-          <FullNameSVG />
-        </Box>
-        <Box position={"relative"} width={"100%"} mt="-1">
-          <ScrollLineSVG />
-        </Box>
-      </Box>
-    </Flex>
+    <section id="page-content">
+      <div className=" w-full mx-auto  -mt-[48px]">
+        <LazySection name="home">
+          <HomeSection />
+        </LazySection>
+
+        {/* <LazySection name="about">
+          <AboutSection />
+        </LazySection> */}
+
+        <LazySection name="projects">
+          <ProjectSection />
+        </LazySection>
+      </div>
+    </section>
   );
 }

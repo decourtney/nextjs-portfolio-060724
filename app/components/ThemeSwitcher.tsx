@@ -1,14 +1,10 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import React, { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
-// import { Button } from "@radix-ui/themes";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { FaSun } from "react-icons/fa";
-
-import { SunSVG, MoonSVG } from "./SVGs";
-import { Box, Container } from "@radix-ui/themes";
 
 const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
@@ -27,6 +23,7 @@ const ThemeSwitcher = () => {
       variant="light"
       size="sm"
       radius="full"
+      color="secondary"
       onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
     >
       {currentTheme == "dark" ? <BsFillMoonStarsFill /> : <FaSun />}
