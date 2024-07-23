@@ -7,7 +7,7 @@ const AboutBio = () => {
   return (
     <motion.div
       ref={ref}
-      className="w-3/4 p-5 space-y-5 rounded-lg text-primary-500 origin-right bg-primary-200 bg-transparent"
+      className="w-3/4 p-5 space-y-5 rounded-lg text-primary-100 origin-right bg-primary-200 bg-transparent"
       style={{
         x: isInView ? 15 : 0,
         rotateY: isInView ? 10 : 0,

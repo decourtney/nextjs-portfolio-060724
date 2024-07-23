@@ -47,12 +47,12 @@ const HomeSection = () => {
         </svg>
       </div>
 
-      {/* <div className="h-[300dvh]">
+      <div className="h-[300dvh]">
         <HomeScrollContent />
-      </div> */}
+      </div>
       {/* <div id={"test-data"} className="h-[500px]"></div> */}
 
-      {containerSize && (
+      {/* {containerSize && (
         <VerticalLine
           containerSize={containerSize}
           toggleKey="about-section"
@@ -60,7 +60,7 @@ const HomeSection = () => {
           inputRange={[0, 0.5]}
           outputRange={[0, 1]}
         />
-      )}
+      )} */}
     </section>
   );
 };

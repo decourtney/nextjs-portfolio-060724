@@ -53,11 +53,11 @@ const HomeScrollContent = () => {
 
   // This needs to adjust columns based on screen size SO i need to structure columns differently
   return (
-    <div ref={targetRef} className="relative flex flex-col h-full">
+    <div ref={targetRef} className="flex flex-col h-full">
       <motion.div
       // dont need to change grid cols here
-        className="grid grid-cols-2 h-[85px] text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black overflow-hidden"
-        style={{ y }}
+        className="sticky top-[10%] grid grid-cols-2 h-[85px] text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black overflow-hidden"
+        // style={{ y }}
       >
         {/* left column */}
         <div className="col-span-1 text-end leading-[85px]">
@@ -66,7 +66,7 @@ const HomeScrollContent = () => {
           {/* <p className="inline-block">love</p> */}
 
           <motion.ul
-            className="inline-block px-2 w-fit text-center"
+            className="inline-block pl-2 w-fit text-center"
             style={{ translateY: verbY }}
           >
             {verbs.map((verb, index) => (
@@ -88,28 +88,28 @@ const HomeScrollContent = () => {
         </div>
       </motion.div>
 
-      <div className="grid grid-cols-1 h-full overflow-y-hidden">
+      <div className="grid grid-cols-2 h-full overflow-y-hidden">
         <div className="col-span-1">
           <div className="relative h-[100dvh]">
             <div className="absolute bottom-0 right-0">
-              <DevelopSVG />
+              {/* <DevelopSVG /> */}
             </div>
           </div>
           <div className="relative h-[115dvh]">
             <div className="absolute bottom-0 right-0">
-              <DevelopSVG />
+              {/* <DevelopSVG /> */}
             </div>
           </div>
         </div>
         <div className="col-span-1">
           <div className="relative h-[155dvh]">
             <div className="absolute bottom-0 left-0">
-              <DevelopSVG />
+              {/* <DevelopSVG /> */}
             </div>
           </div>
           <div className="relative h-[115dvh]">
             <div className="absolute bottom-0 left-0">
-              <DevelopSVG />
+              {/* <DevelopSVG /> */}
             </div>
           </div>
         </div>

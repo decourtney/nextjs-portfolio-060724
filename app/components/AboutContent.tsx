@@ -35,18 +35,3 @@ const AboutContent = () => {
 };
 
 export default AboutContent;
-
-/**
-Im a dude who likes art and programming.
-
-Web development has provided me with an outlet to combine the two while still solving 
-problems and providing services. On the backend I primarily use
-NodeJs, MySQL, Mongo, and AWS. While exploring the possibilities
-of the front end I build with React coupled with libraries such as
-Framer Motion and Redux and frameworks like Next.js The
-possibilities are truly endless and I always look forward to
-chasing that end of line.
-
-
-
- */

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { use } from "react";
 import VerticalLine from "./VerticalLine";
 import { useContainerSize } from "../customHooks";
 import ProjectContainer from "./ProjectContainer";
+import { motion, useInView } from "framer-motion";
+
+const skewAmount = 1;
 
 const ProjectSection = () => {
   const { containerSize, ref } = useContainerSize();
@@ -18,36 +21,87 @@ const ProjectSection = () => {
   ];
 
   return (
-    <section id="project-section" className="min-h-dvh h-[200dvh]">
-      <div className="grid grid-cols-2 grid-rows-3 mt-20">
-        <div className="col-span-1 row-span-1">
-          <div
-            ref={ref}
-            id="project-container"
-            className="relative h-[300px] bg-foreground overflow-hidden"
-          >
-            {/* {containerSize && (
-              <VerticalLine
-                containerSize={containerSize}
-                toggleKey={""}
-                offset={["start end", "end start"]}
-                inputRange={[0, 0.5]}
-                outputRange={[0, 1]}
-                xPosition={containerSize.width - 2}
-                lineWidth={4}
-              />
-            )} */}
-            <div className="absolute top-0 w-full h-full -translate-x-10 -translate-y-10 bg-background" />
-
-            <div id="project-card" className="w-full h-full">
-              <h2>Project Title 1</h2>
-            </div>
-          </div>
+    <section id="project-section" className="">
+      <div
+        ref={ref}
+        className="relative grid grid-cols-1 lg:grid-cols-2"
+      >
+        <div className="col-span-1 ">
+          {projectTitlesLeft.map((title, index) => (
+            <LeftContainer key={title} projectTitle={title} />
+          ))}
         </div>
-        <div className="col-span-1 row-span-1 translate-y-10"></div>
+        <div className="col-span-1 lg:translate-y-10">
+          {projectTitlesRight.map((title, index) => (
+            <RightContainer key={title} projectTitle={title} />
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
 export default ProjectSection;
+
+const LeftContainer = ({ projectTitle }: { projectTitle: string }) => {
+  const { containerSize, ref } = useContainerSize();
+  const isInView = useInView(ref);
+
+  return (
+    <div
+      ref={ref}
+      id="project-container"
+      className="relative h-[300px] bg-foreground overflow-hidden z-10"
+    >
+      <motion.div
+        className="absolute top-0 w-full h-full bg-background -z-10"
+        style={{
+          transformPerspective: 500,
+          transformOrigin: "0% 0%",
+          skewX: isInView ? -0.1 : 0,
+          skewY: isInView ? -0.1 : 0,
+        }}
+        whileHover={{ skewX: -skewAmount, skewY: -skewAmount }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      />
+      <div
+        id="project-card"
+        className="w-full h-full z-10 text-center content-center pointer-events-none"
+      >
+        <h2 className="text-2xl font-black">{projectTitle}</h2>
+      </div>
+    </div>
+  );
+};
+
+const RightContainer = ({ projectTitle }: { projectTitle: string }) => {
+  const { containerSize, ref } = useContainerSize();
+  const isInView = useInView(ref);
+
+  return (
+    <div
+      ref={ref}
+      id="project-container"
+      className="relative h-[300px] bg-foreground overflow-hidden z-10"
+    >
+      <motion.div
+        className="absolute top-0 w-full h-full bg-background -z-10"
+        style={{
+          transformPerspective: 500,
+          transformOrigin: "100% 0%",
+          skewX: isInView ? 0.1 : 0,
+          skewY: isInView ? 0.1 : 0,
+        }}
+        whileHover={{ skewX: skewAmount, skewY: skewAmount }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      />
+
+      <div
+        id="project-card"
+        className="w-full h-full z-10 text-center content-center pointer-events-none"
+      >
+        <h2 className="text-2xl font-black">{projectTitle}</h2>
+      </div>
+    </div>
+  );
+};

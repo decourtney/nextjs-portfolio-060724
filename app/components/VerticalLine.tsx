@@ -52,7 +52,7 @@ const VerticalLine = ({
   // });
 
   return (
-    <section ref={targetRef} className="absolute top-0 w-full h-full z-10">
+    <section ref={targetRef} className="absolute top-0 w-full h-full pointer-events-none z-20">
       <svg
         viewBox={`0 0 ${containerSize.width} ${containerSize.height}`}
         xmlns="http://www.w3.org/2000/svg"

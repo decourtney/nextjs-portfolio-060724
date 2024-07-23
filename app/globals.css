@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --svg-icons: hsl(var(--nextui-primary-500));
+  --svg-icons: hsl(var(--nextui-primary-100));
 }
 
 html {
