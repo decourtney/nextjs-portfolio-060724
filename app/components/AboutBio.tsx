@@ -14,9 +14,9 @@ const AboutBio = () => {
         transformPerspective: "2000px",
         transformStyle: "preserve-3d",
         transition: "transform 1s",
-        boxShadow: isInView
-          ? "0px 0px 5px hsl(var(--nextui-primary-100)), -1px 1px 1px hsl(var(--nextui-primary-200)), -2px 1px 2px hsl(var(--nextui-primary-300)), -3px 2px 2px hsl(var(--nextui-primary-300)), -4px 2px 2px hsl(var(--nextui-primary-300)), -5px 3px 2px hsl(var(--nextui-primary-300)), -6px 3px 1px hsl(var(--nextui-primary-300)), -20px 20px 30px hsl(var(--nextui-content1-500)), -30px 30px 40px hsl(var(--nextui-content1-500))"
-          : "none",
+        // boxShadow: isInView
+        //   ? "0px 0px 5px hsl(var(--nextui-primary-100)), -1px 1px 1px hsl(var(--nextui-primary-200)), -2px 1px 2px hsl(var(--nextui-primary-300)), -3px 2px 2px hsl(var(--nextui-primary-300)), -4px 2px 2px hsl(var(--nextui-primary-300)), -5px 3px 2px hsl(var(--nextui-primary-300)), -6px 3px 1px hsl(var(--nextui-primary-300)), -20px 20px 30px hsl(var(--nextui-content1-500)), -30px 30px 40px hsl(var(--nextui-content1-500))"
+        //   : "none",
       }}
     >
       <p>

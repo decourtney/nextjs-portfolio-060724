@@ -18,7 +18,7 @@ import BouncingBallCanvas from "./BouncingBallCanvas";
 
 const AboutContent = () => {
   return (
-    <div className="sticky top-0 pt-[5rem]">
+    <div className="sticky top-0 h-dvh pt-12">
       {/* <AboutTitle /> */}
 
       <div className="relative grid grid-cols-1 lg:grid-cols-2 mt-20">

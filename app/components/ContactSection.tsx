@@ -36,9 +36,9 @@ const ContactSection: React.FC = () => {
 
   return (
     <section id="contact-section" className="min-h-dvh px-4 content-center">
-      <div className="grid grid-cols-1 lg:grid-cols-4 grid-rows-2 gap-4 w-full lg:w-3/4 mx-auto">
-      
-        <div className="col-span-1 lg:col-span-2 p-4">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 grid-rows-2 w-full lg:w-3/4 mx-auto">
+
+        <div className="col-span-1 lg:col-span-2">
           <h1 className="text-2xl font-bold mb-4">Contact</h1>
           <p className="mb-4">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
@@ -50,7 +50,7 @@ const ContactSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="cpl-span-1 lg:col-span-2 lg:col-start-2 lg:row-start-2 row-span-1 p-4">
+        <div className="cpl-span-1 lg:col-span-2 lg:col-start-2 lg:row-start-2 row-span-1 ">
           <form
             onSubmit={handleSubmit}
             className="grid grid-cols-1 lg:grid-cols-2 gap-4"

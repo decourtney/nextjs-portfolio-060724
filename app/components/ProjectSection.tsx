@@ -1,12 +1,10 @@
-import React, { use } from "react";
-import VerticalLine from "./VerticalLine";
+import React from "react";
 import { useContainerSize } from "../customHooks";
-import ProjectContainer from "./ProjectContainer";
 import { motion, useInView } from "framer-motion";
 
 const skewAmount = 1;
 
-const ProjectSection = () => {
+const ProjectSection: React.FC = () => {
   const { containerSize, ref } = useContainerSize();
   const projectTitles = [
     "Project Title 1",
@@ -18,8 +16,8 @@ const ProjectSection = () => {
   ];
 
   return (
-    <section id="project-section" className="">
-      <div ref={ref} className="relative grid grid-cols-1 lg:grid-cols-2">
+    <section id="project-section" className="p-4 lg:p-12">
+      <div ref={ref} className="relative grid grid-cols-1 lg:grid-cols-2 gap-8">
         {projectTitles.map((title, index) => (
           <div
             key={title}
@@ -41,18 +39,19 @@ const ProjectSection = () => {
 
 export default ProjectSection;
 
-const LeftContainer = ({ projectTitle }: { projectTitle: string }) => {
+const LeftContainer: React.FC<{ projectTitle: string }> = ({
+  projectTitle,
+}) => {
   const { containerSize, ref } = useContainerSize();
   const isInView = useInView(ref);
 
   return (
     <div
       ref={ref}
-      id="project-container"
-      className="relative h-[300px] bg-foreground overflow-hidden z-10"
+      className="relative h-[300px] bg-foreground overflow-hidden z-10 rounded-md shadow-lg"
     >
       <motion.div
-        className="absolute top-0 w-full h-full bg-background -z-10"
+        className="absolute top-0 left-0 w-full h-full bg-background rounded-md"
         style={{
           transformPerspective: 500,
           transformOrigin: "0% 0%",
@@ -62,28 +61,26 @@ const LeftContainer = ({ projectTitle }: { projectTitle: string }) => {
         whileHover={{ skewX: -skewAmount, skewY: -skewAmount }}
         transition={{ duration: 1, ease: "easeOut" }}
       />
-      <div
-        id="project-card"
-        className="w-full h-full z-10 text-center content-center pointer-events-none"
-      >
-        <h2 className="text-2xl font-black">{projectTitle}</h2>
+      <div className="relative w-full h-full flex items-center justify-center pointer-events-none z-10">
+        <h2 className="text-2xl font-black text-white">{projectTitle}</h2>
       </div>
     </div>
   );
 };
 
-const RightContainer = ({ projectTitle }: { projectTitle: string }) => {
+const RightContainer: React.FC<{ projectTitle: string }> = ({
+  projectTitle,
+}) => {
   const { containerSize, ref } = useContainerSize();
   const isInView = useInView(ref);
 
   return (
     <div
       ref={ref}
-      id="project-container"
-      className="relative h-[300px] bg-foreground overflow-hidden z-10"
+      className="relative h-[300px] bg-foreground overflow-hidden z-10 rounded-md shadow-lg"
     >
       <motion.div
-        className="absolute top-0 w-full h-full bg-background -z-10"
+        className="absolute top-0 left-0 w-full h-full bg-background rounded-md"
         style={{
           transformPerspective: 500,
           transformOrigin: "100% 0%",
@@ -93,12 +90,8 @@ const RightContainer = ({ projectTitle }: { projectTitle: string }) => {
         whileHover={{ skewX: skewAmount, skewY: skewAmount }}
         transition={{ duration: 1, ease: "easeOut" }}
       />
-
-      <div
-        id="project-card"
-        className="w-full h-full z-10 text-center content-center pointer-events-none"
-      >
-        <h2 className="text-2xl font-black">{projectTitle}</h2>
+      <div className="relative w-full h-full flex items-center justify-center pointer-events-none z-10">
+        <h2 className="text-2xl font-black text-white">{projectTitle}</h2>
       </div>
     </div>
   );
