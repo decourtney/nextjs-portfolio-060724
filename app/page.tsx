@@ -31,13 +31,13 @@ export default function App() {
   return (
     <section id="page-content">
       <div className=" w-full mx-auto  -mt-[48px]">
-        <LazySection name="home">
+        {/* <LazySection name="home">
           <HomeSection />
         </LazySection>
 
         <LazySection name="about">
           <AboutSection />
-        </LazySection>
+        </LazySection> */}
 
         <LazySection name="projects">
           <ProjectSection />

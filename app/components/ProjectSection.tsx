@@ -8,13 +8,10 @@ const skewAmount = 1;
 
 const ProjectSection = () => {
   const { containerSize, ref } = useContainerSize();
-
-  const projectTitlesLeft = [
+  const projectTitles = [
     "Project Title 1",
     "Project Title 2",
     "Project Title 3",
-  ];
-  const projectTitlesRight = [
     "Project Title 4",
     "Project Title 5",
     "Project Title 6",
@@ -22,20 +19,21 @@ const ProjectSection = () => {
 
   return (
     <section id="project-section" className="">
-      <div
-        ref={ref}
-        className="relative grid grid-cols-1 lg:grid-cols-2"
-      >
-        <div className="col-span-1 ">
-          {projectTitlesLeft.map((title, index) => (
-            <LeftContainer key={title} projectTitle={title} />
-          ))}
-        </div>
-        <div className="col-span-1 lg:translate-y-10">
-          {projectTitlesRight.map((title, index) => (
-            <RightContainer key={title} projectTitle={title} />
-          ))}
-        </div>
+      <div ref={ref} className="relative grid grid-cols-1 lg:grid-cols-2">
+        {projectTitles.map((title, index) => (
+          <div
+            key={title}
+            className={`col-span-1 ${
+              index % 2 !== 0 ? "lg:translate-y-10" : ""
+            }`}
+          >
+            {index % 2 === 0 ? (
+              <LeftContainer projectTitle={title} />
+            ) : (
+              <RightContainer projectTitle={title} />
+            )}
+          </div>
+        ))}
       </div>
     </section>
   );
