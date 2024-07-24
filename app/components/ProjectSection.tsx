@@ -75,7 +75,7 @@ const RightContainer: React.FC<{ projectTitle: string }> = ({
   const isInView = useInView(ref);
 
   return (
-    <div
+    <section
       ref={ref}
       className="relative h-[300px] bg-foreground overflow-hidden z-10 rounded-md shadow-lg"
     >
@@ -93,6 +93,6 @@ const RightContainer: React.FC<{ projectTitle: string }> = ({
       <div className="relative w-full h-full flex items-center justify-center pointer-events-none z-10">
         <h2 className="text-2xl font-black text-white">{projectTitle}</h2>
       </div>
-    </div>
+    </section>
   );
 };

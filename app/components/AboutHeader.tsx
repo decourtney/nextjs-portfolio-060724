@@ -1,4 +1,4 @@
-import { useMotionValue, motion, progress } from "framer-motion";
+import { useMotionValue, motion } from "framer-motion";
 import React, { useRef } from "react";
 import { useResponsiveCircleRadius } from "../customHooks";
 
@@ -7,36 +7,25 @@ const AboutHeader = ({
 }: {
   containerSize: { width: number; height: number };
 }) => {
-  // TODO check if this is the correct way to use useResponsiveCircleRadius
   const circleRadius = useResponsiveCircleRadius();
-  const targetRef = useRef<HTMLDivElement>(null); // targetRef is the element that will be watched for scroll
-  const progressX = useMotionValue(containerSize.width - 10); // TODO hardcoded value will need to change with screen size
-  const progressY = useMotionValue(10); // TODO hardcoded value will need to change with screen size
-  const conatinerWidth = containerSize.width;
-  const targetRadius = 15; // TODO hardcoded value will need to change with screen size
+  const targetRef = useRef<HTMLDivElement>(null);
+  const progressX = useMotionValue(containerSize.width - 10);
+  const progressY = useMotionValue(10);
+  const targetRadius = 15;
 
   return (
-    // TODO This section could be sticky and follow the user as they scroll down - test later
-    <section
-      id="about-header"
-      ref={targetRef}
-      className="relative"
-    >
+    <section id="about-header" ref={targetRef} className="relative mb-8">
       <div className="absolute top-0 w-full h-full">
         <div className="">
           <svg
             viewBox={`0 0 ${containerSize.width} ${containerSize.height}`}
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="xMidYMid meet"
-            // fill="hsl(var(--nextui-primary))"
           >
             <motion.circle
               id={"progress-circle"}
-              // cx={progressX}
-              // cy={progressY}
-              // r={circleRadius}
-              initial={{ r: circleRadius, cx: targetRadius, cy: circleRadius }} // TODO hardcoded value will need to change with screen size
-              animate={{ r: targetRadius, cy: targetRadius }} // TODO hardcoded value will need to change with screen size
+              initial={{ r: circleRadius, cx: targetRadius, cy: circleRadius }}
+              animate={{ r: targetRadius, cy: targetRadius }}
               fill="hsl(var(--nextui-primary))"
             />
             <motion.path
@@ -59,8 +48,6 @@ const AboutHeader = ({
               fill={"hsl(var(--nextui-primary))"}
               fontSize={"25"}
               fontWeight={"bold"}
-              // initial={{ x:  10 }}
-              // animate={{ x: 150 }}
             >
               <motion.textPath
                 href={"#progress-line"}
