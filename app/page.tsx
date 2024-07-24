@@ -8,6 +8,7 @@ import LazySection from "./components/LazySection";
 import useWindowSize from "./customHooks/useWindowSize";
 import HomeScrollLine from "./components/VerticalLine";
 import ProjectSection from "./components/ProjectSection";
+import ContactSection from "./components/ContactSection";
 
 export default function App() {
   const router = useRouter();
@@ -30,17 +31,21 @@ export default function App() {
 
   return (
     <section id="page-content">
-      <div className=" w-full mx-auto  -mt-[48px]">
+      <div className="w-full mx-auto -mt-[48px]">
         {/* <LazySection name="home">
           <HomeSection />
         </LazySection>
 
         <LazySection name="about">
           <AboutSection />
-        </LazySection> */}
+        </LazySection>
 
         <LazySection name="projects">
           <ProjectSection />
+        </LazySection> */}
+
+        <LazySection name="contact">
+          <ContactSection />
         </LazySection>
       </div>
     </section>
