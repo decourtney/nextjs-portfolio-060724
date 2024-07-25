@@ -12,7 +12,7 @@ interface Ball {
   friction: number;
 }
 
-const BouncingBallCanvas = () => {
+const BouncingIcons = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { scrollY } = useScroll();
   const previousScrollY = useRef(0);
@@ -89,6 +89,7 @@ const BouncingBallCanvas = () => {
   const initializeBalls = (canvas: HTMLCanvasElement) => {
     const balls: Ball[] = [];
     const maxAttempts = 100; // Maximum attempts to position a ball without overlap
+    const spacing = canvas.width / (svgPaths.length + 1);
 
     for (let i = 0; i < svgPaths.length; i++) {
       let ball: Ball;
@@ -312,4 +313,4 @@ const BouncingBallCanvas = () => {
   return <canvas ref={canvasRef} className="w-full h-full" />;
 };
 
-export default BouncingBallCanvas;
+export default BouncingIcons;

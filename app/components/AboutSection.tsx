@@ -12,6 +12,7 @@ import AboutHeader from "./AboutHeader";
 import VerticalLine from "./VerticalLine";
 import AboutContent from "./AboutContent";
 import { URLSearchParams } from "url";
+import BouncingBallCanvas from "./old_BouncingIcons";
 
 const content = [
   "Im just a dude who likes art and programming.",

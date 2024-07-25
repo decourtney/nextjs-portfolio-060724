@@ -62,7 +62,7 @@ const LeftContainer: React.FC<{ projectTitle: string }> = ({
         transition={{ duration: 1, ease: "easeOut" }}
       />
       <div className="relative w-full h-full flex items-center justify-center pointer-events-none z-10">
-        <h2 className="text-2xl font-black text-white">{projectTitle}</h2>
+        <h2 className="text-5xl font-black text-white">{projectTitle}</h2>
       </div>
     </div>
   );
@@ -90,8 +90,8 @@ const RightContainer: React.FC<{ projectTitle: string }> = ({
         whileHover={{ skewX: skewAmount, skewY: skewAmount }}
         transition={{ duration: 1, ease: "easeOut" }}
       />
-      <div className="relative w-full h-full flex items-center justify-center pointer-events-none z-10">
-        <h2 className="text-2xl font-black text-white">{projectTitle}</h2>
+      <div className="relative w-full h-full flex justify-center items-center p-4 pointer-events-none z-10">
+        <h2 className="text-5xl font-black text-white">{projectTitle}</h2>
       </div>
     </section>
   );

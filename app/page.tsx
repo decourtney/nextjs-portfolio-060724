@@ -31,22 +31,22 @@ export default function App() {
 
   return (
     <section id="page-content">
-      <div className="w-full mx-auto -mt-[48px]">
-        <LazySection name="home">
-          <HomeSection />
-        </LazySection>
+      <div className="w-full mx-auto -mt-[48px] px-4">
+        {/* <LazySection name="home"> */}
+          {/* <HomeSection /> */}
+        {/* </LazySection> */}
 
-        <LazySection name="about">
+        {/* <LazySection name="about"> */}
           <AboutSection />
-        </LazySection>
+        {/* </LazySection> */}
 
-        <LazySection name="projects">
+        {/* <LazySection name="projects"> */}
           <ProjectSection />
-        </LazySection>
+        {/* </LazySection> */}
 
-        <LazySection name="contact">
+        {/* <LazySection name="contact"> */}
           <ContactSection />
-        </LazySection>
+        {/* </LazySection> */}
       </div>
     </section>
   );

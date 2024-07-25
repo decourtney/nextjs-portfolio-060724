@@ -12,14 +12,14 @@ interface Ball {
   friction: number;
 }
 
-const BouncingBallCanvas = () => {
+const BouncingIcons = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { scrollY } = useScroll();
   const previousScrollY = useRef(0);
-  const ballsInitialized = useRef(false); // Track if balls have been initialized
+  const ballsInitialized = useRef(false);
   const ballsRef = useRef<Ball[]>([]);
-  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null); // Debounce timer reference
-  const debounceDelay = 100; // Delay in milliseconds
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const debounceDelay = 100;
 
   // Bounce Controls
   const force = -5;
@@ -72,7 +72,7 @@ const BouncingBallCanvas = () => {
       ></path>
     </svg>`,
 
-    //NextJS
+    // NextJS
     `<svg viewBox="0 0 128 128">
       <path d="M64 0A64 64 0 0 0 0 64a64 64 0 0 0 64 64 64 64 0 0 0 35.508-10.838L47.014 49.34v40.238H38.4V38.4h10.768l57.125 73.584A64 64 0 0 0 128 64 64 64 0 0 0 64 0Zm17.777 38.4h8.534v48.776L81.777 75.97Zm24.18 73.92-.111.096a64 64 0 0 0 .111-.096z"></path>
     </svg>`,
@@ -88,42 +88,19 @@ const BouncingBallCanvas = () => {
 
   const initializeBalls = (canvas: HTMLCanvasElement) => {
     const balls: Ball[] = [];
-    const maxAttempts = 100; // Maximum attempts to position a ball without overlap
+    const spacing = canvas.width / (svgPaths.length + 1);
 
     for (let i = 0; i < svgPaths.length; i++) {
-      let ball: Ball;
-      let overlapping: boolean;
-      let attempts = 0;
-
-      do {
-        overlapping = false;
-        ball = {
-          x: Math.random() * (canvas.width - radius * 2) + radius,
-          y: Math.random() * (canvas.height - radius * 2) + radius,
-          vx: Math.random() * 4 - 2,
-          vy: Math.random() * 4 - 2,
-          radius,
-          svgPath: svgPaths[i % svgPaths.length], // Assign SVG path to ball
-          gravity,
-          friction,
-        };
-
-        for (const otherBall of balls) {
-          const dx = otherBall.x - ball.x;
-          const dy = otherBall.y - ball.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < ball.radius + otherBall.radius) {
-            overlapping = true;
-            break;
-          }
-        }
-
-        attempts++;
-        if (attempts >= maxAttempts) {
-          overlapping = false; // Force exit after max attempts
-        }
-      } while (overlapping);
+      const ball: Ball = {
+        x: spacing * (i + 1),
+        y: canvas.height - radius,
+        vx: Math.random() * 4 - 2,
+        vy: Math.random() * 4 - 2,
+        radius,
+        svgPath: svgPaths[i % svgPaths.length],
+        gravity,
+        friction,
+      };
 
       balls.push(ball);
     }
@@ -137,16 +114,14 @@ const BouncingBallCanvas = () => {
     const context = canvas?.getContext("2d");
     if (!canvas || !context) return;
 
-    if (!ballsInitialized.current) {
-      initializeBalls(canvas);
-    }
-
-    let animationFrameId: number;
-
     const resizeCanvas = () => {
       if (!canvas || !context) return;
       canvas.width = canvas.clientWidth;
       canvas.height = canvas.clientHeight;
+
+      if (!ballsInitialized.current) {
+        initializeBalls(canvas);
+      }
     };
 
     const detectCollisions = (ball: Ball, otherBall: Ball) => {
@@ -155,16 +130,13 @@ const BouncingBallCanvas = () => {
       const distance = Math.sqrt(dx * dx + dy * dy);
 
       if (distance < ball.radius + otherBall.radius) {
-        // Simple elastic collision
         const angle = Math.atan2(dy, dx);
         const sin = Math.sin(angle);
         const cos = Math.cos(angle);
 
-        // Rotate ball positions
         const pos0 = { x: 0, y: 0 };
         const pos1 = { x: dx * cos + dy * sin, y: dy * cos - dx * sin };
 
-        // Rotate ball velocities
         const vel0 = {
           x: ball.vx * cos + ball.vy * sin,
           y: ball.vy * cos - ball.vx * sin,
@@ -174,7 +146,6 @@ const BouncingBallCanvas = () => {
           y: otherBall.vy * cos - otherBall.vx * sin,
         };
 
-        // Swap velocities
         const vxTotal = vel0.x - vel1.x;
         vel0.x =
           ((ball.radius - otherBall.radius) * vel0.x +
@@ -182,14 +153,12 @@ const BouncingBallCanvas = () => {
           (ball.radius + otherBall.radius);
         vel1.x = vxTotal + vel0.x;
 
-        // Update positions to avoid overlap
         const absV = Math.abs(vel0.x) + Math.abs(vel1.x);
         const overlap = (ball.radius + otherBall.radius - distance + 1) / absV;
 
         pos0.x += vel0.x * overlap;
         pos1.x += vel1.x * overlap;
 
-        // Rotate positions and velocities back
         const pos0F = {
           x: pos0.x * cos - pos0.y * sin,
           y: pos0.y * cos + pos0.x * sin,
@@ -238,7 +207,6 @@ const BouncingBallCanvas = () => {
         ball.x += ball.vx;
         ball.y += ball.vy;
 
-        // Check for collisions with the canvas bounds
         if (ball.x + ball.radius > canvas.width) {
           ball.x = canvas.width - ball.radius;
           ball.vx = -ball.vx;
@@ -255,24 +223,24 @@ const BouncingBallCanvas = () => {
           ball.vy = -ball.vy;
         }
 
-        // Check for collisions with other balls
         for (let j = index + 1; j < ballsRef.current.length; j++) {
           detectCollisions(ball, ballsRef.current[j]);
         }
 
         const fillColor = getCssVariable("--primary-100");
 
-        // Draw the SVG path at the ball's position
         const path = parseSVG(ball.svgPath);
         context.save();
         context.translate(ball.x - ball.radius, ball.y - ball.radius);
-        context.scale(ball.radius / 64, ball.radius / 64); // Scale SVG to fit ball radius
-        context.fillStyle = getComputedStyle(context.canvas).getPropertyValue("--test-stuff"); // Set fill color
+        context.scale(ball.radius / 64, ball.radius / 64);
+        context.fillStyle = getComputedStyle(context.canvas).getPropertyValue(
+          "--svg-icons"
+        );
         context.fill(path);
         context.restore();
       });
 
-      animationFrameId = requestAnimationFrame(drawBalls);
+      requestAnimationFrame(drawBalls);
     };
 
     window.addEventListener("resize", resizeCanvas);
@@ -280,7 +248,6 @@ const BouncingBallCanvas = () => {
     drawBalls();
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
@@ -295,11 +262,11 @@ const BouncingBallCanvas = () => {
     debounceTimerRef.current = setTimeout(() => {
       ballsRef.current.forEach((ball) => {
         if (deltaY > 0) {
-          ball.vy += force + Math.random() * 4 - 2; // Apply upward force with random variance
-          ball.vx += Math.random() * 4 - 2; // Apply random horizontal force
+          ball.vy -= force + Math.random() * 4 - 2;
+          ball.vx += Math.random() * 4 - 2;
         } else if (deltaY < 0) {
-          ball.vy -= force + Math.random() * 4 - 2; // Apply downward force with random variance
-          ball.vx -= Math.random() * 4 - 2; // Apply random horizontal force
+          ball.vy += force + Math.random() * 4 - 2;
+          ball.vx -= Math.random() * 4 - 2;
         }
       });
     }, debounceDelay);
@@ -310,4 +277,4 @@ const BouncingBallCanvas = () => {
   return <canvas ref={canvasRef} className="w-full h-full" />;
 };
 
-export default BouncingBallCanvas;
+export default BouncingIcons;

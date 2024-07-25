@@ -1,17 +1,25 @@
 import React from "react";
 import AboutBio from "./AboutBio";
-import BouncingBallCanvas from "./BouncingBallCanvas";
+// import BouncingIcons from "./old_BouncingIcons";
+import BouncingIcons from "./BouncingIcons";
 
 const AboutContent = () => {
   return (
-    <div className="sticky top-24 pb-16">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="col-span-1 flex justify-center">
+    <div className="sticky top-0 min-h-dvh">
+      <div className="relative pt-24 max-w-[60%] mx-auto">
+        <div className="float-right max-w-[500px] ml-4 mb-4 z-20">
+          <img
+            src={"/images/lake.jpg"}
+            className="rounded-lg shadow-lg"
+            alt="Lake"
+          />
+        </div>
+        <div className="relative -z-10">
           <AboutBio />
         </div>
-        <div className="col-span-1 w-full h-full">
-          <BouncingBallCanvas />
-        </div>
+      </div>
+      <div className="absolute top-0 w-full h-full -z-20">
+        <BouncingIcons />
       </div>
     </div>
   );
