@@ -6,8 +6,8 @@ import {
   useTransform,
 } from "framer-motion";
 import { useReducer, useRef } from "react";
-import { useStateContext } from "../customHooks";
-import useResponsiveCircleRadius from "../customHooks/useResponsiveCircleRadius";
+import { useStateContext } from "../utilities";
+import useResponsiveCircleRadius from "../utilities/useResponsiveCircleRadius";
 
 interface VerticalLineProps {
   containerSize: { width: number; height: number };
@@ -26,7 +26,7 @@ const VerticalLine = ({
   inputRange,
   outputRange,
   xPosition = 15,
-  lineWidth = 4
+  lineWidth = 4,
 }: VerticalLineProps) => {
   const { setToggle } = useStateContext();
   const targetRef = useRef<HTMLDivElement>(null); // targetRef is the element that will be watched for scroll
@@ -52,7 +52,10 @@ const VerticalLine = ({
   // });
 
   return (
-    <section ref={targetRef} className="absolute top-0 w-full h-full pointer-events-none z-20">
+    <section
+      ref={targetRef}
+      className="absolute top-0 w-full h-full pointer-events-none z-20"
+    >
       <svg
         viewBox={`0 0 ${containerSize.width} ${containerSize.height}`}
         xmlns="http://www.w3.org/2000/svg"

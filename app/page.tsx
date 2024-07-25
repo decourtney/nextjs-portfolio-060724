@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import AboutSection from "./components/AboutSection";
 import HomeSection from "./components/HomeSection";
 import LazySection from "./components/LazySection";
-import useWindowSize from "./customHooks/useWindowSize";
+import useWindowSize from "./utilities/useWindowSize";
 import HomeScrollLine from "./components/VerticalLine";
 import ProjectSection from "./components/ProjectSection";
 import ContactSection from "./components/ContactSection";
@@ -31,21 +31,21 @@ export default function App() {
 
   return (
     <section id="page-content">
-      <div className="w-full mx-auto -mt-[48px] px-4">
+      <div className="w-full lg:max-w-[60%] mx-auto -mt-[48px] px-4">
         {/* <LazySection name="home"> */}
-          {/* <HomeSection /> */}
+        {/* <HomeSection /> */}
         {/* </LazySection> */}
 
         {/* <LazySection name="about"> */}
-          <AboutSection />
+        <AboutSection />
         {/* </LazySection> */}
 
         {/* <LazySection name="projects"> */}
-          <ProjectSection />
+        <ProjectSection />
         {/* </LazySection> */}
 
         {/* <LazySection name="contact"> */}
-          <ContactSection />
+        <ContactSection />
         {/* </LazySection> */}
       </div>
     </section>

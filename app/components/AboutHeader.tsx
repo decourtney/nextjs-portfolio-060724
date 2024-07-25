@@ -1,6 +1,6 @@
 import { useMotionValue, motion } from "framer-motion";
 import React, { useRef } from "react";
-import { useResponsiveCircleRadius } from "../customHooks";
+import { useResponsiveCircleRadius } from "../utilities";
 
 const AboutHeader = ({
   containerSize,

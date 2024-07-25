@@ -2,7 +2,7 @@ import { MotionValue, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import HomeScrollContent from "./HomeScrollContent";
 import VerticalLine from "./VerticalLine";
-import { useContainerSize } from "../customHooks";
+import { useContainerSize } from "../utilities";
 
 const HomeSection = () => {
   const { containerSize, ref } = useContainerSize();

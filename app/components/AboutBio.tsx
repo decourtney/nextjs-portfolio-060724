@@ -1,20 +1,27 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
+import { useIsMobile } from "../utilities";
 
 const AboutBio = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.5, once: true });
+  const isMobile = useIsMobile();
+
   return (
     <motion.div
       ref={ref}
       className="lg:w-3/4 space-y-5 rounded-lg text-xl text-primary-100 origin-right backdrop-blur-sm"
-      style={{
-        x: isInView ? 15 : 0,
-        rotateY: isInView ? 10 : 0,
-        transformPerspective: "2000px",
-        transformStyle: "preserve-3d",
-        transition: "transform 1s",
-      }}
+      style={
+        !isMobile
+          ? {
+              x: isInView ? 15 : 0,
+              rotateY: isInView ? 10 : 0,
+              transformPerspective: "2000px",
+              transformStyle: "preserve-3d",
+              transition: "transform 1s",
+            }
+          : {}
+      }
     >
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor

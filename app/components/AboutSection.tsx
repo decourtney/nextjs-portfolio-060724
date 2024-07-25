@@ -6,8 +6,8 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { useStateContext } from "../customHooks/useStateContex";
-import { useContainerSize } from "../customHooks";
+import { useStateContext } from "../utilities/useStateContex";
+import { useContainerSize } from "../utilities";
 import AboutHeader from "./AboutHeader";
 import VerticalLine from "./VerticalLine";
 import AboutContent from "./AboutContent";
@@ -35,7 +35,11 @@ const AboutSection = () => {
   // if (!ref) return null;
 
   return (
-    <section id="about-section" ref={ref} className="relative w-full min-h-[150dvh]">
+    <section
+      id="about-section"
+      ref={ref}
+      className="relative w-full min-h-[150dvh]"
+    >
       {state.toggles["about-section"] && containerSize && (
         <AboutHeader containerSize={containerSize} />
       )}

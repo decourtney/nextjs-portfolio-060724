@@ -1,5 +1,5 @@
 import React from "react";
-import { useContainerSize } from "../customHooks";
+import { useContainerSize } from "../utilities";
 import VerticalLine from "./VerticalLine";
 
 interface ProjectContainerProps {
