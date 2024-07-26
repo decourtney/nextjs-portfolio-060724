@@ -37,7 +37,7 @@ export default function App() {
         {/* </LazySection> */}
 
         {/* <LazySection name="about"> */}
-        <AboutSection />
+        {/* <AboutSection /> */}
         {/* </LazySection> */}
 
         {/* <LazySection name="projects"> */}
