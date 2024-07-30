@@ -1,13 +1,15 @@
 import { MotionValue, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import HomeScrollContent from "./HomeScrollContent";
+import HomeSVGScroll from "./HomeSVGScroll";
 import VerticalLine from "./VerticalLine";
 import { useContainerSize } from "../utilities";
+import HomeWordScroll from "./HomeWordScroll";
 
 const HomeSection = () => {
-  const { containerSize, ref } = useContainerSize();
+  const { ref, containerSize } = useContainerSize();
+
   return (
-    <section id="home-section" ref={ref}  className="relative">
+    <section id="home-section" ref={ref} className="relative h-full">
       <div className="mx-auto pt-20 pb-5">
         <svg
           viewBox="0 0 508 161"
@@ -24,26 +26,18 @@ const HomeSection = () => {
         </svg>
       </div>
 
-      <div className="relative h-full pb-12">
-        <HomeScrollContent />
+      <HomeWordScroll targetRef={ref}/>
 
-        {/* {containerSize && (
-          <VerticalLine
-            containerSize={containerSize}
-            toggleKey="about-section"
-            offset={["-5%", "end start"]}
-            inputRange={[0, 0.2, 0.8]}
-            outputRange={[0, 0.3, 1]}
-          />
-        )} */}
-      </div>
+      <HomeSVGScroll />
+
       {containerSize && (
         <VerticalLine
           containerSize={containerSize}
           toggleKey="about-section"
           offset={["-0%", "end start"]}
           inputRange={[0, 0.1, 0.1, 0.3, 0.8]}
-          outputRange={[0, 0, 0.1, 0.4, 1]}
+          outputRange={[0, 0, 0.1, 0.44, 1]}
+          xPosition={containerSize.width * 0.5}
         />
       )}
     </section>

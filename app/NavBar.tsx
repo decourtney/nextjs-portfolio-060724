@@ -3,10 +3,9 @@ import ThemeSwitcher from "./components/ThemeSwitcher";
 
 const NavBar = () => {
   return (
-    <nav className="sticky top-0 lg:max-w-[75%] mx-auto z-50">
-      <div className="flex justify-between items-center w-full px-3 py-2">
+    <nav className="sticky top-0 w-full z-50 bg-gradient-to-t from-transparent via-background via-40% to-background">
+      <div className="flex justify-between items-center lg:w-3/4 mx-auto px-3 py-2">
         <Button
-          // isIconOnly
           variant="light"
           size="sm"
           radius="full"

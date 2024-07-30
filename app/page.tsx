@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <section id="page-content">
-      <div className="w-full lg:max-w-[60%] mx-auto -mt-[48px] px-4">
+      <div className="w-full max-w-screen lg:max-w-[60%] mx-auto -mt-[48px] px-4">
         {/* <LazySection name="home"> */}
         <HomeSection />
         {/* </LazySection> */}

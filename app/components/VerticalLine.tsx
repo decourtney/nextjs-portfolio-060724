@@ -31,30 +31,17 @@ const VerticalLine = ({
   const { setToggle } = useStateContext();
   const targetRef = useRef<HTMLDivElement>(null); // targetRef is the element that will be watched for scroll
   const pathRef = useRef<SVGPathElement>(null); // pathRef is the path element that will be used to get the total length of the path
-  // const circleRadius = useResponsiveCircleRadius(); // circleRadius is the radius of the circle and the width of the path divided by 2
-  // const progressX = useMotionValue(15); // progressX is the x position of the circle
-  // const progressY = useMotionValue(-5); // progressY is the y position of the circle
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset,
   }); // scrollYProgress is the progress of the scroll from 0 to 1
   const pathLength = useTransform(scrollYProgress, inputRange, outputRange); // pathLength is the length of the path that will be drawn relative to the scroll progress
-  console.log(scrollYProgress.get());
-  // useMotionValueEvent is used to update the position of the circle based on the progress of the path
-  // useMotionValueEvent(pathLength, "change", (latest) => {
-  //   const totalPathLength = pathRef.current.getTotalLength();
-  //   const latestPathProgress = pathRef.current.getPointAtLength(
-  //     latest * totalPathLength
-  //   );
 
-  //   progressX.set(latestPathProgress.x);
-  //   progressY.set(latestPathProgress.y);
-  // });
-
+  // console.log(scrollYProgress.get());
   return (
     <section
       ref={targetRef}
-      className="absolute top-0 w-full h-full pointer-events-none z-20"
+      className="absolute top-0 w-full h-full pointer-events-none z-50"
     >
       <svg
         viewBox={`0 0 ${containerSize.width} ${containerSize.height}`}
