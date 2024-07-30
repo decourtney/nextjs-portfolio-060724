@@ -6,6 +6,7 @@ import {
   useScroll,
   useSpring,
   useTransform,
+  AnimatePresence,
 } from "framer-motion";
 import { HeartIcon } from "./svgs";
 
@@ -53,17 +54,16 @@ const HomeWordScroll = ({
       <div className="col-span-1 text-end leading-[85px]">
         <motion.p className="inline-block align-top mr-2">I</motion.p>
 
-        {showHeart && (
-          <motion.div
-            className="inline-flex align-top mt-5"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, type: "spring", stiffness: 300 }}
-          >
-            <HeartIcon width={50} height={50} fill="red" />
-          </motion.div>
-        )}
-
+          {showHeart && (
+            <motion.div
+              className="inline-flex align-top mt-5"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{  type: "spring", stiffness: 300 }}
+            >
+              <HeartIcon width={50} height={50} fill="red" />
+            </motion.div>
+          )}
         <motion.ul
           className="inline-block pr-2 w-fit text-center"
           style={{ translateY: verbY }}

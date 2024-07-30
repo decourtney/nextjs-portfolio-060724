@@ -1,8 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   motion,
   useInView,
   useMotionValue,
+  useMotionValueEvent,
   useScroll,
   useTransform,
 } from "framer-motion";
@@ -13,14 +14,24 @@ import VerticalLine from "./VerticalLine";
 import AboutContent from "./AboutContent";
 import { URLSearchParams } from "url";
 import BouncingBallCanvas from "./old_BouncingIcons";
+import AboutCircle from "./AboutCircle";
 
 const AboutSection = () => {
   const { state } = useStateContext();
   const { ref, containerSize } = useContainerSize();
   const contentRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(contentRef, { amount: 'some', once: true });
+  const isInView = useInView(ref, { amount: "all", once: false });
+  const { scrollYProgress } = useScroll({ target: ref });
+  const [enableContent, setEnableContent] = useState(false);
 
-  // if (!ref) return null;
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    console.log(latest);
+    if (latest > 0) {
+      setEnableContent(true);
+    } else {
+      setEnableContent(false);
+    }
+  });
 
   return (
     <section
@@ -30,21 +41,20 @@ const AboutSection = () => {
     >
       <div className="sticky top-12">
         {state.toggles["about-section"] && containerSize && (
-          <>
-            <AboutHeader containerSize={containerSize} />
-            <AboutContent />
-          </>
+          <AboutCircle containerSize={containerSize} />
         )}
+        {enableContent && <AboutHeader />}
+        {enableContent && <AboutContent />}
       </div>
-      <div
+      {/* <div
         ref={contentRef}
         className="absolute top-12 left-0 w-full h-full bg-slate-500"
         style={{
-          transform: isInView ? 'scaleY(0)': 'scaleY(1)',
+          transform: isInView ? "scaleY(0)" : "scaleY(1)",
           transition: "all 1s ease",
-          transformOrigin: "bottom"
+          transformOrigin: "bottom",
         }}
-      ></div>
+      ></div> */}
     </section>
   );
 };
