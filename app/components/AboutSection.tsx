@@ -14,23 +14,20 @@ import AboutContent from "./AboutContent";
 import { URLSearchParams } from "url";
 import BouncingBallCanvas from "./old_BouncingIcons";
 
-const content = [
-  "Im just a dude who likes art and programming.",
-  "Web development has provided me with an outlet to combine the two while still solving problems and providing services.",
-  "On the backend I primarily use NodeJs, MySQL, Mongo, and AWS. While exploring the front end I utilize React coupled with libraries such as Framer Motion and frameworks like Next.js.",
-  "The possibilities truly are limitless and I always look forward to chasing that end of line.",
-];
-
 const AboutSection = () => {
   const { state } = useStateContext();
   const { ref, containerSize } = useContainerSize();
   const contentRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(contentRef);
+  const isInView = useInView(contentRef, { amount: 'some', once: true });
 
   // if (!ref) return null;
 
   return (
-    <section id="about-section" ref={ref} className="w-full min-h-[150dvh] pb-24">
+    <section
+      id="about-section"
+      ref={ref}
+      className="relative w-full min-h-[150dvh] pb-24"
+    >
       <div className="sticky top-12">
         {state.toggles["about-section"] && containerSize && (
           <>
@@ -39,6 +36,15 @@ const AboutSection = () => {
           </>
         )}
       </div>
+      <div
+        ref={contentRef}
+        className="absolute top-12 left-0 w-full h-full bg-slate-500"
+        style={{
+          transform: isInView ? 'scaleY(0)': 'scaleY(1)',
+          transition: "all 1s ease",
+          transformOrigin: "bottom"
+        }}
+      ></div>
     </section>
   );
 };

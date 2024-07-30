@@ -1,13 +1,6 @@
-import {
-  motion,
-  useMotionValue,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { useReducer, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { useStateContext } from "../utilities";
-import useResponsiveCircleRadius from "../utilities/useResponsiveCircleRadius";
 
 interface VerticalLineProps {
   containerSize: { width: number; height: number };

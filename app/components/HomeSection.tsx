@@ -5,6 +5,7 @@ import VerticalLine from "./VerticalLine";
 import { useContainerSize } from "../utilities";
 import HomeWordScroll from "./HomeWordScroll";
 
+
 const HomeSection = () => {
   const { ref, containerSize } = useContainerSize();
 
@@ -26,7 +27,7 @@ const HomeSection = () => {
         </svg>
       </div>
 
-      <HomeWordScroll targetRef={ref}/>
+      <HomeWordScroll targetRef={ref} />
 
       <HomeSVGScroll />
 

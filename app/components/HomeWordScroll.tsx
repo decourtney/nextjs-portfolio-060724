@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   motion,
   useMotionValue,
@@ -7,6 +7,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
+import { HeartIcon } from "./svgs";
 
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];
@@ -20,6 +21,7 @@ const HomeWordScroll = ({
     target: targetRef,
     offset: ["-161px", "end start"], // offset determined by hero viewport height
   });
+  const [showHeart, setShowHeart] = useState(false);
 
   const verbIndex = useMotionValue(0);
   const nounIndex = useMotionValue(nouns.length - 1);
@@ -36,6 +38,11 @@ const HomeWordScroll = ({
     const nearestNounIndex = Math.round(
       (1 - latestOffset) * (nouns.length - 1)
     );
+    if (nearestVerbIndex === verbs.length - 1) {
+      setShowHeart(true);
+    } else {
+      setShowHeart(false);
+    }
 
     verbIndex.set(nearestVerbIndex);
     nounIndex.set(nearestNounIndex);
@@ -44,10 +51,21 @@ const HomeWordScroll = ({
   return (
     <motion.div className="sticky top-[10%] grid grid-cols-2 h-[85px] lg:mb-12 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black overflow-hidden">
       <div className="col-span-1 text-end leading-[85px]">
-        <p className="inline-block align-top">I</p>
+        <motion.p className="inline-block align-top mr-2">I</motion.p>
+
+        {showHeart && (
+          <motion.div
+            className="inline-flex align-top mt-5"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5, type: "spring", stiffness: 300 }}
+          >
+            <HeartIcon width={50} height={50} fill="red" />
+          </motion.div>
+        )}
 
         <motion.ul
-          className="inline-block px-2 w-fit text-center"
+          className="inline-block pr-2 w-fit text-center"
           style={{ translateY: verbY }}
         >
           {verbs.map((verb, index) => (
