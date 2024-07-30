@@ -62,7 +62,7 @@ export const DevelopSVG = () => {
         width="100%"
         height="100%"
         fill="none"
-        stroke="hsl(var(--nextui-primary))"
+        stroke="hsl(var(--nextui-primary-100))"
         strokeWidth="5"
       >
         {paths.map((path, i) => {

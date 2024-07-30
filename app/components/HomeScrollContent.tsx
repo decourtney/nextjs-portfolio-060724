@@ -10,6 +10,8 @@ import {
 import React, { use, useEffect, useRef, useState } from "react";
 import PopupBox from "./PopupBox";
 import { DevelopSVG } from "./svgs";
+import { useContainerSize } from "../utilities";
+import VerticalLine from "./VerticalLine";
 
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];
@@ -17,6 +19,7 @@ const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];
 const HomeScrollContent = () => {
   const targetRef = useRef<HTMLDivElement>(null);
   const [isEnabled, setIsEnabled] = useState(false);
+  const { ref, containerSize } = useContainerSize();
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -49,15 +52,12 @@ const HomeScrollContent = () => {
     nounIndex.set(nearestNounIndex);
   });
 
-  useEffect(() => {}, []);
-
   // This needs to adjust columns based on screen size SO i need to structure columns differently
   return (
-    <div ref={targetRef} className="flex flex-col h-full">
+    <div ref={targetRef} className="flex flex-col">
       <motion.div
-      // dont need to change grid cols here
+        // dont need to change grid cols here
         className="sticky top-[10%] grid grid-cols-2 h-[85px] text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black overflow-hidden"
-        // style={{ y }}
       >
         {/* left column */}
         <div className="col-span-1 text-end leading-[85px]">
@@ -114,8 +114,6 @@ const HomeScrollContent = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className="flex flex-grow bg-slate-400">stuff</div> */}
     </div>
   );
 };

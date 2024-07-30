@@ -39,7 +39,7 @@ const VerticalLine = ({
     offset,
   }); // scrollYProgress is the progress of the scroll from 0 to 1
   const pathLength = useTransform(scrollYProgress, inputRange, outputRange); // pathLength is the length of the path that will be drawn relative to the scroll progress
-
+  console.log(scrollYProgress.get());
   // useMotionValueEvent is used to update the position of the circle based on the progress of the path
   // useMotionValueEvent(pathLength, "change", (latest) => {
   //   const totalPathLength = pathRef.current.getTotalLength();
@@ -66,7 +66,7 @@ const VerticalLine = ({
           ref={pathRef}
           id="scroll-line"
           // TODO hardcoded values will need to change with screen size
-          d={`M${xPosition} -1 V${containerSize.height}`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
+          d={`M${xPosition} -2 V${containerSize.height}`} // M120.65 0 V250 moves from 120.65, 0 to 120.65, 250
           strokeWidth={lineWidth} // strokeWidth is the width of the path
           stroke="hsl(var(--nextui-primary-100))"
           strokeLinecap={"round"}
@@ -80,13 +80,6 @@ const VerticalLine = ({
             }
           }}
         />
-        {/* <motion.circle
-          id="scroll-line-circle"
-          cx={progressX}
-          cy={progressY}
-          r={circleRadius}
-          fill="hsl(var(--nextui-primary))"
-        /> */}
       </svg>
     </section>
   );

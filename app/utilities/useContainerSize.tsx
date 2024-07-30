@@ -10,7 +10,7 @@ const useContainerSize = () => {
   const [containerSize, setContainerSize] = useState<Size | null>(null);
 
   useEffect(() => {
-    if (!ref.current) return console.error("Ref not found");
+    if (!ref.current) return;
 
     const handleResize = () => {
       setContainerSize({

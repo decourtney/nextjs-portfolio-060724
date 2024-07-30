@@ -6,31 +6,8 @@ import { useContainerSize } from "../utilities";
 
 const HomeSection = () => {
   const { containerSize, ref } = useContainerSize();
-  // const ref = useRef<HTMLDivElement>(null);
-  // const [containerSize, setContainerSize] = useState<{
-  //   width: number;
-  //   height: number;
-  // } | null>(null);
-
-  // useEffect(() => {
-  //   if (!ref.current) return console.error("Ref not found");
-
-  //   const handleResize = () => {
-  //     setContainerSize({
-  //       width: ref.current!.clientWidth,
-  //       height: ref.current!.clientHeight,
-  //     });
-  //   };
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   handleResize();
-
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
-
   return (
-    <section ref={ref} id="home-section" className="relative">
+    <section id="home-section" ref={ref}  className="relative">
       <div className="mx-auto pt-20 pb-5">
         <svg
           viewBox="0 0 508 161"
@@ -47,20 +24,28 @@ const HomeSection = () => {
         </svg>
       </div>
 
-      <div className="h-[300dvh]">
+      <div className="relative h-full pb-12">
         <HomeScrollContent />
-      </div>
-      {/* <div id={"test-data"} className="h-[500px]"></div> */}
 
-      {/* {containerSize && (
+        {/* {containerSize && (
+          <VerticalLine
+            containerSize={containerSize}
+            toggleKey="about-section"
+            offset={["-5%", "end start"]}
+            inputRange={[0, 0.2, 0.8]}
+            outputRange={[0, 0.3, 1]}
+          />
+        )} */}
+      </div>
+      {containerSize && (
         <VerticalLine
           containerSize={containerSize}
           toggleKey="about-section"
-          offset={["end end", "end start"]}
-          inputRange={[0, 0.5]}
-          outputRange={[0, 1]}
+          offset={["-0%", "end start"]}
+          inputRange={[0, 0.1, 0.1, 0.3, 0.8]}
+          outputRange={[0, 0, 0.1, 0.4, 1]}
         />
-      )} */}
+      )}
     </section>
   );
 };

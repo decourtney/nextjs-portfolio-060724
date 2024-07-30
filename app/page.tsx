@@ -33,11 +33,11 @@ export default function App() {
     <section id="page-content">
       <div className="w-full lg:max-w-[60%] mx-auto -mt-[48px] px-4">
         {/* <LazySection name="home"> */}
-        {/* <HomeSection /> */}
+        <HomeSection />
         {/* </LazySection> */}
 
         {/* <LazySection name="about"> */}
-        {/* <AboutSection /> */}
+        <AboutSection />
         {/* </LazySection> */}
 
         {/* <LazySection name="projects"> */}

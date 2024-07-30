@@ -35,7 +35,7 @@ const ContactSection: React.FC = () => {
     };
 
   return (
-    <section id="contact-section" className="min-h-dvh px-4 content-center">
+    <section id="contact-section" className="min-h-dvh content-center">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 grid-rows-2 w-full lg:w-3/4 mx-auto">
 
         <div className="col-span-1 lg:col-span-2">
@@ -50,7 +50,7 @@ const ContactSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="cpl-span-1 lg:col-span-2 lg:col-start-2 lg:row-start-2 row-span-1 ">
+        <div className="cpl-span-1 lg:col-span-4 lg:row-start-2 row-span-1 lg:px-8">
           <form
             onSubmit={handleSubmit}
             className="grid grid-cols-1 lg:grid-cols-2 gap-4"

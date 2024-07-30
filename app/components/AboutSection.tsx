@@ -24,26 +24,21 @@ const content = [
 const AboutSection = () => {
   const { state } = useStateContext();
   const { ref, containerSize } = useContainerSize();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end end", "start start"],
-  });
-  const stuff = useTransform(scrollYProgress, [0, 1], [-125, 5]);
   const contentRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(contentRef);
 
   // if (!ref) return null;
 
   return (
-    <section
-      id="about-section"
-      ref={ref}
-      className="relative w-full min-h-[150dvh]"
-    >
-      {state.toggles["about-section"] && containerSize && (
-        <AboutHeader containerSize={containerSize} />
-      )}
-      <AboutContent />
+    <section id="about-section" ref={ref} className="w-full min-h-[150dvh] pb-24">
+      <div className="sticky top-12">
+        {state.toggles["about-section"] && containerSize && (
+          <>
+            <AboutHeader containerSize={containerSize} />
+            <AboutContent />
+          </>
+        )}
+      </div>
     </section>
   );
 };
