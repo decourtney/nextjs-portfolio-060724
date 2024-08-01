@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 // import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Providers>
           <NavBar />
           <main>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>

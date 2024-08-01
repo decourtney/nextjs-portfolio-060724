@@ -45,7 +45,7 @@ const ProjectContainer = ({
   };
 
   return (
-    <div className="h-[300px] rounded-md ">
+    <div className="h-[300px] rounded-md w-3/4 lg:w-full">
       <div className="relative w-full h-full">
         <motion.button
           ref={cardScope}
@@ -58,12 +58,6 @@ const ProjectContainer = ({
               ? "2px 2px 5px 0px hsl(var(--nextui-primary-100))"
               : "-2px 2px 5px 0px hsl(var(--nextui-primary-100))",
           }}
-          // whileHover={{
-          //   skewX: isLeft ? -skewAmount : skewAmount,
-          //   skewY: isLeft ? -skewAmount : skewAmount,
-          //   transition: { type: "tween" },
-          //   boxShadow: "0px 0px 0px 0px rgba(0,0,0,0.5)",
-          // }}
           onHoverStart={handleHoverStart}
           onHoverEnd={handleHoverEnd}
           onClick={() => onOpen()}
@@ -75,7 +69,11 @@ const ProjectContainer = ({
 
         <motion.div
           ref={imgScope}
-          className="absolute top-0 left-0 w-full h-full rounded-md shadow-md shadow-[hsl(var(--nextui-primary-500))]"
+          className={`absolute top-0 left-0 w-full h-full ${
+            isLeft
+              ? "translate-x-[30px] lg:translate-x-0"
+              : "-translate-x-[30px] lg:translate-x-0"
+          }  translate-y-[20px] lg:translate-y-0 rounded-md shadow-md shadow-[hsl(var(--nextui-primary-500))]`}
         >
           <img
             src="/images/lake.jpg"

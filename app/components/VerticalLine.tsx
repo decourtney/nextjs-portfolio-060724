@@ -34,7 +34,7 @@ const VerticalLine = ({
   return (
     <section
       ref={targetRef}
-      className="absolute top-0 w-full h-full pointer-events-none z-50"
+      className="absolute top-0 w-full h-full pointer-events-none"
     >
       <svg
         viewBox={`0 0 ${containerSize.width} ${containerSize.height}`}

@@ -3,12 +3,10 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import AboutSection from "./components/AboutSection";
-import HomeSection from "./components/HomeSection";
-import LazySection from "./components/LazySection";
-import useWindowSize from "./utilities/useWindowSize";
-import HomeScrollLine from "./components/VerticalLine";
-import ProjectSection from "./components/ProjectSection";
 import ContactSection from "./components/ContactSection";
+import HomeSection from "./components/HomeSection";
+import ProjectSection from "./components/ProjectSection";
+import ToolsSection from "./components/ToolsSection";
 
 export default function App() {
   const router = useRouter();
@@ -30,24 +28,16 @@ export default function App() {
   }
 
   return (
-    <section id="page-content">
-      <div className="relative w-full lg:max-w-[80%] xl:max-w-[60%] mx-auto -mt-[48px] px-4">
-        {/* <LazySection name="home"> */}
-        <HomeSection />
-        {/* </LazySection> */}
+    <section className="relative w-full lg:max-w-[80%] xl:max-w-[60%] mx-auto -mt-[48px] px-4 md:px-8">
+      <HomeSection />
 
-        {/* <LazySection name="about"> */}
-        <AboutSection />
-        {/* </LazySection> */}
+      <AboutSection />
 
-        {/* <LazySection name="projects"> */}
-        <ProjectSection />
-        {/* </LazySection> */}
+      <ProjectSection />
 
-        {/* <LazySection name="contact"> */}
-        <ContactSection />
-        {/* </LazySection> */}
-      </div>
+      <ToolsSection />
+
+      <ContactSection />
     </section>
   );
 }

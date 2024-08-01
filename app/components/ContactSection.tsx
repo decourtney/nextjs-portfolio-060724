@@ -1,5 +1,5 @@
-import { Input, Textarea, Button } from "@nextui-org/react";
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import { Button, Input, Textarea } from "@nextui-org/react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 
 const ContactSection: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -35,11 +35,12 @@ const ContactSection: React.FC = () => {
     };
 
   return (
-    <section id="contact-section" className="min-h-[110dvh] content-center">
-      <div className="w-full py-24 text-center text-[hsl(var(--nextui-primary-100))] text-5xl font-bold">
-        <h1>Contact</h1>
+    <section id="contact" className="w-full pt-24 min-h-dvh">
+      <div className="text-center text-[hsl(var(--nextui-primary-100))] text-5xl font-bold">
+        <h1>CONTACT</h1>
       </div>
-      <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-4 grid-rows-2 w-full lg:w-3/4 mx-auto">
+
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 grid-rows-2 w-full mt-24 lg:w-3/4 mx-auto">
         <div className="col-span-1 lg:col-span-2">
           <p className="mb-4">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime

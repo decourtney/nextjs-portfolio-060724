@@ -1,17 +1,18 @@
-import { MotionValue, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import HomeSVGScroll from "./HomeSVGScroll";
-import VerticalLine from "./VerticalLine";
+import { useScroll } from "framer-motion";
 import { useContainerSize } from "../utilities";
+import HomeSVGScroll from "./HomeSVGScroll";
 import HomeWordScroll from "./HomeWordScroll";
 
-
 const HomeSection = () => {
-  const { ref, containerSize } = useContainerSize();
+  const { ref } = useContainerSize();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["-161px", "end start"], // offset determined by hero viewport height
+  });
 
   return (
-    <section id="home-section" ref={ref} className="relative min-h-dvh">
-      <div className="mx-auto pt-20 md:pb-10">
+    <section id="home" ref={ref} className="relative min-h-dvh">
+      <div className="mx-auto pt-24 md:pb-10">
         <svg
           viewBox="0 0 508 161"
           height={"100%"}
@@ -27,20 +28,9 @@ const HomeSection = () => {
         </svg>
       </div>
 
-      <HomeWordScroll targetRef={ref} />
+      <HomeWordScroll scrollYProgress={scrollYProgress} />
 
       <HomeSVGScroll />
-
-      {containerSize && (
-        <VerticalLine
-          containerSize={containerSize}
-          toggleKey="about-section"
-          offset={["-0%", "end start"]}
-          inputRange={[0, 0.1, 0.1, 0.3, 0.8]}
-          outputRange={[0, 0, 0.1, 0.44, 1]}
-          xPosition={containerSize.width * 0.5}
-        />
-      )}
     </section>
   );
 };

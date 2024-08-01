@@ -12,13 +12,8 @@ const AboutContent = () => {
   const isInView = useInView(ref, { amount: "some", once: false });
 
   return (
-    <motion.div
-      className="relative"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="relative mx-auto backdrop-blur-sm">
+    <div className="relative w-full">
+      <div className="relative w-full h-full mx-auto">
         <div
           ref={ref}
           className="lg:float-right max-w-[500px] mx-auto lg:ml-8 mb-8"
@@ -35,11 +30,7 @@ const AboutContent = () => {
         </div>
         <AboutBio />
       </div>
-      
-      <div className="lg:absolute lg:top-0 w-full h-full -z-20">
-        {isMobile ? <BoringIcons /> : <BouncingIcons />}
-      </div>
-    </motion.div>
+    </div>
   );
 };
 

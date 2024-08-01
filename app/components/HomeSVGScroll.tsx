@@ -1,17 +1,3 @@
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useMotionValueEvent,
-  useInView,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
-import React, { use, useEffect, useRef, useState } from "react";
-import PopupBox from "./PopupBox";
-import { DevelopSVG } from "./svgs";
-import { useContainerSize } from "../utilities";
-import VerticalLine from "./VerticalLine";
 
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];
