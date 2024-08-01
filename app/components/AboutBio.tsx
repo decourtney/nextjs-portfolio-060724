@@ -1,17 +1,6 @@
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-import { useIsMobile } from "../utilities";
-
 const AboutBio = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.5, once: false });
-  const isMobile = useIsMobile();
-
   return (
-    <motion.div
-      ref={ref}
-      className="lg:w-3/4 space-y-5 rounded-lg text-xl text-primary-100 backdrop-blur-sm"
-    >
+    <div className="lg:w-3/4 space-y-5 rounded-lg text-xl text-primary-100">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor
         nisi vitae ante pellentesque, quis vehicula diam eleifend. Pellentesque
@@ -41,7 +30,7 @@ const AboutBio = () => {
         Phasellus volutpat mi sem, eu volutpat elit iaculis vel. Sed eleifend
         felis fringilla porttitor ullamcorper. Vivamus ac luctus ex.
       </p>
-    </motion.div>
+    </div>
   );
 };
 

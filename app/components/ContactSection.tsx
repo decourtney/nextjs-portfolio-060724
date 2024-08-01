@@ -35,11 +35,12 @@ const ContactSection: React.FC = () => {
     };
 
   return (
-    <section id="contact-section" className="min-h-dvh content-center">
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 grid-rows-2 w-full lg:w-3/4 mx-auto">
-
+    <section id="contact-section" className="min-h-[110dvh] content-center">
+      <div className="w-full py-24 text-center text-[hsl(var(--nextui-primary-100))] text-5xl font-bold">
+        <h1>Contact</h1>
+      </div>
+      <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-4 grid-rows-2 w-full lg:w-3/4 mx-auto">
         <div className="col-span-1 lg:col-span-2">
-          <h1 className="text-2xl font-bold mb-4">Contact</h1>
           <p className="mb-4">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
             nesciunt perspiciatis magni, sed possimus cum porro eligendi ipsam!

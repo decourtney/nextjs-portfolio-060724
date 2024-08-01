@@ -50,7 +50,7 @@ const HomeWordScroll = ({
   });
 
   return (
-    <motion.div className="sticky top-[10%] grid grid-cols-2 h-[85px] lg:mb-12 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black overflow-hidden">
+    <motion.div className="sticky top-[20%] grid grid-cols-2 h-[85px] mb-12 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black overflow-hidden">
       <div className="col-span-1 text-end leading-[85px]">
         <motion.p className="inline-block align-top mr-2">I</motion.p>
 

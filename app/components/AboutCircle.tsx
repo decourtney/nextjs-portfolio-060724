@@ -1,4 +1,4 @@
-import { useMotionValue, motion } from "framer-motion";
+import { useMotionValue, motion, AnimatePresence } from "framer-motion";
 import React, { useRef } from "react";
 import { useResponsiveCircleRadius } from "../utilities";
 
@@ -27,9 +27,9 @@ const AboutCircle = ({
         >
           <motion.circle
             id={"progress-circle"}
+            fill="hsl(var(--nextui-primary-100))"
             initial={{ r: circleRadius, cx: targetRadius, cy: circleRadius }}
             animate={{ r: targetRadius, cy: targetRadius }}
-            fill="hsl(var(--nextui-primary-100))"
           />
         </svg>
       </div>

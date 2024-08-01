@@ -10,8 +10,8 @@ const HomeSection = () => {
   const { ref, containerSize } = useContainerSize();
 
   return (
-    <section id="home-section" ref={ref} className="relative h-full">
-      <div className="mx-auto pt-20 pb-5">
+    <section id="home-section" ref={ref} className="relative min-h-dvh">
+      <div className="mx-auto pt-20 md:pb-10">
         <svg
           viewBox="0 0 508 161"
           height={"100%"}
