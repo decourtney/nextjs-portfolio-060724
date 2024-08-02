@@ -2,6 +2,7 @@ import { useScroll } from "framer-motion";
 import { useContainerSize } from "../utilities";
 import HomeSVGScroll from "./HomeSVGScroll";
 import HomeWordScroll from "./HomeWordScroll";
+import AnimatedSvg from "./test";
 
 const HomeSection = () => {
   const { ref } = useContainerSize();
