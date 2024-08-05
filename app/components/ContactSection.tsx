@@ -1,3 +1,5 @@
+'use client'
+
 import { Button, Input, Textarea } from "@nextui-org/react";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 

@@ -1,15 +1,3 @@
-import { interpolate } from "flubber";
-import {
-  animate,
-  useMotionValue,
-  motion,
-  useTransform,
-  useScroll,
-  useMotionValueEvent,
-} from "framer-motion";
-import { use, useEffect, useRef, useState } from "react";
-import useFlubber from "../utilities/useFlubber";
-
 const shapeFrom = [
   "M173.659129,42.756738c4.964735-2.526798,12.870404-3.21757,14.215631,1.236142c1.820601,6.027557-5.587753,6.113627-4.401397,9.504556c1.284105,3.670322,15.960826.309309,19.853177,2.856864c1.98497,1.299169,2.236473,3.816993,3.70843,4.94457c1.646031,1.260925,19.99143,2.93407,24.72285,5.56264c3.8402,2.13344,4.351224,7.783144,7.41685,10.50721c4.711975,4.186986,7.465828-1.392532,11.74335,8.653-6.655821-8.373658-6.750011-2.816445-12.747604-7.361243-3.494996-2.648405-3.948538-8.335723-7.355402-10.281475-4.882419-2.788481-21.983973-3.728216-24.860347-5.614718-2.070829-1.358176-1.807297-3.705709-3.692569-4.783008-3.931012-2.246294-18.961738,1.018042-20.402832-3.64432-1.718702-5.560504,5.695304-4.987604,4.381003-9.570807-.931796-3.249341-5.649155-2.70621-12.58114-2.009411Z",
   "M139.04714,55.73623c4.776589-1.92037,17.679572.116797,21.63249,3.70843c3.362713,3.055371-2.411407,11.967995,2.47228,15.45178c5.628275,4.014938,38.008325,12.304853,40.17463,16.68792c1.857541,3.758348-1.364786,7.277897.812947,10.291703c2.622855,3.629819,15.139332,1.542563,32.562893,18.139567-21.681999-15.800986-30.541888-12.525505-34.112991-17.113505-3.027584-3.88971.622798-7.665206-.96555-10.442032-2.086892-3.648404-35.222801-12.617822-39.839044-16.374732-5.456753-4.440955.106884-13.113635-2.360439-15.511456-3.420227-3.323883-14.780071-4.911795-20.377216-4.837675Z",
@@ -32,46 +20,6 @@ const shapeTo = [
   "M247.726537,34.440615c0,0,30.989841,10.793014,30.989841,10.793014s-.948658,27.709503-6.874432,45.801186c-.599892-.007183-1.399747-.016761-1.999639-.023945c6.274816-20.045948,6.857035-44.433842,6.857035-44.433842s-32.538908-11.225923-32.538908-11.225923s3.566103-.91049,3.566103-.91049Z",
   "M5.709447,6.390485C8.482115,25.86549,0.537343,244.852249,4.849309,294.633073c87.843987-1.58432,220.781598-5.291743,291.752275.534208C292.89416,200.8928,296.03286,14.83473,290.554953,5.985803c-84.699789-9.304514-232.89526,2.483762-284.845506.404682Z",
 ];
-
-export const DevelopSVG = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end end", "-200px start"],
-  });
-  const paths = useFlubber(scrollYProgress, shapeFrom, shapeTo);
-
-  const opacity = useTransform(scrollYProgress, [0, 0.9, 1], [1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    // console.log(scrollYProgress.get());
-  });
-
-  // idea for anim - have the svg translate towards opposite side of screen; bring line down so that the svg appears to sink into the line
-  return (
-    <motion.div ref={ref} style={{ opacity }}>
-      <svg
-        cache-id="d8e484af1c65446fa8638ec5c5b398f4"
-        id="develop-solutions"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 300 300"
-        shapeRendering="geometricPrecision"
-        textRendering="geometricPrecision"
-        width="100%"
-        height="100%"
-        fill="none"
-        stroke="hsl(var(--nextui-primary-100))"
-        strokeWidth="5"
-      >
-        {paths.map((path, i) => {
-          return <motion.path key={i} d={path} />;
-        })}
-      </svg>
-    </motion.div>
-  );
-};
 
 export const HeartIcon = ({ width = 100, height = 100, fill = "red" }) => (
   <svg

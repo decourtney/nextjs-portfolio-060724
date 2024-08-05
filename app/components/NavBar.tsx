@@ -13,7 +13,7 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from "@nextui-org/react";
-import ThemeSwitcher from "./components/ThemeSwitcher";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +32,10 @@ const NavBar = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden md:flex gap-4 font-bold" justify="center">
+      <NavbarContent
+        className="hidden md:flex gap-4 font-bold"
+        justify="center"
+      >
         <NavbarItem>
           <Link color="secondary" href="#home">
             Home

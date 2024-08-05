@@ -1,5 +1,7 @@
-import { card, useDisclosure } from "@nextui-org/react";
-import { animate, motion, useAnimate, useInView } from "framer-motion";
+'use client'
+
+import { useDisclosure } from "@nextui-org/react";
+import { motion, useAnimate } from "framer-motion";
 import ProjectModal from "./ProjectModal";
 
 const ProjectContainer = ({

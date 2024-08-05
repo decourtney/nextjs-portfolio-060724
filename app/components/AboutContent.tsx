@@ -1,14 +1,11 @@
-import React, { useRef } from "react";
+"use client";
+
+import { useRef } from "react";
 import AboutBio from "./AboutBio";
-// import BouncingIcons from "./old_BouncingIcons";
-import BouncingIcons from "./BouncingIcons";
-import { useIsMobile } from "../utilities";
-import BoringIcons from "./BoringIcons";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 
 const AboutContent = () => {
   const ref = useRef(null);
-  const isMobile = useIsMobile();
   const isInView = useInView(ref, { amount: "some", once: false });
 
   return (

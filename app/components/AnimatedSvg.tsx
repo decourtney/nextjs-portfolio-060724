@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef } from "react";
 import Snap from "snapsvg-cjs";
 
@@ -25,7 +27,6 @@ const shapeTo = [
   "M5.709447,6.390485C8.482115,25.86549,0.537343,244.852249,4.849309,294.633073c87.843987-1.58432,220.781598-5.291743,291.752275.534208C292.89416,200.8928,296.03286,14.83473,290.554953,5.985803c-84.699789-9.304514-232.89526,2.483762-284.845506.404682Z",
 ];
 
-
 const AnimatedSvg = () => {
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -52,19 +53,17 @@ const AnimatedSvg = () => {
   }, [svgRef]);
 
   return (
-    <div className="relative h-[100dvh]">
-      <svg
-        ref={svgRef}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 300 300"
-        shapeRendering="geometricPrecision"
-        textRendering="geometricPrecision"
-        width="100%"
-        height="100%"
-      >
-        {/* Paths are animated dynamically */}
-      </svg>
-    </div>
+    <svg
+      ref={svgRef}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 300 300"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
+      width="100%"
+      height="100%"
+    >
+      {/* Paths are animated dynamically */}
+    </svg>
   );
 };
 

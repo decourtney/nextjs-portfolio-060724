@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useIsMobile } from "../utilities";
 import BoringIcons from "./BoringIcons";
@@ -15,9 +17,7 @@ const ToolsSection = () => {
         {isMobile ? <BoringIcons /> : <BouncingIcons />}
       </div>
       <div className="mt-12">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
     </section>
   );

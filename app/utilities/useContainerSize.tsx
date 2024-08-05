@@ -12,19 +12,30 @@ const useContainerSize = () => {
   useEffect(() => {
     if (!ref.current) return;
 
-    const handleResize = () => {
+    const element = ref.current;
+
+    const updateSize = () => {
       setContainerSize({
-        width: ref.current!.clientWidth,
-        height: ref.current!.clientHeight,
+        width: element.clientWidth,
+        height: element.clientHeight,
       });
     };
 
-    window.addEventListener("resize", handleResize);
+    // Create a ResizeObserver to monitor the element's size changes
+    const resizeObserver = new ResizeObserver(() => {
+      updateSize();
+    });
 
-    handleResize();
+    resizeObserver.observe(element); // Start observing the element
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    // Set initial size
+    updateSize();
+
+    // Cleanup: Unobserve the element on component unmount
+    return () => {
+      resizeObserver.unobserve(element);
+    };
+  }, [ref]);
 
   return { ref, containerSize };
 };

@@ -1,4 +1,4 @@
-import AnimatedSvg from "./test";
+import AnimatedSvg from "./AnimatedSvg";
 
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];
@@ -7,7 +7,7 @@ const HomeSVGScroll = () => {
   return (
     // <div ref={targetRef} className="flex flex-col bg-slate-500">
 
-    <div className="grid grid-cols-2 h-full overflow-y-hidden">
+    <div className="sticky top-0 grid grid-cols-2 h-full overflow-y-hidden">
       <div className="col-span-1">
         <AnimatedSvg />
         <div className="relative h-[115dvh]">
