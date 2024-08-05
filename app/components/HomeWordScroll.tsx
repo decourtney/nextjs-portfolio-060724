@@ -21,7 +21,7 @@ const HomeWordScroll = () => {
   const { ref } = useContainerSize();
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["-161px", "end start"], // offset determined by hero viewport height
+    // offset: ["-161px", "end start"], // offset determined by hero viewport height
   });
 
   const [showHeart, setShowHeart] = useState(false);
@@ -56,9 +56,9 @@ const HomeWordScroll = () => {
   });
 
   return (
-    <div ref={ref} className="relative w-full min-h-[200dvh]">
-      <motion.div className="sticky top-[20%] grid grid-cols-2 h-[85px] mb-6 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black overflow-hidden">
-        <div className="col-span-1 text-end leading-[85px]">
+    <div ref={ref} className="relative w-full h-[400dvh]"> {/* Adjust */}
+      <motion.div className="sticky top-[20%] grid grid-cols-2 gap-y-5 mb-6 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black">
+        <div className="col-span-1 text-end leading-[85px] h-[85px] overflow-hidden">
           <motion.p className="inline-block align-top mr-2">I</motion.p>
 
           {showHeart && (
@@ -81,7 +81,7 @@ const HomeWordScroll = () => {
           </motion.ul>
         </div>
 
-        <div className="col-span-1 pl-0 leading-[85px]">
+        <div className="col-span-1 pl-0 leading-[85px] h-[85px] overflow-hidden">
           <motion.ul
             className="inline-block px-2 w-fit"
             style={{ translateY: nounY }}
@@ -91,11 +91,11 @@ const HomeWordScroll = () => {
             ))}
           </motion.ul>
         </div>
-      </motion.div>
 
-      <div className="sticky top-[30%] w-1/2 h-[100px]">
-        <SvgMorph indexOfSvgs={indexOfSvgs} />
-      </div>
+        <div className="col-span-2 w-full h-[300px] lg:h-[400px]">
+          <SvgMorph indexOfSvgs={indexOfSvgs} />
+        </div>
+      </motion.div>
     </div>
   );
 };
