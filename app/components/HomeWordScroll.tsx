@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   motion,
@@ -12,18 +12,20 @@ import {
 import { useState } from "react";
 import { HeartIcon } from "./svgs";
 import { useContainerSize } from "../utilities";
+import SvgMorph from "./SvgMorph";
 
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];
 
 const HomeWordScroll = () => {
   const { ref } = useContainerSize();
-   const { scrollYProgress } = useScroll({
-     target: ref,
-     offset: ["-161px", "end start"], // offset determined by hero viewport height
-   });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["-161px", "end start"], // offset determined by hero viewport height
+  });
 
   const [showHeart, setShowHeart] = useState(false);
+  const [indexOfSvgs, setIndexOfSvgs] = useState<number | null>(null);
 
   const verbIndex = useMotionValue(0);
   const nounIndex = useMotionValue(nouns.length - 1);
@@ -48,6 +50,9 @@ const HomeWordScroll = () => {
 
     verbIndex.set(nearestVerbIndex);
     nounIndex.set(nearestNounIndex);
+
+    if (nearestVerbIndex === indexOfSvgs) return;
+    setIndexOfSvgs(nearestVerbIndex);
   });
 
   return (
@@ -87,6 +92,10 @@ const HomeWordScroll = () => {
           </motion.ul>
         </div>
       </motion.div>
+
+      <div className="sticky top-[30%] w-1/2 h-[100px]">
+        <SvgMorph indexOfSvgs={indexOfSvgs} />
+      </div>
     </div>
   );
 };

@@ -1,5 +1,3 @@
-import { useScroll } from "framer-motion";
-import { useContainerSize } from "../utilities";
 import HomeWordScroll from "./HomeWordScroll";
 
 const HomeSection = () => {
@@ -22,10 +20,6 @@ const HomeSection = () => {
       {/* </div> */}
 
       <HomeWordScroll />
-
-      <div className="sticky top-[30%] w-full h-[100px]">
-        {/* <AnimatedSvg /> */}
-      </div>
     </section>
   );
 };
