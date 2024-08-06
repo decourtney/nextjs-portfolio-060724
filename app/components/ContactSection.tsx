@@ -65,6 +65,7 @@ const ContactSection: React.FC = () => {
                 placeholder="Name"
                 name="name"
                 value={name}
+                variant="bordered"
                 onChange={handleInputChange(setName)}
                 className={`w-full ${errors.name ? "border-red-500" : ""}`}
               />
@@ -76,6 +77,7 @@ const ContactSection: React.FC = () => {
                 placeholder="Email"
                 name="email"
                 value={email}
+                variant="bordered"
                 onChange={handleInputChange(setEmail)}
                 className={`w-full ${errors.email ? "border-red-500" : ""}`}
               />
@@ -86,6 +88,8 @@ const ContactSection: React.FC = () => {
                 placeholder="Message"
                 name="message"
                 value={message}
+                variant="bordered"
+                onClear={() => console.log("input cleared")}
                 onChange={handleInputChange(setMessage)}
                 className={`w-full ${errors.message ? "border-red-500" : ""}`}
                 rows={4}

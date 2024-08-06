@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useDisclosure } from "@nextui-org/react";
 import { motion, useAnimate } from "framer-motion";
@@ -17,14 +17,22 @@ const ProjectContainer = ({
   const skewAmount = 2;
 
   const handleHoverStart = () => {
-    animateCard(cardScope.current, {
-      skewX: isLeft ? -skewAmount : skewAmount,
-      skewY: isLeft ? -skewAmount : skewAmount,
-      boxShadow: isLeft
-        ? "8px 8px 14px 0px hsl(var(--nextui-primary-100))"
-        : "-8px 8px 14px 0px hsl(var(--nextui-primary-100))",
-    });
-    animateImg(imgScope.current, { x: isLeft ? 20 : -20, y: 30 });
+    animateCard(
+      cardScope.current,
+      {
+        skewX: isLeft ? -skewAmount : skewAmount,
+        skewY: isLeft ? -skewAmount : skewAmount,
+        boxShadow: isLeft
+          ? "8px 8px 14px 0px hsl(var(--nextui-primary-100))"
+          : "-8px 8px 14px 0px hsl(var(--nextui-primary-100))",
+      },
+      { type: "tween" }
+    );
+    animateImg(
+      imgScope.current,
+      { x: isLeft ? 20 : -20, y: 30 },
+      { type: "tween" }
+    );
   };
 
   const handleHoverEnd = () => {
@@ -47,7 +55,7 @@ const ProjectContainer = ({
   };
 
   return (
-    <div className="h-[300px] rounded-md w-3/4 lg:w-full">
+    <div className="h-[300px] rounded-md w-3/4 lg:w-full border-large">
       <div className="relative w-full h-full">
         <motion.button
           ref={cardScope}
@@ -79,7 +87,7 @@ const ProjectContainer = ({
         >
           <img
             src="/images/lake.jpg"
-            className="w-full h-full object-fit rounded-md"
+            className="w-full h-full object-fill rounded-md"
           />
         </motion.div>
       </div>

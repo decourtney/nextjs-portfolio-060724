@@ -20,17 +20,51 @@ const ProjectModal = ({ isOpen, onOpenChange }: ProjectModalProps) => {
       isOpen={isOpen}
       onOpenChange={onOpenChange}
       scrollBehavior="outside"
+      motionProps={{
+        variants: {
+          enter: {
+            opacity: 1,
+            y: 50,
+            transition: { duration: 0.3, ease: "easeOut" },
+          },
+        },
+        exit: { opacity: 0, y: 100 },
+      }}
     >
       <ModalContent>
         {(onClose) => (
           <>
             <ModalHeader className="flex flex-col gap-1">
-              <h1 className="font-bold text-3xl">TITLE</h1>
-              <h2 className="text-lg">Subtitle</h2>
+              <motion.div
+                className="w-fit"
+                initial={{ scale: 1.2 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  duration: 0.5,
+                  type: "tween",
+                  ease: "easeOut",
+                }}
+              >
+                <h1 className="font-bold text-3xl">TITLE</h1>
+                <h2 className="text-lg">Subtitle</h2>
+              </motion.div>
             </ModalHeader>
             <ModalBody>
-              <motion.div initial={{scale: 0.9}} animate={{scale: 1}} className="mx-auto">
-                <img src={"/images/lake.jpg"} />
+              <motion.div
+                className="mx-auto shadow-md shadow-[hsl(var(--nextui-primary-100))] rounded-md"
+                initial={{ scale: 0.98 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.1,
+                  type: "tween",
+                  ease: "easeOut",
+                }}
+              >
+                <img
+                  src={"/images/lake.jpg"}
+                  className="w-full h-full rounded-md object-fill"
+                />
               </motion.div>
               <div>
                 <svg

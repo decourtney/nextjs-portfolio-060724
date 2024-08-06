@@ -19,7 +19,7 @@ const  PortfolioPage = () => {
       <ProjectSection />
       <ToolsSection />
       <ContactSection />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

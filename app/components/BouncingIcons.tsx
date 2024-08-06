@@ -23,7 +23,7 @@ const BouncingBallCanvas = () => {
   const debounceDelay = 100;
 
   // Bounce Controls
-  const force = -5;
+  const force = -2;
   const radius = 40;
   const gravity = 0.0;
   const friction = 0.99;
