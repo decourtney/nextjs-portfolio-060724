@@ -9,11 +9,24 @@ import {
 import { motion } from "framer-motion";
 
 interface ProjectModalProps {
+  projectTitle: string;
+  projectImage: string;
+  projectWriteup: string;
+  projectToolIcons: string[];
+  projectLink: string;
   isOpen: boolean;
   onOpenChange: (isOpen: boolean) => void;
 }
 
-const ProjectModal = ({ isOpen, onOpenChange }: ProjectModalProps) => {
+const ProjectModal = ({
+  projectTitle,
+  projectImage,
+  projectWriteup,
+  projectToolIcons,
+  projectLink,
+  isOpen,
+  onOpenChange,
+}: ProjectModalProps) => {
   return (
     <Modal
       size="2xl"
@@ -24,7 +37,7 @@ const ProjectModal = ({ isOpen, onOpenChange }: ProjectModalProps) => {
         variants: {
           enter: {
             opacity: 1,
-            y: 50,
+            y: 15,
             transition: { duration: 0.3, ease: "easeOut" },
           },
         },
@@ -76,12 +89,7 @@ const ProjectModal = ({ isOpen, onOpenChange }: ProjectModalProps) => {
                 </svg>
               </div>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore
-                asperiores facilis, labore sed eos qui similique esse quas.
-                Aliquam corrupti maxime aliquid quam accusantium et odit natus
-                voluptatibus fugiat expedita. Repudiandae sed molestiae maxime
-                maiores excepturi similique repellendus tenetur voluptatem quia
-                adipisci.
+                {projectWriteup}
               </p>
             </ModalBody>
             <ModalFooter>

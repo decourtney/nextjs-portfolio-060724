@@ -1,16 +1,42 @@
+'use client'
+
+import React, { useEffect, useState } from "react";
 import ProjectContainer from "./ProjectContainer";
 
-const ProjectSection = () => {
-  const projectTitles = [
-    "Project Title 1",
-    "Project Title 2",
-    "Project Title 3",
-    "Project Title 4",
-    "Project Title 5",
-    "Project Title 6",
-  ];
+// Define the type for project data
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  writeup: string;
+  toolIcons: string[];
+  link: string;
+}
 
-  // Adjust project cards to stagger when on smaller
+const ProjectSection = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  // Fetch project data from the JSON file stored in the S3 bucket
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch(
+          "/projects.json"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch projects");
+        }
+        const data = await response.json();
+        console.log(data)
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
   return (
     <section id="projects" className="w-full pt-24 min-h-dvh">
       <div className="w-full text-center text-[hsl(var(--nextui-primary-100))] text-5xl font-bold">
@@ -18,14 +44,22 @@ const ProjectSection = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-6 md:mt-12">
-        {projectTitles.map((title, index) => (
+        {projects.map((project, index) => (
           <div
-            key={title}
+            key={project.title}
             className={`col-span-1 flex ${
               index % 2 !== 0 ? "lg:translate-y-10 justify-end" : ""
             }`}
           >
-            <ProjectContainer projectTitle={title} isLeft={index % 2 === 0} />
+            <ProjectContainer
+              projectTitle={project.title}
+              projectDescription={project.description}
+              projectImage={project.image}
+              projectWriteup={project.writeup}
+              projectToolIcons={project.toolIcons}
+              projectLink={project.link}
+              isLeft={index % 2 === 0}
+            />
           </div>
         ))}
       </div>

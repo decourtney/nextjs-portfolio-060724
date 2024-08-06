@@ -22,7 +22,6 @@ const SvgMorph: React.FC<SvgMorphProps> = ({ indexOfSvgs }) => {
   ];
 
   useEffect(() => {
-    console.log(indexOfSvgs);
     // Ensure the ref is current and the index is valid
     if (
       indexOfSvgs === null ||
