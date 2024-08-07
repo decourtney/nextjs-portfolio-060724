@@ -7,16 +7,16 @@ import ContactSection from "../components/ContactSection";
 import HomeSection from "../components/HomeSection";
 import ProjectSection from "../components/ProjectSection";
 import ToolsSection from "../components/ToolsSection";
-import Footer from "../components/Footer";
+import Footer from "../Footer";
 import NavBar from "../components/NavBar";
 
-const  PortfolioPage = () => {
+const PortfolioPage = () => {
   return (
     <>
       <NavBar />
-      {/* <HomeSection />
+      <HomeSection />
       <AboutSection />
-      <ProjectSection /> */}
+      <ProjectSection />
       <ToolsSection />
       <ContactSection />
       {/* <Footer /> */}
@@ -24,4 +24,4 @@ const  PortfolioPage = () => {
   );
 };
 
-export default  PortfolioPage;
+export default PortfolioPage;

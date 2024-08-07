@@ -20,7 +20,11 @@ const NavBar = () => {
   const menuItems = ["Home", "About", "Projects", "Tools", "Contact"];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBlurred={false}>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      isBlurred={false}
+      className=" text-[hsl(var(--nextui-secondary-500))]"
+    >
       <NavbarContent justify="start">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -37,29 +41,19 @@ const NavBar = () => {
         justify="center"
       >
         <NavbarItem>
-          <Link color="secondary" href="#home">
-            Home
-          </Link>
+          <Link href="#home">Home</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="secondary" href="#about">
-            About
-          </Link>
+          <Link href="#about">About</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="secondary" href="#projects">
-            Projects
-          </Link>
+          <Link href="#projects">Projects</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="secondary" href="#tools">
-            Tools
-          </Link>
+          <Link href="#tools">Tools</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="secondary" href="#contact">
-            Contact
-          </Link>
+          <Link href="#contact">Contact</Link>
         </NavbarItem>
       </NavbarContent>
 
@@ -72,12 +66,7 @@ const NavBar = () => {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color="secondary"
-              className="w-full"
-              href={`#${item.toLowerCase()}`}
-              size="lg"
-            >
+            <Link className="w-full" href={`#${item.toLowerCase()}`} size="lg">
               {item}
             </Link>
           </NavbarMenuItem>

@@ -24,6 +24,7 @@ const BouncingIcons: React.FC<BouncingIconsProps> = ({
   onHover,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const requestIdRef = useRef<number | null>(null); // Ref to hold the requestAnimationFrame ID
   const { scrollY } = useScroll();
   const previousScrollY = useRef(0);
   const ballsInitialized = useRef(false);
@@ -202,14 +203,20 @@ const BouncingIcons: React.FC<BouncingIconsProps> = ({
         // Change fill style based on active tool
         context.fillStyle =
           activeTool === ball.toolId
-            ? getComputedStyle(context.canvas).getPropertyValue("--icon-highlight") // Highlight color for the active tool
+            ? getComputedStyle(context.canvas).getPropertyValue(
+                "--icon-highlight"
+              ) // Highlight color for the active tool
             : getComputedStyle(context.canvas).getPropertyValue("--svg-icons");
 
         context.fill(path);
         context.restore();
       });
 
-      requestAnimationFrame(drawBalls);
+      // Cancel the previous animation frame before requesting a new one
+      if (requestIdRef.current) {
+        cancelAnimationFrame(requestIdRef.current);
+      }
+      requestIdRef.current = requestAnimationFrame(drawBalls);
     };
 
     const handleMouseMove = (event: MouseEvent) => {
@@ -237,6 +244,9 @@ const BouncingIcons: React.FC<BouncingIconsProps> = ({
       onHover(null); // Reset the hover state when the mouse leaves the canvas
     };
 
+    // Ensure we resize the canvas properly
+    // resizeCanvas();
+
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("mouseleave", handleMouseLeave); // Add mouseleave event listener
     window.addEventListener("resize", resizeCanvas);
@@ -244,6 +254,9 @@ const BouncingIcons: React.FC<BouncingIconsProps> = ({
     drawBalls();
 
     return () => {
+      if (requestIdRef.current) {
+        cancelAnimationFrame(requestIdRef.current);
+      }
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave); // Remove mouseleave event listener
       window.removeEventListener("resize", resizeCanvas);
