@@ -23,7 +23,7 @@ const ThemeSwitcher = () => {
       variant="light"
       size="sm"
       radius="full"
-      color="secondary"
+      className="text-inherit"
       onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
     >
       {currentTheme == "dark" ? <BsFillMoonStarsFill /> : <FaSun />}

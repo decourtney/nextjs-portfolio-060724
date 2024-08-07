@@ -1,50 +1,67 @@
-import React from "react";
-import VerticalLine from "./VerticalLine";
-import { useContainerSize } from "../customHooks";
+'use client'
+
+import React, { useEffect, useState } from "react";
 import ProjectContainer from "./ProjectContainer";
 
-const ProjectSection = () => {
-  const { containerSize, ref } = useContainerSize();
+// Define the type for project data
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  writeup: string;
+  toolIcons: string[];
+  link: string;
+}
 
-  const projectTitlesLeft = [
-    "Project Title 1",
-    "Project Title 2",
-    "Project Title 3",
-  ];
-  const projectTitlesRight = [
-    "Project Title 4",
-    "Project Title 5",
-    "Project Title 6",
-  ];
+const ProjectSection = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  // Fetch project data from the JSON file stored in the S3 bucket
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch(
+          "/projects.json"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch projects");
+        }
+        const data = await response.json();
+        console.log(data)
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   return (
-    <section id="project-section" className="min-h-dvh h-[200dvh]">
-      <div className="grid grid-cols-2 grid-rows-3 mt-20">
-        <div className="col-span-1 row-span-1">
-          <div
-            ref={ref}
-            id="project-container"
-            className="relative h-[300px] bg-foreground overflow-hidden"
-          >
-            {/* {containerSize && (
-              <VerticalLine
-                containerSize={containerSize}
-                toggleKey={""}
-                offset={["start end", "end start"]}
-                inputRange={[0, 0.5]}
-                outputRange={[0, 1]}
-                xPosition={containerSize.width - 2}
-                lineWidth={4}
-              />
-            )} */}
-            <div className="absolute top-0 w-full h-full -translate-x-10 -translate-y-10 bg-background" />
+    <section id="projects" className="w-full pt-24 min-h-dvh">
+      <div className="w-full text-5xl font-bold text-center text-[hsl(var(--nextui-primary-100))]">
+        <h1>PROJECTS</h1>
+      </div>
 
-            <div id="project-card" className="w-full h-full">
-              <h2>Project Title 1</h2>
-            </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2  gap-8 lg:gap-y-24 mt-6 md:mt-12">
+        {projects.map((project, index) => (
+          <div
+            key={project.title}
+            className={`col-span-1 flex ${
+              index % 2 !== 0 ? "lg:translate-y-32 justify-end" : ""
+            }`}
+          >
+            <ProjectContainer
+              projectTitle={project.title}
+              projectDescription={project.description}
+              projectImage={project.image}
+              projectWriteup={project.writeup}
+              projectToolIcons={project.toolIcons}
+              projectLink={project.link}
+              isLeft={index % 2 === 0}
+            />
           </div>
-        </div>
-        <div className="col-span-1 row-span-1 translate-y-10"></div>
+        ))}
       </div>
     </section>
   );

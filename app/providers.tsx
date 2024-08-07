@@ -4,7 +4,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { Theme as RadixThemesProvider } from "@radix-ui/themes";
-import { StateProvider } from "./customHooks";
+import { StateProvider } from "./utilities";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const router = useRouter();

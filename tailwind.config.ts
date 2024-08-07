@@ -81,7 +81,7 @@ const config: Config = {
         dark: {
           layout: {},
           colors: {
-            background: "#1B0E12",
+            background: "#2F2F2F",
             foreground: "#F4F4F4",
             primary: {
               "100": "#F4F4F4",

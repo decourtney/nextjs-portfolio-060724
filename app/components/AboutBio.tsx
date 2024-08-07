@@ -1,24 +1,6 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-
 const AboutBio = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.5, once: true });
   return (
-    <motion.div
-      ref={ref}
-      className="w-3/4 p-5 space-y-5 rounded-lg text-primary-500 origin-right bg-primary-200 bg-transparent"
-      style={{
-        x: isInView ? 15 : 0,
-        rotateY: isInView ? 10 : 0,
-        transformPerspective: "2000px",
-        transformStyle: "preserve-3d",
-        transition: "transform 1s",
-        boxShadow: isInView
-          ? "0px 0px 5px hsl(var(--nextui-primary-100)), -1px 1px 1px hsl(var(--nextui-primary-200)), -2px 1px 2px hsl(var(--nextui-primary-300)), -3px 2px 2px hsl(var(--nextui-primary-300)), -4px 2px 2px hsl(var(--nextui-primary-300)), -5px 3px 2px hsl(var(--nextui-primary-300)), -6px 3px 1px hsl(var(--nextui-primary-300)), -20px 20px 30px hsl(var(--nextui-content1-500)), -30px 30px 40px hsl(var(--nextui-content1-500))"
-          : "none",
-      }}
-    >
+    <div className="lg:w-3/4 space-y-5 rounded-lg text-xl text-primary-100">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor
         nisi vitae ante pellentesque, quis vehicula diam eleifend. Pellentesque
@@ -48,7 +30,7 @@ const AboutBio = () => {
         Phasellus volutpat mi sem, eu volutpat elit iaculis vel. Sed eleifend
         felis fringilla porttitor ullamcorper. Vivamus ac luctus ex.
       </p>
-    </motion.div>
+    </div>
   );
 };
 

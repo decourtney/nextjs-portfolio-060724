@@ -1,52 +1,34 @@
-import React, { useEffect, useRef } from "react";
-import { useContainerSize, useStateContext } from "../customHooks";
-import VerticalLine from "./VerticalLine";
-import {
-  animate,
-  ElementOrSelector,
-  inView,
-  motion,
-  Segment,
-  useAnimation,
-  useInView,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import AboutTitle from "./AboutTitle";
+"use client";
+
+import { useRef } from "react";
 import AboutBio from "./AboutBio";
-import BouncingBallCanvas from "./BouncingBallCanvas";
+import { useInView } from "framer-motion";
 
 const AboutContent = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: "some", once: false });
+
   return (
-    <div className="sticky top-0 pt-[5rem]">
-      {/* <AboutTitle /> */}
-
-      <div className="relative grid grid-cols-1 lg:grid-cols-2 mt-20">
-        <div className="col-span-1 flex justify-center">
-          <AboutBio />
+    <div className="relative w-full">
+      <div className="relative w-full h-full mx-auto">
+        <div
+          ref={ref}
+          className="lg:float-right max-w-[500px] mx-auto lg:ml-8 mb-8 rounded-lg shadow-md shadow-[hsl(var(--nextui-primary-100))]"
+          style={{
+            scale: isInView ? 1 : 0.98,
+            transition: "all 0.5s ease",
+          }}
+        >
+          <img
+            src={"/images/lake.jpg"}
+            className="w-full h-full rounded-lg object-fill"
+            alt="Lake"
+          />
         </div>
-
-        <div className="col-span-1 w-full h-full">
-          <BouncingBallCanvas />
-        </div>
+        <AboutBio />
       </div>
     </div>
   );
 };
 
 export default AboutContent;
-
-/**
-Im a dude who likes art and programming.
-
-Web development has provided me with an outlet to combine the two while still solving 
-problems and providing services. On the backend I primarily use
-NodeJs, MySQL, Mongo, and AWS. While exploring the possibilities
-of the front end I build with React coupled with libraries such as
-Framer Motion and Redux and frameworks like Next.js The
-possibilities are truly endless and I always look forward to
-chasing that end of line.
-
-
-
- */
