@@ -44,7 +44,7 @@ export default function RootLayout({
     <html lang={"en"} suppressHydrationWarning={true}>
       <body>
         <Providers>
-          <main className="relative w-full lg:max-w-[80%] xl:max-w-[60%] mx-auto -mt-[48px] px-4 md:px-8">
+          <main className="relative w-full lg:max-w-[80%] mx-auto -mt-[48px] px-4 md:px-8">
             {children}
           </main>
         </Providers>

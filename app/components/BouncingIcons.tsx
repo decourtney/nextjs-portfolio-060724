@@ -1,5 +1,5 @@
+import React, { useRef, useEffect } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
-import { useEffect, useRef } from "react";
 import { svgToolIcons } from "./svgs";
 
 interface Ball {
@@ -11,9 +11,18 @@ interface Ball {
   svgPath: string;
   gravity: number;
   friction: number;
+  toolId: string; // Change this to store the id
 }
 
-const BouncingBallCanvas = () => {
+interface BouncingIconsProps {
+  activeTool: string | null; // Add active tool state prop
+  onHover: (toolName: string | null) => void; // Function to handle hover state
+}
+
+const BouncingIcons: React.FC<BouncingIconsProps> = ({
+  activeTool,
+  onHover,
+}) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { scrollY } = useScroll();
   const previousScrollY = useRef(0);
@@ -28,7 +37,7 @@ const BouncingBallCanvas = () => {
   const gravity = 0.0;
   const friction = 0.99;
 
- const svgPaths = svgToolIcons
+  const svgPaths = svgToolIcons; // Array of SVG strings with IDs
 
   const parseSVG = (svg: string): Path2D => {
     const parser = new DOMParser();
@@ -38,20 +47,32 @@ const BouncingBallCanvas = () => {
     return new Path2D(pathString);
   };
 
+  const getSVGId = (svg: string): string => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(svg, "image/svg+xml");
+    const svgElement = doc.querySelector("svg");
+    const id = svgElement?.getAttribute("id") || "";
+    return id;
+  };
+
   const initializeBalls = (canvas: HTMLCanvasElement) => {
     const balls: Ball[] = [];
     const spacing = canvas.width / (svgPaths.length + 1);
 
     for (let i = 0; i < svgPaths.length; i++) {
+      const svgPath = svgPaths[i % svgPaths.length];
+      const toolId = getSVGId(svgPath); // Extract the id
+
       const ball: Ball = {
         x: spacing * (i + 1),
         y: canvas.height - radius,
         vx: Math.random() * 4 - 2,
         vy: Math.random() * 4 - 2,
         radius,
-        svgPath: svgPaths[i % svgPaths.length],
+        svgPath,
         gravity,
         friction,
+        toolId, // Store the id in the ball
       };
 
       balls.push(ball);
@@ -177,9 +198,13 @@ const BouncingBallCanvas = () => {
         context.save();
         context.translate(ball.x - ball.radius, ball.y - ball.radius);
         context.scale(ball.radius / 64, ball.radius / 64);
-        context.fillStyle = getComputedStyle(context.canvas).getPropertyValue(
-          "--svg-icons"
-        );
+
+        // Change fill style based on active tool
+        context.fillStyle =
+          activeTool === ball.toolId
+            ? getComputedStyle(context.canvas).getPropertyValue("--icon-highlight") // Highlight color for the active tool
+            : getComputedStyle(context.canvas).getPropertyValue("--svg-icons");
+
         context.fill(path);
         context.restore();
       });
@@ -187,14 +212,43 @@ const BouncingBallCanvas = () => {
       requestAnimationFrame(drawBalls);
     };
 
+    const handleMouseMove = (event: MouseEvent) => {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
+
+      // Check which ball is being hovered
+      let hoveredTool = null;
+      ballsRef.current.forEach((ball) => {
+        const dx = mouseX - ball.x;
+        const dy = mouseY - ball.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < ball.radius) {
+          hoveredTool = ball.toolId; // Use toolId for the hover check
+        }
+      });
+
+      onHover(hoveredTool);
+    };
+
+    const handleMouseLeave = () => {
+      onHover(null); // Reset the hover state when the mouse leaves the canvas
+    };
+
+    canvas.addEventListener("mousemove", handleMouseMove);
+    canvas.addEventListener("mouseleave", handleMouseLeave); // Add mouseleave event listener
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
     drawBalls();
 
     return () => {
+      canvas.removeEventListener("mousemove", handleMouseMove);
+      canvas.removeEventListener("mouseleave", handleMouseLeave); // Remove mouseleave event listener
       window.removeEventListener("resize", resizeCanvas);
     };
-  }, []);
+  }, [onHover, activeTool]); // Ensure onHover and activeTool are included in dependencies
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const deltaY = latest - previousScrollY.current;
@@ -216,4 +270,4 @@ const BouncingBallCanvas = () => {
   return <canvas ref={canvasRef} className="w-full h-full" />;
 };
 
-export default BouncingBallCanvas;
+export default BouncingIcons;

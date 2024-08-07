@@ -4,6 +4,7 @@
 
 :root {
   --svg-icons: hsl(var(--nextui-primary-100));
+  --icon-highlight: hsl(var(--nextui-secondary-500));
 }
 
 html {
