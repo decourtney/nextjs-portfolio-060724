@@ -1,36 +1,48 @@
 const AboutBio = () => {
   return (
-    <div className="lg:w-3/4 space-y-5 rounded-lg text-xl text-primary-100">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor
-        nisi vitae ante pellentesque, quis vehicula diam eleifend. Pellentesque
-        eget felis nec risus pretium posuere eu eget ante. Sed molestie, libero
-        a tincidunt vestibulum, lorem velit interdum nunc, vitae interdum massa
-        ex quis mi. Aliquam sodales elementum est, dignissim eleifend enim
-        congue sit amet. Nullam ac velit nibh. Nulla facilisi. Interdum et
-        malesuada fames ac ante ipsum primis in faucibus. Etiam nisl erat,
-        ultricies in sem vel, aliquam blandit neque. Praesent dignissim ante
-        purus, in tincidunt ante condimentum ac.
+    <>
+      <p className="xl:w-[50%] xl:ml-32 mb-6 xl:text-2xl font-normal leading-normal xl:leading-relaxed">
+        Hi! I'm Donovan. I'm a software developer passionate about creating
+        engaging user experiences and visually appealing designs. With a rich
+        history in IT and a solid foundation in web development, I'm always
+        seeking new opportunities to learn and grow as a developer.
       </p>
-      <p>
-        In ac dapibus ex. Pellentesque ut pulvinar augue. Maecenas bibendum odio
-        et cursus porttitor. Nam volutpat tristique consequat. Praesent ante
-        leo, imperdiet fringilla fermentum a, interdum sit amet mauris. Praesent
-        non ante in neque finibus tincidunt. Phasellus augue sapien, sagittis eu
-        ornare in, rutrum sed est. Nulla dui sem, finibus non tortor sit amet,
-        consequat pretium erat. Phasellus facilisis neque ac nisl consequat,
-        eget consequat mauris sollicitudin.
-      </p>
-      <p>
-        Nunc et laoreet metus. Suspendisse consequat sit amet leo rutrum
-        pretium. Donec ultrices sem quis condimentum laoreet. Suspendisse tempus
-        turpis efficitur tempus consectetur. Fusce tincidunt tempus lectus, quis
-        posuere nisi volutpat quis. Vivamus maximus leo et sem sollicitudin
-        ornare. Morbi tempus lacinia sagittis. Aenean at elementum erat.
-        Phasellus volutpat mi sem, eu volutpat elit iaculis vel. Sed eleifend
-        felis fringilla porttitor ullamcorper. Vivamus ac luctus ex.
-      </p>
-    </div>
+
+      <div className="mt-28">
+        <p className="lg:ml-24 text-4xl text-left font-medium">
+          A few more bytes...
+        </p>
+        <div className="mt-6 space-y-4 text-medium">
+          <p className="lg:w-[40%] xl:w-[35%] ml-auto xl:mr-24 text-left lg:-translate-y-26 xl:-translate-y-12">
+            I developed a love for technology at a young age when we got our
+            first family PC — Pentium 286 running Windows 2.1. My love of coding
+            began with the excitement of piecing together HTML to create my
+            first GeoCities fansite (Diablo 1, of course).
+          </p>
+          <p className="lg:w-[45%] xl:w-[40%] text-left xl:ml-6 lg:-translate-y-28">
+            Then I joined the US Marine Corps and fell into cybersecurity. I've
+            remained in this field but have always kept programming within reach
+            through traditional college courses, online learning, and writing
+            automation scripts. To advance my understanding of programming
+            concepts, I dove deep into the Unity3D game engine, producing
+            numerous small projects for my kids. I even published a Flappy Bird
+            clone to experience the full start-to-publish process. Additionally,
+            I enjoy being artistic, so I dabble in 3D modeling, texturing, and
+            animation.
+          </p>
+          <p className="lg:w-[45%] xl:w-[45%] ml-auto xl:mr-6 text-left lg:-translate-y-52">
+            As I continue to evolve as a developer, I'm excited to take on new
+            challenges and collaborate with like-minded individuals who are
+            equally passionate about technology. Whether it's building
+            innovative web applications, exploring new programming paradigms, or
+            creating captivating digital experiences, I'm driven by the endless
+            possibilities that coding offers. I'm eager to bring my unique blend
+            of skills and experiences to new projects and make a meaningful
+            impact.
+          </p>
+        </div>
+      </div>
+    </>
   );
 };
 

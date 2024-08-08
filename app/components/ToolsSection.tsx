@@ -33,7 +33,7 @@ const ToolsSection = () => {
       <div className="w-full lg:w-3/4 mx-auto mt-6 md:mt-12">
         <div className="grid lg:grid-cols-2 gap-y-8 w-[80%] mx-auto mb-3 text-xl lg:text-3xl">
           <p className="w-full lg:h-[250px] mr-auto text-start">
-            Limitations stifle creativity so I would never limit my craft with a
+            Limitations stifle creativity so I never limit my craft with a
             particular set of tools
           </p>
           <div className="w-full ml-auto text-end content-end">

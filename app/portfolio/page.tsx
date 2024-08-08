@@ -14,7 +14,7 @@ const PortfolioPage = () => {
   return (
     <>
       <NavBar />
-      <HomeSection />
+      {/* <HomeSection /> */}
       <AboutSection />
       <ProjectSection />
       <ToolsSection />

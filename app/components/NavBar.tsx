@@ -63,6 +63,7 @@ const NavBar = () => {
         </NavbarItem>
       </NavbarContent>
 
+      {/* TODO needs better styling */}
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
