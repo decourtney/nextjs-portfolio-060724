@@ -2,7 +2,7 @@ const AboutBio = () => {
   return (
     <>
       <p className="xl:w-[50%] xl:ml-32 mb-6 xl:text-2xl font-normal leading-normal xl:leading-relaxed">
-        Hi! I'm Donovan. I'm a software developer passionate about creating
+        I'm a software developer passionate about creating
         engaging user experiences and visually appealing designs. With a rich
         history in IT and a solid foundation in web development, I'm always
         seeking new opportunities to learn and grow as a developer.
