@@ -1,22 +1,30 @@
 [
   {
-    "title": "Project Title 1",
-    "description": "This is a description for project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "image": "/images/project1.jpg",
+    "title": "Weather Ornought",
+    "description": "Weather happens, or not. Find out with Weather Ornought.",
+    "image": "/images/weatherornought.webp",
     "writeup": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante.",
-    "toolIcons": ["react", "nodejs", "mongodb"],
+    "toolIcons": ["html5, css3, jquery, bootstrap"],
     "link": "https://example.com/project1"
   },
   {
-    "title": "Project Title 2",
-    "description": "This is a description for project 2.",
-    "image": "/images/project2.jpg",
+    "title": "Tech Messages",
+    "description": "Forum focused on collaboration and learning",
+    "image": "/images/techmessages.webp",
+    "writeup": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante.",
+    "toolIcons": [
+      "html5, css3, javascript, tailwindcss, handlebars, express, mysql"
+    ],
     "link": "https://example.com/project2"
   },
   {
-    "title": "Project Title 3",
-    "description": "This is a description for project 3.",
-    "image": "/images/project3.jpg",
+    "title": "Break-Sweat",
+    "description": "Get fit, stay motivated, break sweat",
+    "image": "/images/breaksweat.webp",
+    "writeup": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante.",
+    "toolIcons": [
+      "html5, css3, javascript, tailwindcss, handlebars, express, mysql"
+    ],
     "link": "https://example.com/project3"
   }
 ]

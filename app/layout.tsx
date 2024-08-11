@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 import Footer from "./Footer";
+import NavBar from "./NavBar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -43,8 +44,9 @@ export default function RootLayout({
   return (
     <html lang={"en"} suppressHydrationWarning={true}>
       <body>
+        <NavBar />
         <Providers>
-          <main className="relative w-full lg:max-w-[80%] mx-auto -mt-[48px] px-4 md:px-8">
+          <main>
             {children}
           </main>
         </Providers>

@@ -13,11 +13,17 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from "@nextui-org/react";
-import ThemeSwitcher from "./ThemeSwitcher";
+import ThemeSwitcher from "./components/ThemeSwitcher";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuItems = ["Home", "About", "Projects", "Tools", "Contact"];
+  const menuItems = [
+    "Home",
+    "About",
+    "Projects",
+    "Tools",
+    "Contact",
+  ];
 
   return (
     <Navbar
@@ -41,19 +47,22 @@ const NavBar = () => {
         justify="center"
       >
         <NavbarItem>
-          <Link href="#home">Home</Link>
+          <Link href="/#home">Home</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#about">About</Link>
+          <Link href="/#about">About</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#projects">Projects</Link>
+          <Link href="/#projects">Projects</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#tools">Tools</Link>
+          <Link href="/#tools">Tools</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#contact">Contact</Link>
+          <Link href="/#contact">Contact</Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="/archive">Archives</Link>
         </NavbarItem>
       </NavbarContent>
 
@@ -67,11 +76,14 @@ const NavBar = () => {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className="w-full" href={`#${item.toLowerCase()}`} size="lg">
+            <Link className="w-full" href={`/#${item.toLowerCase()}`} size="lg">
               {item}
             </Link>
           </NavbarMenuItem>
         ))}
+        <NavbarItem>
+          <Link href="/archive">Archives</Link>
+        </NavbarItem>
       </NavbarMenu>
     </Navbar>
   );
