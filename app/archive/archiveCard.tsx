@@ -19,13 +19,14 @@ const ArchiveCard = (data: Archive) => {
       isPressable
       disableRipple
       onClick={() => console.log("clicked")}
-      onMouseEnter={() => {
-        setIsHovered(true);
-      }}
-      onMouseLeave={() => {
-        setIsHovered(false);
-      }}
-      className="py-4 bg-foreground text-[hsl(var(--nextui-primary-500))] hover:scale-105 cursor-pointer"
+      // onMouseEnter={() => {
+      //   setIsHovered(true);
+      // }}
+      // onMouseLeave={() => {
+      //   setIsHovered(false);
+      // }}
+      id={data.year}
+      className="py-4 bg-[hsl(var(--nextui-primary-300))] text-[hsl(var(--nextui-primary-500))] hover:bg-[hsl(var(--nextui-primary-100))] hover:text-background cursor-pointer"
     >
       <CardHeader className="py-0 px-4 flex justify-center">
         <h4 className="font-bold text-large">{data.year}</h4>
@@ -35,11 +36,8 @@ const ArchiveCard = (data: Archive) => {
           alt="Card background"
           className="object-cover rounded-lg"
           src={data.image}
-          // width={270}
         />
-        <p className="">
-          {data.description}
-        </p>
+        <p className="">{data.description}</p>
       </CardBody>
     </Card>
   );
