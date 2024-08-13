@@ -1,17 +1,17 @@
 import LandingPage from "./components/LandingPage";
 import React from "react";
-import AboutSection from "./components/AboutSection";
-import ContactSection from "./components/ContactSection";
-import HomeSection from "./components/HomeSection";
-import ProjectSection from "./components/ProjectSection";
-import ToolsSection from "./components/ToolsSection";
+import AboutSection from "./components/About/AboutSection";
+import ContactSection from "./components/Contact/ContactSection";
+import HomeSection from "./components/Home/HomeSection";
+import ProjectSection from "./components/Projects/ProjectSection";
+import ToolsSection from "./components/Tools/ToolsSection";
 
 export default function App() {
   return (
     <>
-      <HomeSection />
+      {/* <HomeSection />
       <AboutSection />
-      <ToolsSection />
+      <ToolsSection /> */}
       <ProjectSection />
       <ContactSection />
     </>

@@ -37,7 +37,7 @@ const ContactSection: React.FC = () => {
     };
 
   return (
-    <section id="contact" className="w-full content-center min-h-dvh">
+    <section id="contact" className="w-full pt-12 content-center min-h-dvh">
       {/* <div className="text-center text-[hsl(var(--nextui-primary-100))] text-5xl font-bold">
         <h1>CONTACT</h1>
       </div> */}

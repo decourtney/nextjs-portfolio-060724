@@ -1,31 +1,45 @@
-import React from "react";
+"use client";
 
-const sampleData = [
-  "Archive 1",
-  "Archive 2",
-  "Archive 3",
-  "Archive 4",
-  "Archive 5",
-  "Archive 6",
-  "Archive 7",
-  "Archive 8",
-  "Archive 9",
-  "Archive 10",
-  "Archive 11",
-];
+import React, { useEffect, useState } from "react";
+import ArchiveCard from "./archiveCard";
+
+// Define the type for archive data
+interface Archive {
+  year: string;
+  description: string;
+  image: string;
+  link: string;
+}
 
 const ArchivePage = () => {
+  const [archivesData, setArchiveData] = useState<Archive[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/archives.json");
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        console.log(data);
+        setArchiveData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <section className="w-full min-h-dvh">
-      <div className="h-[300px] content-center text-6xl text-center text-[hsl(var(--nextui-primary-100))]">
-        <h1>Archived Versions</h1>
+      <div className="h-[150px] content-center text-6xl text-center text-[hsl(var(--nextui-primary-100))]">
+        <h1>The Archives</h1>
       </div>
-      <div className="bg-blue-600 grid grid-cols-10 gap-2">
-        {sampleData.map((data, index) => (
-          <div
-            key={index}
-            className="col-span-1 h-[100px] bg-green-600"
-          ><h2 className="text-center">{data}</h2></div>
+      <div className="grid grid-cols-5 gap-4 w-[90%] mx-auto p-4 border-large border-[hsl(var(--nextui-primary-100))] rounded-md">
+        {archivesData.map((archive, index) => (
+          <ArchiveCard key={index} {...archive} />
         ))}
       </div>
     </section>

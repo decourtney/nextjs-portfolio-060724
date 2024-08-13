@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { useIsMobile } from "../utilities";
+import { useIsMobile } from "../../utilities";
 import BoringIcons from "./BoringIcons";
 import BouncingIcons from "./BouncingIcons";
 

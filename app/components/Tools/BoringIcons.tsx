@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { svgToolIcons } from "./svgs";
+import { svgToolIcons } from "../svgs";
 
 interface BoringIconsProps {
   activeTool: string | null;

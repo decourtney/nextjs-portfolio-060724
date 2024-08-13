@@ -1,4 +1,4 @@
-import AnimatedSvg from "./SvgMorph";
+import AnimatedSvg from "../SvgMorph";
 
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];

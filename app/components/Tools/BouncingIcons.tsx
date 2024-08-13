@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
-import { svgToolIcons } from "./svgs";
+import { svgToolIcons } from "../svgs";
 
 interface Ball {
   x: number;

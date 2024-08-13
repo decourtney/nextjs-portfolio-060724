@@ -44,13 +44,11 @@ export default function RootLayout({
   return (
     <html lang={"en"} suppressHydrationWarning={true}>
       <body>
-        <NavBar />
         <Providers>
-          <main>
-            {children}
-          </main>
+          <NavBar />
+          <main className="px-4">{children}</main>
+          <Footer />
         </Providers>
-        <Footer />
       </body>
     </html>
   );
