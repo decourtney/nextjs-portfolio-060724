@@ -8,12 +8,12 @@ import {
 
 interface DividerLineProps {
   initialYPosition: number;
-  percentageMultiplier: number;
+  randomMultiplier: number;
 }
 
 const DividerLine = ({
   initialYPosition,
-  percentageMultiplier,
+  randomMultiplier,
 }: DividerLineProps) => {
   const { scrollYProgress } = useScroll();
   const yPos = useSpring(scrollYProgress, { stiffness: 400, damping: 90 });
@@ -38,7 +38,7 @@ const DividerLine = ({
 
   useMotionValueEvent(yPos, "change", (latest) => {
     const newYPosition =
-      initialYPosition + Math.floor(latest * percentageMultiplier);
+      initialYPosition + Math.floor(latest * randomMultiplier);
     setYPosition(newYPosition);
   });
 

@@ -2,6 +2,9 @@
 
 import { Button, Input, Textarea } from "@nextui-org/react";
 import React, { ChangeEvent, FormEvent, useState } from "react";
+import { ImFacebook2 } from "react-icons/im";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const ContactSection: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -37,7 +40,10 @@ const ContactSection: React.FC = () => {
     };
 
   return (
-    <section id="contact" className="w-full pt-12 content-center min-h-dvh">
+    <section
+      id="contact"
+      className="w-full 2xl:w-[60%] mx-auto pt-12 content-center min-h-dvh"
+    >
       {/* <div className="text-center text-[hsl(var(--nextui-primary-100))] text-5xl font-bold">
         <h1>CONTACT</h1>
       </div> */}
@@ -105,6 +111,30 @@ const ContactSection: React.FC = () => {
             </Button>
           </div>
         </form>
+        <div className="w-full xl:w-3/4 mx-auto pt-6">
+          <Button
+            size="lg"
+            isIconOnly
+            radius="full"
+            variant="light"
+            className=" text-[hsl(var(--nextui-primary-100))]"
+            onPress={() =>
+              window.open("https://www.linkedin.com/in/decourtney/")
+            }
+          >
+            <FaLinkedin size={30} />
+          </Button>
+          <Button
+            size="lg"
+            isIconOnly
+            radius="full"
+            variant="light"
+            className=" text-[hsl(var(--nextui-primary-100))]"
+            onPress={() => window.open("https://github.com/decourtney")}
+          >
+            <FaGithub size={30} />
+          </Button>
+        </div>
       </div>
     </section>
   );

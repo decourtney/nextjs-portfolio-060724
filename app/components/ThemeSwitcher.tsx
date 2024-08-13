@@ -24,7 +24,7 @@ const ThemeSwitcher = () => {
       size="sm"
       radius="full"
       className="text-inherit"
-      onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
+      onPress={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
     >
       {currentTheme == "dark" ? <BsFillMoonStarsFill /> : <FaSun />}
     </Button>

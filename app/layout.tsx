@@ -46,7 +46,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <NavBar />
-          <main className="px-4">{children}</main>
+          <main className="px-4 overflow-clip">{children}</main>
           <Footer />
         </Providers>
       </body>

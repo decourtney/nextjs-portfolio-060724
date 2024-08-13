@@ -13,7 +13,7 @@ import DividerLine from "./dividerLine";
 // Function to generate random values
 const getRandomNegativeValue = (maxValue: number) =>
   -Math.floor(Math.random() * maxValue);
-const getRandomMultiplier = () => Math.floor(Math.random() * 500); // You can adjust this if needed
+const getRandomMultiplier = () => Math.floor(Math.random() * 3000); // You can adjust this if needed
 
 const Divider = () => {
   const { height: windowHeight } = useWindowSize();
@@ -26,7 +26,7 @@ const Divider = () => {
           <DividerLine
             key={index}
             initialYPosition={getRandomNegativeValue(windowHeight)}
-            percentageMultiplier={getRandomMultiplier()}
+            randomMultiplier={getRandomMultiplier()}
           />
         ))}
       </div>
