@@ -1,66 +1,34 @@
-import React from "react";
-import {motion} from "framer-motion";
+"use client";
 
-const xPosition = 120.65;
-const lineWidth = 5;
-const lineLength = 300;
+import React, { useState, useEffect } from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+} from "framer-motion";
+import { useWindowSize } from "../utilities";
+import DividerLine from "./dividerLine";
+
+// Function to generate random values
+const getRandomNegativeValue = (maxValue: number) =>
+  -Math.floor(Math.random() * maxValue);
+const getRandomMultiplier = () => Math.floor(Math.random() * 500); // You can adjust this if needed
 
 const Divider = () => {
+  const { height: windowHeight } = useWindowSize();
+  const numberOfLines = 5;
+
   return (
-    <div className="w-full h-[50vh] flex items-center justify-center ">
-      <div className="grid grid-cols-3 w-full h-full bg-blue-600">
-        <div className="relative">
-          <svg
-            width={lineWidth}
-            height={lineLength}
-            xmlns="http://www.w3.org/2000/svg"
-            fill="hsl(var(--nextui-primary-100))"
-            className="absolute top-0 left-1/2"
-          >
-            <line
-              x1="1"
-              y1="0"
-              x2="1"
-              y2={lineLength}
-              stroke="hsl(var(--nextui-primary-100))"
-              strokeWidth={lineWidth}
-            />
-          </svg>
-        </div>
-        <div className="relative">
-          <svg
-            width={lineWidth}
-            height={lineLength}
-            xmlns="http://www.w3.org/2000/svg"
-            fill="hsl(var(--nextui-primary-100))"
-          >
-            <line
-              x1="1"
-              y1="0"
-              x2="1"
-              y2={lineLength}
-              stroke="hsl(var(--nextui-primary-100))"
-              strokeWidth={lineWidth}
-            />
-          </svg>
-        </div>
-        <div className="relative">
-          <svg
-            width={lineWidth}
-            height={lineLength}
-            xmlns="http://www.w3.org/2000/svg"
-            fill="hsl(var(--nextui-primary-100))"
-          >
-            <line
-              x1="1"
-              y1="0"
-              x2="1"
-              y2={lineLength}
-              stroke="hsl(var(--nextui-primary-100))"
-              strokeWidth={lineWidth}
-            />
-          </svg>
-        </div>
+    <div className="w-full h-[100px] flex items-center justify-center">
+      <div className={`grid grid-cols-[${numberOfLines}] w-full h-full -z-50`}>
+        {Array.from({ length: numberOfLines }).map((_, index) => (
+          <DividerLine
+            key={index}
+            initialYPosition={getRandomNegativeValue(windowHeight)}
+            percentageMultiplier={getRandomMultiplier()}
+          />
+        ))}
       </div>
     </div>
   );

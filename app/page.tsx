@@ -10,11 +10,14 @@ import Divider from "./components/divider";
 export default function App() {
   return (
     <>
-      {/* <HomeSection /> */}
+      <HomeSection />
+      <Divider />
       <AboutSection />
       <Divider />
       <ToolsSection />
+      <Divider />
       <ProjectSection />
+      <Divider />
       <ContactSection />
     </>
   );

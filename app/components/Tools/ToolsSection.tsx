@@ -31,17 +31,19 @@ const ToolsSection = () => {
       </div>
 
       <div className="w-full lg:w-3/4 mx-auto mt-6 md:mt-12">
-        <div className="grid lg:grid-cols-2 gap-y-8 w-[80%] mx-auto mb-3 text-xl lg:text-3xl">
-          <p className="w-full lg:h-[250px] mr-auto text-start">
-            Limitations stifle creativity so I never limit my craft with a
-            particular set of tools
-          </p>
+        <div className="grid lg:grid-cols-2 gap-y-8 w-[80%] lg:h-[250px] mx-auto mb-3 text-xl lg:text-2xl xl:text-3xl">
+          <div className="w-full mr-auto text-start">
+            <p>Limitations stifle creativity</p>
+            <p> so I never limit my craft with</p>
+            <p> a particular set of tools</p>
+          </div>
+
           <div className="w-full ml-auto text-end content-end">
             <p>...but I have a few</p>
             <p>dependable go-tos</p>
           </div>
         </div>
-        <div className="h-fit lg:h-[300px] border-large rounded-md shadow-md shadow-[hsl(var(--nextui-primary-100))]">
+        <div className="h-fit lg:h-[300px] border-large rounded-md shadow-md shadow-[hsl(var(--nextui-primary-100))] bg-background">
           {isMobile ? (
             <BoringIcons activeTool={activeTool} onHover={setActiveTool} /> // Pass activeTool and onHover to BoringIcons
           ) : (
