@@ -12,7 +12,7 @@ import {
 import { useState } from "react";
 import { HeartIcon } from "../svgs";
 import { useContainerSize } from "../../utilities";
-import SvgMorph from "../SvgMorph";
+import SvgMorph from "../svgMorph";
 
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];

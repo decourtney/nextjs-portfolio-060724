@@ -13,7 +13,7 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from "@nextui-org/react";
-import ThemeSwitcher from "./components/ThemeSwitcher";
+import ThemeSwitcher from "./components/themeSwitcher";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

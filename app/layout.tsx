@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 import Footer from "./Footer";
-import NavBar from "./NavBar";
+import NavBar from "./Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",

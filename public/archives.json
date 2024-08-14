@@ -1,25 +1,39 @@
 [
   {
     "year": "2022",
-    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.",
-    "image": "/images/breaksweat.webp",
+    "title": "First",
+    "description": [
+      "The objective was to design a simple, clean portfolio using HTML and CSS to effectively showcase my projects. I initially envisioned a scrolling parallax effect featuring a stream of 1's and 0's in the background, reminiscent of the Matrix. However, due to my limited experience at the time, achieving this effect proved challenging. As a result, I opted for a horizontal looping background within a vertical parallax effect, which still captured the dynamic feel I was aiming for."
+    ],
+    "image": "/images/portfolio2022.png",
     "link": "https://example.com/project2"
   },
   {
     "year": "2023",
-    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.",
-    "image": "/images/techmessages.webp",
+    "title": "Machine",
+    "description": [
+      "This project marked my first venture after mastering the basics of React, and it quickly proved to be a formidable challenge. Initially, the idea sparked while I was experimenting with animating multiple images in the viewport. My vision was to create a site entirely out of images that would evoke the illusion of a 3D object, rich in perspective and depth.",
+      "While HTML attributes made it relatively simple to establish the sense of depth I was aiming for, bringing these \"3D\" elements to life through animation was a daunting task. Thankfully, Framer Motion integrated seamlessly, simplifying the process of creating smooth, dynamic animations, even during React dismounts.",
+      "The final product met my expectations, though not without its trade-offs. As anticipated, the heavy reliance on large images did impact site performance, making it sluggish and rendering updates or modifications more cumbersome. Despite these challenges, I succeeded in my objective to craft an unconventional site with a distinctive look and feel—reminiscent of an old, rusted machine."
+    ],
+    "image": "/images/portfolio2023.png",
     "link": "https://example.com/project2"
   },
   {
     "year": "2024",
-    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.",
+    "title": "Contrast",
+    "description": [
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis."
+    ],
     "image": "/images/weatherornought.webp",
     "link": "https://example.com/project2"
   },
   {
     "year": "WIP",
-    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.",
+    "title": "SOON",
+    "description": [
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab quidem beatae harum error, reprehenderit vero illo. Odit voluptate dolorum, aperiam odio sint, nostrum, doloribus nequequis rem molestiae eaque omnis."
+    ],
     "image": "/images/soon.webp",
     "link": "https://example.com/project2"
   }
