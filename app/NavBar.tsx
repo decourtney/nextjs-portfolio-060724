@@ -17,20 +17,10 @@ import ThemeSwitcher from "./components/ThemeSwitcher";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuItems = [
-    "Home",
-    "About",
-    "Projects",
-    "Tools",
-    "Contact",
-  ];
+  const menuItems = ["Home", "About", "Projects", "Contact"];
 
   return (
-    <Navbar
-      onMenuOpenChange={setIsMenuOpen}
-      isBlurred={false}
-      className=" text-[hsl(var(--nextui-secondary-500))]"
-    >
+    <Navbar onMenuOpenChange={setIsMenuOpen} isBlurred={false}>
       <NavbarContent justify="start">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -46,27 +36,21 @@ const NavBar = () => {
         className="hidden md:flex gap-4 font-bold"
         justify="center"
       >
-        <NavbarItem>
-          <Link href="/#home">Home</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/#about">About</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/#projects">Projects</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/#tools">Tools</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/#contact">Contact</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/archive">Archives</Link>
-        </NavbarItem>
+        {menuItems.map((item, index) => (
+          <NavbarItem key={`${item}-${index}`}>
+            <Link href={`/#${item.toLowerCase()}`} size="sm">
+              <p className=" text-[hsl(var(--nextui-primary-100))]">{item}</p>
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
       <NavbarContent justify="end">
+        <NavbarItem>
+          <Link href="/archive">
+            <p className="text-sm text-[hsl(var(--nextui-primary-100))]">archives</p>
+          </Link>
+        </NavbarItem>
         <NavbarItem>
           <ThemeSwitcher />
         </NavbarItem>
@@ -76,13 +60,15 @@ const NavBar = () => {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className="w-full" href={`/#${item.toLowerCase()}`} size="lg">
-              {item}
+            <Link href={`/#${item.toLowerCase()}`} size="sm">
+              <p className=" text-[hsl(var(--nextui-primary-100))]">{item}</p>
             </Link>
           </NavbarMenuItem>
         ))}
         <NavbarItem>
-          <Link href="/archive">Archives</Link>
+          <Link href="/archive">
+            <p className=" text-[hsl(var(--nextui-primary-100))]">Archives</p>
+          </Link>
         </NavbarItem>
       </NavbarMenu>
     </Navbar>

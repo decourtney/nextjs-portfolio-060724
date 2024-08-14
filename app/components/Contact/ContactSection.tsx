@@ -2,15 +2,16 @@
 
 import { Button, Input, Textarea } from "@nextui-org/react";
 import React, { ChangeEvent, FormEvent, useState } from "react";
-import { ImFacebook2 } from "react-icons/im";
+import emailjs from "@emailjs/browser";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 
 const ContactSection: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [isSending, setIsSending] = useState<boolean>(false); // To track email sending status
+  const [successMessage, setSuccessMessage] = useState<string>(""); // To show success message
 
   const validateForm = (): { [key: string]: string } => {
     const newErrors: { [key: string]: string } = {};
@@ -21,16 +22,49 @@ const ContactSection: React.FC = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length === 0) {
-      // Handle form submission, e.g., send to email or save to database
-      console.log({ name, email, message });
-    } else {
-      setErrors(validationErrors);
-    }
-  };
+ const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+   e.preventDefault();
+   const validationErrors = validateForm();
+
+   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+   const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
+
+   if (!serviceId || !templateId || !userId) {
+     console.error("Missing EmailJS environment variables.");
+     return;
+   }
+
+   if (Object.keys(validationErrors).length === 0) {
+     setIsSending(true); // Start sending process
+     try {
+       const result = await emailjs.send(
+         serviceId,
+         templateId,
+         { name, email, message },
+         userId
+       );
+       console.log("Email sent: ", result.text);
+       setSuccessMessage("Thank you! Your message has been sent.");
+       setName("");
+       setEmail("");
+       setMessage("");
+     } catch (error) {
+       if (error instanceof Error) {
+         // The error is a known Error object
+         console.error("Failed to send email: ", error.message);
+       } else {
+         // Handle any other unknown errors
+         console.error("An unknown error occurred while sending the email.");
+       }
+     } finally {
+       setIsSending(false); // End sending process
+     }
+   } else {
+     setErrors(validationErrors);
+   }
+ };
+
 
   const handleInputChange =
     (setter: React.Dispatch<React.SetStateAction<string>>) =>
@@ -44,10 +78,6 @@ const ContactSection: React.FC = () => {
       id="contact"
       className="w-full 2xl:w-[60%] mx-auto pt-12 content-center min-h-dvh"
     >
-      {/* <div className="text-center text-[hsl(var(--nextui-primary-100))] text-5xl font-bold">
-        <h1>CONTACT</h1>
-      </div> */}
-
       <div className="lg:w-3/4 mx-auto ">
         <div className="space-y-24 mb-6">
           <div className="text-4xl text-right">
@@ -106,12 +136,21 @@ const ContactSection: React.FC = () => {
             {errors.message && <p className="text-red-500">{errors.message}</p>}
           </div>
           <div className="col-span-1 lg:col-span-2 flex justify-center">
-            <Button type="submit" className="w-full lg:w-1/2">
-              Submit
+            <Button
+              type="submit"
+              className="w-full lg:w-1/2"
+              disabled={isSending} // Disable button while sending
+            >
+              {isSending ? "Sending..." : "Submit"}
             </Button>
           </div>
         </form>
-        <div className="w-full xl:w-3/4 mx-auto pt-6">
+
+        {successMessage && (
+          <p className="text-green-500 text-center pt-4">{successMessage}</p>
+        )}
+
+        <div className="w-full xl:w-3/4 mx-auto pt-6 flex justify-center gap-4">
           <Button
             size="lg"
             isIconOnly

@@ -64,7 +64,6 @@ const AboutContent = () => {
             href="/resume.pdf"
             target="_blank"
             className="text-xl font-black bg-[hsl(var(--nextui-primary-500))] text-[hsl(var(--nextui-primary-100))]"
-            onPress={() => {}}
           >
             RESUME
           </Button>

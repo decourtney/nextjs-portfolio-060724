@@ -15,7 +15,10 @@ const ThemeSwitcher = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  const renderIcon = () => {
+    if (!mounted) return <BsFillMoonStarsFill />; // Render Sun by default before mounting
+    return currentTheme === "dark" ? <BsFillMoonStarsFill />: <FaSun /> ;
+  };
 
   return (
     <Button
@@ -23,10 +26,10 @@ const ThemeSwitcher = () => {
       variant="light"
       size="sm"
       radius="full"
-      className="text-inherit"
-      onPress={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
+      className="text-lg text-[hsl(var(--nextui-secondary-100))]"
+      onPress={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
     >
-      {currentTheme == "dark" ? <BsFillMoonStarsFill /> : <FaSun />}
+      {renderIcon()}
     </Button>
   );
 };
