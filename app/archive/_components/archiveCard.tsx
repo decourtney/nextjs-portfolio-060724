@@ -33,7 +33,7 @@ const ArchiveCard = (data: Archive) => {
         />
         <div className="m-4 space-y-4">
           {data.description.map((desc, index) => (
-            <p>{desc}</p>
+            <p key={index}>{desc}</p>
           ))}
         </div>
       </CardBody>
