@@ -41,7 +41,7 @@ const ProjectSection = () => {
       id="projects"
       className="w-full lg:w-[80%] 2xl:w-[60%] mx-auto pt-16 min-h-dvh"
     >
-      <div className="w-full text-5xl font-bold text-center text-[hsl(var(--nextui-primary-100))]">
+      <div className="w-full text-5xl font-montserrat font-bold text-center text-[hsl(var(--nextui-primary-100))]">
         <h1>PROJECTS</h1>
       </div>
 

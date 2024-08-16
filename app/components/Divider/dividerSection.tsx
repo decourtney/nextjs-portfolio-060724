@@ -27,7 +27,6 @@ const DividerSection = () => {
     }
   }, [windowWidth]);
 
-  console.log(numberOfLines);
   return (
     <div className="w-full h-[100px] flex items-center justify-center">
       <div

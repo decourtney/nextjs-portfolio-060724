@@ -10,8 +10,8 @@ const ToolsSection = () => {
   const isMobile = useIsMobile();
   const text1ref = React.useRef(null);
   const text2ref = React.useRef(null);
-  const isInView1 = useInView(text1ref, { once: false, amount: "some" });
-  const isInView2 = useInView(text2ref, { once: false, amount: "some" });
+  const isInView1 = useInView(text1ref, { once: true, amount: "some" });
+  const isInView2 = useInView(text2ref, { once: true, amount: "some" });
 
   // State to keep track of the active tool
   const [activeTool, setActiveTool] = useState<string | null>(null);
@@ -32,16 +32,16 @@ const ToolsSection = () => {
   return (
     <section
       id="tools"
-      className="w-full sm:w-[80%] lg:w-full mx-auto pt-16 min-h-dvh space-y-12"
+      className="w-full sm:w-[80%] lg:w-full mx-auto pt-16 min-h-dvh space-y-12 font-montserrat"
     >
-      <div className="w-full text-center text-[hsl(var(--nextui-primary-100))] text-5xl font-bold">
+      <div className="w-full text-center text-[hsl(var(--nextui-primary-100))] text-5xl font-montserrat font-bold">
         <h1>Toolbox</h1>
       </div>
 
       <div className="w-full lg:w-3/4 2xl:w-[50%] mx-auto mt-6 md:mt-12 2xl:mt-24">
         <div
           ref={text1ref}
-          className="grid lg:grid-cols-2 gap-y-12 w-[90%] lg:h-[250px] mx-auto mb-12 text-xl lg:text-2xl xl:text-3xl"
+          className="grid lg:grid-cols-2 gap-y-12 w-[90%] lg:h-[250px] mx-auto mb-12 text-xl lg:text-2xl xl:text-3xl font-playfairDisplay font-bold"
         >
           <div
             className="w-full mr-auto text-start"

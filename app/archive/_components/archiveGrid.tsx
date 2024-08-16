@@ -35,11 +35,11 @@ const archiveGrid = () => {
 
   return (
     <section className="w-full min-h-dvh mb-12">
-      <div className="h-[150px] content-center text-6xl text-center text-[hsl(var(--nextui-primary-100))]">
+      <div className="content-center font-montserrat font-bold text-6xl text-center text-[hsl(var(--nextui-primary-100))]">
         <h1>The Archives</h1>
       </div>
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-4 w-full lg:w-[90%] mx-auto p-1 lg:p-4 border-large border-[hsl(var(--nextui-primary-100))] rounded-md"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-4 w-full lg:w-[90%] mx-auto mt-12 lg:p-4 border-large border-[hsl(var(--nextui-primary-100))] rounded-md"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.1 }}

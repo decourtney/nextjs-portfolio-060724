@@ -102,10 +102,10 @@ const ProjectArchivesContainer = () => {
         }}
       >
         <div className="absolute top-0 left-0 w-full h-full content-center text-center bg-background rounded-md shadow-sm z-10">
-          <h2 className="text-4xl lg:text-5xl font-black text-[hsl(var(--nextui-primary-100))]">
+          <h2 className="text-4xl lg:text-5xl font-montserrat font-black text-[hsl(var(--nextui-primary-100))]">
             Archived Portfolio Versions
           </h2>
-          <p className="mt-[5%]">*previous iterations of this site</p>
+          <p className="mt-[5%] font-playfairDisplay">*previous iterations of this site</p>
         </div>
 
         <motion.div

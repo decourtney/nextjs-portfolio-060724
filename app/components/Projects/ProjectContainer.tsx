@@ -99,10 +99,10 @@ const ProjectContainer = (props: ProjectContainerProps) => {
         onClick={() => onOpen()}
       >
         <div className="absolute top-0 w-full h-full px-10 content-center text-center space-y-4 bg-background rounded-md z-20 shadow-sm">
-          <h2 className="text-4xl lg:text-5xl font-black text-[hsl(var(--nextui-primary-100))]">
+          <h2 className="text-4xl lg:text-5xl font-montserrat font-black text-[hsl(var(--nextui-primary-100))]">
             {props.title}
           </h2>
-          <p className="">{props.description}</p>
+          <p className="font-playfairDisplay">{props.description}</p>
         </div>
 
         <motion.div

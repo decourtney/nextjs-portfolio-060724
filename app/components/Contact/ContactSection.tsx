@@ -82,10 +82,10 @@ const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="w-full 2xl:w-[60%] mx-auto pt-12 content-center min-h-dvh"
+      className="w-full 2xl:w-[60%] mx-auto pt-16 content-center min-h-dvh"
     >
       <div className="lg:w-3/4 mx-auto ">
-        <div className="space-y-24 mb-6">
+        <div className="space-y-24 mb-6 font-playfairDisplay font-bold">
           <div
             ref={ref1}
             className="text-4xl text-right"
@@ -123,7 +123,7 @@ const ContactSection: React.FC = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full 2xl:w-3/4 mx-auto"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full 2xl:w-3/4 mx-auto font-montserrat"
         >
           <div className="col-span-1">
             <Input

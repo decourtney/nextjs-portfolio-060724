@@ -10,6 +10,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: ["var(--font-roboto)"],
+        playfairDisplay: ["var(--font-playfair-display)"],
+        montserrat: ["var(--font-montserrat)"],
+      },
       colors: {},
     },
   },

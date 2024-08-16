@@ -7,7 +7,7 @@ import { Button } from "@nextui-org/react";
 
 const AboutContent = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: "some", once: false });
+  const isInView = useInView(ref, { amount: "some", once: true });
 
   return (
     <div className="w-full h-full mx-auto 2xl:mt-12 text-xl text-primary-100">
@@ -36,7 +36,7 @@ const AboutContent = () => {
       </div>
 
       <div className="mt-12 lg:mt-16 mx-auto 2xl:w-[70%] text-medium space-y-12 lg:space-y-0">
-        <p className="lg:ml-[5%] xl:ml-[20%] 2xl:ml-[15%] text-3xl lg:text-4xl text-left font-medium lg:translate-y-[50%]">
+        <p className="lg:ml-[5%] xl:ml-[20%] 2xl:ml-[15%] text-3xl lg:text-4xl text-left font-playfairDisplay font-medium lg:translate-y-[50%]">
           A few more bytes...
         </p>
         <p className="lg:w-[40%] xl:w-[35%] ml-auto lg:mr-[10%] xl:mr-[15%] lg:text-left lg:-translate-y-[30%]">
@@ -63,7 +63,7 @@ const AboutContent = () => {
             as={"a"}
             href="/resume.pdf"
             target="_blank"
-            className="text-xl font-black bg-[hsl(var(--nextui-primary-500))] text-[hsl(var(--nextui-primary-100))]"
+            className="text-xl font-playfairDisplay font-black bg-[hsl(var(--nextui-primary-500))] text-[hsl(var(--nextui-primary-100))]"
           >
             RESUME
           </Button>

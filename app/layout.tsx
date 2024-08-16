@@ -3,6 +3,13 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Footer from "./Footer";
 import NavBar from "./Navbar";
+import {
+  Inter,
+  Poppins,
+  Playfair_Display,
+  Roboto,
+  Montserrat,
+} from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -36,6 +43,25 @@ export const viewport: Viewport = {
   minimumScale: 1,
 };
 
+const playfairDisplay = Playfair_Display({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-playfair-display",
+});
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+});
+const montserrat = Montserrat({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -43,10 +69,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={"en"} suppressHydrationWarning={true}>
-      <body>
+      <body
+        className={`font-roboto ${roboto.variable} ${playfairDisplay.variable} ${montserrat.variable}`}
+      >
         <Providers>
           <NavBar />
-          <main className="px-4 overflow-clip">{children}</main>
+          <main className={`px-4 overflow-clip`}>{children}</main>
           <Footer />
         </Providers>
       </body>

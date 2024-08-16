@@ -52,8 +52,8 @@ const ProjectModal = (props: ProjectModalProps) => {
                   ease: "easeOut",
                 }}
               >
-                <h1 className="font-bold text-3xl">{props.title}</h1>
-                <h2 className="text-lg">{props.description}</h2>
+                <h1 className="font-montserrat font-bold text-3xl">{props.title}</h1>
+                <h2 className="font-playfairDisplay text-lg">{props.description}</h2>
               </motion.div>
             </ModalHeader>
             <ModalBody>
