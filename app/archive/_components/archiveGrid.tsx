@@ -1,9 +1,8 @@
-'use client';
+"use client";
 
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import ArchiveCard from "./archiveCard";
-// import ArchiveCard from "./_components/archiveCard";
+import { motion } from "framer-motion";
 
 interface Archive {
   year: string;
@@ -16,7 +15,6 @@ interface Archive {
 const archiveGrid = () => {
   const [archivesData, setArchiveData] = useState<Archive[]>([]);
 
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -40,13 +38,18 @@ const archiveGrid = () => {
       <div className="h-[150px] content-center text-6xl text-center text-[hsl(var(--nextui-primary-100))]">
         <h1>The Archives</h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-4 w-full lg:w-[90%] mx-auto p-1 lg:p-4 border-large border-[hsl(var(--nextui-primary-100))] rounded-md">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-4 w-full lg:w-[90%] mx-auto p-1 lg:p-4 border-large border-[hsl(var(--nextui-primary-100))] rounded-md"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.1 }}
+      >
         {archivesData.map((archive, index) => (
           <ArchiveCard key={index} {...archive} />
         ))}
-      </div>
+      </motion.div>
     </section>
   );
-}
+};
 
-export default archiveGrid
+export default archiveGrid;

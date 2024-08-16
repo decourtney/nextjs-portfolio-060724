@@ -2,10 +2,10 @@
   {
     "title": "Reality Check News",
     "description": "Collaboration • Frontend • Backend",
-    "image": "/images/techmessages.webp",
+    "image": "/images/realitychecknews.webp",
     "writeup": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante.",
     "toolIcons": [
-      "html5, css3, javascript, tailwindcss, handlebars, express, mysql"
+      "html5", "css3", "javascript", "tailwindcss", "handlebars", "express", "mysql"
     ],
     "link": "https://example.com/project2"
   },
@@ -15,7 +15,7 @@
     "image": "/images/techmessages.webp",
     "writeup": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante.",
     "toolIcons": [
-      "html5, css3, javascript, tailwindcss, handlebars, express, mysql"
+      "html5", "css3", "javascript", "tailwindcss", "handlebars", "express", "mysql"
     ],
     "link": "https://example.com/project2"
   },
@@ -25,7 +25,7 @@
     "image": "/images/breaksweat.webp",
     "writeup": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante.",
     "toolIcons": [
-      "html5, css3, javascript, tailwindcss, handlebars, express, mysql"
+      "html5", "css3", "javascript", "tailwindcss", "handlebars", "express", "mysql"
     ],
     "link": "https://example.com/project3"
   },
@@ -34,16 +34,16 @@
     "description": "UI/UX • Frontend",
     "image": "/images/weatherornought.webp",
     "writeup": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante.",
-    "toolIcons": ["html5, css3, jquery, bootstrap"],
+    "toolIcons": ["html5", "css3", "jquery", "bootstrap"],
     "link": "https://example.com/project1"
   },
   {
     "title": "Not Another Movie Generator",
     "description": "Collaboration • Frontend",
-    "image": "/images/breaksweat.webp",
+    "image": "/images/moviegenerator.webp",
     "writeup": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante.",
     "toolIcons": [
-      "html5, css3, javascript, tailwindcss, handlebars, express, mysql"
+      "html5", "css3", "javascript", "tailwindcss", "handlebars", "express", "mysql"
     ],
     "link": "https://example.com/project3"
   }

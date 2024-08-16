@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
+import { motion } from "framer-motion";
 
 // Define the type for archive data
 interface Archive {
@@ -25,7 +26,7 @@ const ArchiveCard = (data: Archive) => {
         <h1 className="font-bold text-large">{data.year}</h1>
         <h2>{data.title}</h2>
       </CardHeader>
-      <CardBody className="overflow-visible py-2 h-fit">
+      <CardBody className="py-2 h-[500px] overflow-scroll">
         <Image
           alt="Card background"
           className="object-cover rounded-lg"

@@ -1,9 +1,10 @@
 "use client";
 
-import { Button, Input, Textarea } from "@nextui-org/react";
 import React, { ChangeEvent, FormEvent, useState } from "react";
+import { Button, Input, Textarea } from "@nextui-org/react";
 import emailjs from "@emailjs/browser";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { motion, useInView } from "framer-motion";
 
 const ContactSection: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -12,6 +13,12 @@ const ContactSection: React.FC = () => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSending, setIsSending] = useState<boolean>(false); // To track email sending status
   const [successMessage, setSuccessMessage] = useState<string>(""); // To show success message
+  const ref1 = React.useRef<HTMLDivElement>(null);
+  const ref2 = React.useRef<HTMLDivElement>(null);
+  const ref3 = React.useRef<HTMLDivElement>(null);
+  const isInView1 = useInView(ref1, { once: true, amount: "some" });
+  const isInView2 = useInView(ref2, { once: true, amount: "some" });
+  const isInView3 = useInView(ref3, { once: true, amount: "some" });
 
   const validateForm = (): { [key: string]: string } => {
     const newErrors: { [key: string]: string } = {};
@@ -22,49 +29,48 @@ const ContactSection: React.FC = () => {
     return newErrors;
   };
 
- const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
-   e.preventDefault();
-   const validationErrors = validateForm();
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
+    const validationErrors = validateForm();
 
-   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-   const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
 
-   if (!serviceId || !templateId || !userId) {
-     console.error("Missing EmailJS environment variables.");
-     return;
-   }
+    if (!serviceId || !templateId || !userId) {
+      console.error("Missing EmailJS environment variables.");
+      return;
+    }
 
-   if (Object.keys(validationErrors).length === 0) {
-     setIsSending(true); // Start sending process
-     try {
-       const result = await emailjs.send(
-         serviceId,
-         templateId,
-         { name, email, message },
-         userId
-       );
-       console.log("Email sent: ", result.text);
-       setSuccessMessage("Thank you! Your message has been sent.");
-       setName("");
-       setEmail("");
-       setMessage("");
-     } catch (error) {
-       if (error instanceof Error) {
-         // The error is a known Error object
-         console.error("Failed to send email: ", error.message);
-       } else {
-         // Handle any other unknown errors
-         console.error("An unknown error occurred while sending the email.");
-       }
-     } finally {
-       setIsSending(false); // End sending process
-     }
-   } else {
-     setErrors(validationErrors);
-   }
- };
-
+    if (Object.keys(validationErrors).length === 0) {
+      setIsSending(true); // Start sending process
+      try {
+        const result = await emailjs.send(
+          serviceId,
+          templateId,
+          { name, email, message },
+          userId
+        );
+        console.log("Email sent: ", result.text);
+        setSuccessMessage("Thank you! Your message has been sent.");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } catch (error) {
+        if (error instanceof Error) {
+          // The error is a known Error object
+          console.error("Failed to send email: ", error.message);
+        } else {
+          // Handle any other unknown errors
+          console.error("An unknown error occurred while sending the email.");
+        }
+      } finally {
+        setIsSending(false); // End sending process
+      }
+    } else {
+      setErrors(validationErrors);
+    }
+  };
 
   const handleInputChange =
     (setter: React.Dispatch<React.SetStateAction<string>>) =>
@@ -80,15 +86,36 @@ const ContactSection: React.FC = () => {
     >
       <div className="lg:w-3/4 mx-auto ">
         <div className="space-y-24 mb-6">
-          <div className="text-4xl text-right">
+          <div
+            ref={ref1}
+            className="text-4xl text-right"
+            style={{
+              translate: isInView1 ? "0 0" : "-10% 100%",
+              transition: "all 0.5s ease-out",
+            }}
+          >
             <p>Interested in working together</p>
             <p>or discussing a potential opportunity?</p>
           </div>
-          <div className="text-3xl">
+          <div
+            ref={ref2}
+            className="text-3xl text-left"
+            style={{
+              translate: isInView2 ? "0 0" : "10% 100%",
+              transition: "all 0.5s ease-out",
+            }}
+          >
             <p>I'm always open to exploring</p>
             <p> new roles and challenges.</p>
           </div>
-          <div className="text-2xl text-center">
+          <div
+            ref={ref3}
+            className="text-2xl text-center"
+            style={{
+              translate: isInView3 ? "0 0" : "0 50%",
+              transition: "all 0.5s ease-out",
+            }}
+          >
             <p>Let's connect and see how </p>
             <p>I can bring value to your project.</p>
           </div>
@@ -96,7 +123,7 @@ const ContactSection: React.FC = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full xl:w-3/4 mx-auto"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full 2xl:w-3/4 mx-auto"
         >
           <div className="col-span-1">
             <Input
@@ -150,7 +177,7 @@ const ContactSection: React.FC = () => {
           <p className="text-green-500 text-center pt-4">{successMessage}</p>
         )}
 
-        <div className="w-full xl:w-3/4 mx-auto pt-6 flex justify-center gap-4">
+        <div className="flex justify-start 2xl:w-3/4 mx-auto mt-4 mb-2 gap-4">
           <Button
             size="lg"
             isIconOnly

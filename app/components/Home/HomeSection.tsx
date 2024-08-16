@@ -3,7 +3,7 @@ import HomeWordScroll from "./HomeWordScroll";
 const HomeSection = () => {
   return (
     <section id="home" className="mx-auto">
-      <div className="w-[80%] pt-12 mx-auto">
+      <div className="w-[60%] pt-12 mx-auto">
         <svg
           viewBox="0 0 508 161"
           height={"100%"}
