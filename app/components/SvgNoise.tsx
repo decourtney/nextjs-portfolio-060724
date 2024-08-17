@@ -19,14 +19,14 @@ const SvgNoise = () => {
         <motion.filter id="noiseFilter">
           <motion.feTurbulence
             type="fractalNoise" // Type of noise (can be "fractalNoise" or "turbulence")
-            numOctaves="1" // Number of octaves (higher = more detail in noise)
+            numOctaves="10" // Number of octaves (higher = more detail in noise)
             stitchTiles="stitch" // Ensures seamless tiling (useful if noise repeats)
-            initial={{ baseFrequency: "0.7 0.5" }} // Starting base frequency of the noise (controls detail)
-            animate={{ baseFrequency: "0.6 0.4" }} // End base frequency (adjust to increase/decrease noise intensity)
+            initial={{ baseFrequency: "0.6 0.5" }} // Starting base frequency of the noise (controls detail)
+            animate={{ baseFrequency: "0.5 0.4" }} // End base frequency (adjust to increase/decrease noise intensity)
             transition={{
               repeat: Infinity, // Infinite loop for the animation
               repeatType: "reverse", // Reverse the animation to create a smooth loop
-              duration: 0.2, // Duration of the frequency animation loop (longer = slower changes)
+              duration: 0.1, // Duration of the frequency animation loop (longer = slower changes)
               ease: "linear", // Easing function for smooth transitions
             }}
           />

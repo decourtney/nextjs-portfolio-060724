@@ -26,7 +26,7 @@ const ArchiveCard = (data: Archive) => {
         <h1 className="font-bold text-large">{data.year}</h1>
         <h2>{data.title}</h2>
       </CardHeader>
-      <CardBody className="py-2 h-[500px] overflow-scroll">
+      <CardBody className="max-h-[500px] 2xl:max-h-[800px] py-2 overflow-scroll">
         <Image
           alt="Card background"
           className="object-cover rounded-lg"
