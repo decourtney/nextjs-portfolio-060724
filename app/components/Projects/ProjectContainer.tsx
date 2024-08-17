@@ -9,7 +9,7 @@ interface ProjectContainerProps {
   title: string;
   description: string;
   image: string;
-  writeup: string;
+  writeup: string[];
   toolIcons: string[];
   link: string;
   isLeft: boolean;

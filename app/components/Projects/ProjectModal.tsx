@@ -13,7 +13,7 @@ interface ProjectModalProps {
   title: string;
   description: string;
   image: string;
-  writeup: string;
+  writeup: string[];
   toolIcons: string[];
   link: string;
   isOpen: boolean;
@@ -30,6 +30,7 @@ const ProjectModal = (props: ProjectModalProps) => {
       motionProps={{
         variants: {
           enter: {
+            zIndex: 50,
             opacity: 1,
             y: 15,
             transition: { duration: 0.3, ease: "easeOut" },
@@ -52,8 +53,12 @@ const ProjectModal = (props: ProjectModalProps) => {
                   ease: "easeOut",
                 }}
               >
-                <h1 className="font-montserrat font-bold text-3xl">{props.title}</h1>
-                <h2 className="font-playfairDisplay text-lg">{props.description}</h2>
+                <h1 className="font-montserrat font-bold text-3xl">
+                  {props.title}
+                </h1>
+                <h2 className="font-playfairDisplay text-lg">
+                  {props.description}
+                </h2>
               </motion.div>
             </ModalHeader>
             <ModalBody>
@@ -80,9 +85,10 @@ const ProjectModal = (props: ProjectModalProps) => {
                 </div>
               </motion.div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <p>{props.writeup}</p>
-                <p>{props.writeup}</p>
+              <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
+                {props.writeup.map((writeup, index) => (
+                  <p>{writeup}</p>
+                ))}
               </div>
             </ModalBody>
             <ModalFooter>

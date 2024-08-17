@@ -4,11 +4,9 @@ import { motion } from "framer-motion";
 
 const SvgNoise = () => {
   return (
-    <motion.div
-      className="fixed -top-1/2 -left-1/2 w-[200%] h-[200%] pointer-events-none z-50 opacity-[20%]"
-      // initial={{ opacity: 0 }} // Initial opacity (0 = invisible)
-      // animate={{ opacity: 0.1 }} // Final opacity (adjust to control visibility of noise)
-      // transition={{ duration: 1, ease: "easeInOut" }} // Transition for the fade-in effect
+    <div
+      className="fixed -top-1/2 -left-1/2 w-[200%] h-[200%] pointer-events-none opacity-[20%]"
+      style={{zIndex: 100}}
     >
       <svg
         width="100%"
@@ -38,7 +36,7 @@ const SvgNoise = () => {
           filter="url(#noiseFilter)" // Apply the noise filter to the entire rect area
         />
       </svg>
-    </motion.div>
+    </div>
   );
 };
 

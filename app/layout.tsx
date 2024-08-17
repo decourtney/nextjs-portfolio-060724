@@ -74,10 +74,10 @@ export default function RootLayout({
         className={`font-roboto font-bold ${roboto.variable} ${playfairDisplay.variable} ${montserrat.variable}`}
       >
         <Providers>
-          <SvgNoise />
           <NavBar />
           <main className={`px-4 overflow-clip`}>{children}</main>
           <Footer />
+          <SvgNoise />
         </Providers>
       </body>
     </html>
