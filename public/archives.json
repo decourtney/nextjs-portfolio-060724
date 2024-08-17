@@ -1,7 +1,7 @@
 [
   {
     "year": "2022",
-    "title": "First",
+    "title": "OP",
     "description": [
       "The objective was to design a simple, clean portfolio using HTML and CSS to effectively showcase my projects. I initially envisioned a scrolling parallax effect featuring a stream of 1's and 0's in the background, reminiscent of the Matrix. However, due to my limited experience at the time, achieving this effect proved challenging. As a result, I opted for a horizontal looping background within a vertical parallax effect, which still captured the dynamic feel I was aiming for."
     ],
@@ -10,7 +10,7 @@
   },
   {
     "year": "2023",
-    "title": "Machine",
+    "title": "The Machine",
     "description": [
       "This project marked my first venture after mastering the basics of React, and it quickly proved to be a formidable challenge. Initially, the idea sparked while I was experimenting with animating multiple images in the viewport. My vision was to create a site entirely out of images that would evoke the illusion of a 3D object, rich in perspective and depth.",
       "While HTML attributes made it relatively simple to establish the sense of depth I was aiming for, bringing these \"3D\" elements to life through animation was a daunting task. Thankfully, Framer Motion integrated seamlessly, simplifying the process of creating smooth, dynamic animations, even during React dismounts.",
@@ -21,7 +21,7 @@
   },
   {
     "year": "2024",
-    "title": "Contrast",
+    "title": "In Contrast",
     "description": [
       "In contrast to my previous portfolio, which felt busy and noisy, my goal with this iteration was to embrace minimalism while still incorporating some flair. I opted for a two-toned, high-contrast color palette accented by splashes of color and subtle movement. My intention was to highlight my skill set without overwhelming visitors with too many distractions. However, the result, while smooth and clean, initially struck me as a bit too subdued.",
       "To bring more life to the design, I introduced subtle animations and interactive elements. These enhancements were carefully selected to elevate the user experience without detracting from the minimalist aesthetic. For example, animated icons and hover effects were implemented to add a touch of dynamism, subtly drawing attention to key sections of the portfolio.",

@@ -26,9 +26,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
     animateContainer(
       containerScope.current,
       {
-        boxShadow: props.isLeft
-          ? "0px 0px 14px 0px hsl(var(--nextui-primary-100))"
-          : "0px 0px 14px 0px hsl(var(--nextui-primary-100))",
+        boxShadow: "0px 0px 14px 0px hsl(var(--nextui-secondary-100))",
       },
       { type: "tween" }
     );
@@ -56,9 +54,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
     animateContainer(
       containerScope.current,
       {
-        boxShadow: props.isLeft
-          ? "0px 0px 0px 0px hsl(var(--nextui-primary-100))"
-          : "0px 0px 0px 0px hsl(var(--nextui-primary-100))",
+        boxShadow: "0px 0px 0px 0px hsl(var(--nextui-secondary-100))",
       },
       { type: "tween" }
     );
@@ -85,9 +81,8 @@ const ProjectContainer = (props: ProjectContainerProps) => {
   return (
     <motion.div
       ref={containerScope}
-      className="relative h-[300px] w-full sm:w-3/4 sm:mx-5 lg:w-[80%] border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md"   
+      className="relative h-[300px] w-full sm:w-3/4 sm:mx-5 lg:w-[80%] border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md"
     >
-      {/* <div className="relative w-full h-full"> */}
       <motion.button
         ref={cardScope}
         className="absolute top-0 left-0 w-full h-full cursor-pointer"
@@ -99,10 +94,20 @@ const ProjectContainer = (props: ProjectContainerProps) => {
         onClick={() => onOpen()}
       >
         <div className="absolute top-0 w-full h-full px-10 content-center text-center space-y-4 bg-background rounded-md z-20 shadow-sm">
-          <h2 className="text-4xl lg:text-5xl font-montserrat font-black text-[hsl(var(--nextui-primary-100))]">
+          <motion.h2
+            className="text-4xl lg:text-5xl font-montserrat font-black text-[hsl(var(--nextui-primary-100))]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
             {props.title}
-          </h2>
-          <p className="font-playfairDisplay">{props.description}</p>
+          </motion.h2>
+          <motion.p
+            className="font-playfairDisplay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            {props.description}
+          </motion.p>
         </div>
 
         <motion.div
@@ -115,13 +120,8 @@ const ProjectContainer = (props: ProjectContainerProps) => {
           />
         </motion.div>
       </motion.button>
-      {/* </div> */}
 
-      <ProjectModal
-        {...props}
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-      />
+      <ProjectModal {...props} isOpen={isOpen} onOpenChange={onOpenChange} />
     </motion.div>
   );
 };

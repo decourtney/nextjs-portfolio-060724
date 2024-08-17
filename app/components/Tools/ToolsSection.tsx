@@ -84,7 +84,7 @@ const ToolsSection = () => {
               <span
                 className={`transition-transform duration-200 ${
                   activeTool === toolId
-                    ? "scale-105 text-[hsl(var(--nextui-secondary-500))]"
+                    ? "scale-105 text-[hsl(var(--nextui-secondary-100))]"
                     : ""
                 }`}
               >

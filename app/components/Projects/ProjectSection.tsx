@@ -1,9 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import ProjectContainer from "./projectContainer";
+// import ProjectContainer from "./projectContainer";
 import ProjectArchivesContainer from "./projectArchivesContainer";
 import { useInView } from "framer-motion";
+import dynamic from "next/dynamic";
+import ProjectContainerSkeleton from "./projectContainerSkeleton";
+
+const ProjectContainer = dynamic(() => import("./projectContainer"), {
+  ssr: false,
+  loading: () => <ProjectContainerSkeleton />,
+});
 
 // Define the type for project data
 interface Project {
@@ -45,7 +52,7 @@ const ProjectSection = () => {
         <h1>PROJECTS</h1>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-y-24 mt-6 md:mt-12 2xl:mt-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-y-24 mt-6 md:mt-12 2xl:mt-24 min-h-dvh">
         {projects.map((project, index) => (
           <div
             key={project.title}

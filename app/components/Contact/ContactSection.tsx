@@ -90,7 +90,7 @@ const ContactSection: React.FC = () => {
             ref={ref1}
             className="text-4xl text-right"
             style={{
-              translate: isInView1 ? "0 0" : "-10% 100%",
+              translate: isInView1 ? "0 0" : "-10% 50%",
               transition: "all 0.5s ease-out",
             }}
           >
@@ -101,7 +101,7 @@ const ContactSection: React.FC = () => {
             ref={ref2}
             className="text-3xl text-left"
             style={{
-              translate: isInView2 ? "0 0" : "10% 100%",
+              translate: isInView2 ? "0 0" : "10% 50%",
               transition: "all 0.5s ease-out",
             }}
           >
@@ -165,7 +165,7 @@ const ContactSection: React.FC = () => {
           <div className="col-span-1 lg:col-span-2 flex justify-center">
             <Button
               type="submit"
-              className="w-full lg:w-1/2"
+              className="w-full lg:w-1/2 bg-secondary-100"
               disabled={isSending} // Disable button while sending
             >
               {isSending ? "Sending..." : "Submit"}

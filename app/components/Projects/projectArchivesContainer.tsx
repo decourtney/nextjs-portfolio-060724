@@ -14,7 +14,7 @@ const ProjectArchivesContainer = () => {
     animateContainer(
       containerScope.current,
       {
-        boxShadow: "0px 0px 14px 0px hsl(var(--nextui-primary-100))",
+        boxShadow: "0px 0px 14px 0px hsl(var(--nextui-secondary-100))",
       },
       { type: "tween" }
     );
@@ -54,7 +54,7 @@ const ProjectArchivesContainer = () => {
     animateContainer(
       containerScope.current,
       {
-        boxShadow: "0px 0px 0px 0px hsl(var(--nextui-primary-100))",
+        boxShadow: "0px 0px 0px 0px hsl(var(--nextui-secondary-100))",
       },
       { type: "tween" }
     );
