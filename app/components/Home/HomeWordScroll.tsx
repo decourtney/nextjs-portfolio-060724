@@ -73,7 +73,7 @@ const HomeWordScroll = () => {
             </motion.div>
           )}
           <motion.ul
-            className="inline-block pr-2 w-fit text-center"
+            className="inline-block pr-2 w-fit font-playfairDisplay text-center"
             style={{ translateY: verbY }}
           >
             {verbs.map((verb, index) => (

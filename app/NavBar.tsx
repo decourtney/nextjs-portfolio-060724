@@ -57,7 +57,7 @@ const NavBar = () => {
       <NavbarContent justify="end">
         <NavbarItem>
           <Link href="/archive">
-            <p className="text-sm text-[hsl(var(--nextui-primary-100))]">
+            <p className="text-[10px] text-[hsl(var(--nextui-primary-100))]">
               archives
             </p>
           </Link>

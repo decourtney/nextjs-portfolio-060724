@@ -63,7 +63,7 @@ const AboutContent = () => {
             as={"a"}
             href="/resume.pdf"
             target="_blank"
-            className="text-2xl font-playfairDisplay font-black bg-[hsl(var(--nextui-primary-500))] text-[hsl(var(--nextui-primary-100))] hover:text-[hsl(var(--nextui-secondary-100))] hover:border-[hsl(var(--nextui-primary-100))]"
+            className="text-2xl font-playfairDisplay font-black bg-[hsl(var(--nextui-primary-500))] text-[hsl(var(--nextui-primary-100))] shadow-[0px_0px_5px_0px_hsl(var(--nextui-secondary-100))] hover:text-[hsl(var(--nextui-secondary-100))] hover:border-[hsl(var(--nextui-primary-100))]"
           >
             RESUME
           </Button>

@@ -105,7 +105,9 @@ const ProjectArchivesContainer = () => {
           <h2 className="text-4xl lg:text-5xl font-montserrat font-black text-[hsl(var(--nextui-primary-100))]">
             Archived Portfolio Versions
           </h2>
-          <p className="mt-[5%] font-playfairDisplay">*previous iterations of this site</p>
+          <p className="mt-[5%] font-playfairDisplay">
+            *previous iterations of this site
+          </p>
         </div>
 
         <motion.div
@@ -131,8 +133,8 @@ const ProjectArchivesContainer = () => {
           className="absolute top-0 left-0 w-full h-full shadow-md"
         >
           <img
-            src="/images/portfolio2022.png"
-            className="w-full h-full object-cover object-top rounded-md"
+            src="/images/soon.webp"
+            className="w-full h-full object-cover object-center rounded-md"
           />
         </motion.div>
       </motion.div>

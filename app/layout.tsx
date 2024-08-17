@@ -10,6 +10,7 @@ import {
   Roboto,
   Montserrat,
 } from "next/font/google";
+import SvgNoise from "./components/SvgNoise";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -70,9 +71,10 @@ export default function RootLayout({
   return (
     <html lang={"en"} suppressHydrationWarning={true}>
       <body
-        className={`font-roboto ${roboto.variable} ${playfairDisplay.variable} ${montserrat.variable}`}
+        className={`font-roboto font-bold ${roboto.variable} ${playfairDisplay.variable} ${montserrat.variable}`}
       >
         <Providers>
+          <SvgNoise />
           <NavBar />
           <main className={`px-4 overflow-clip`}>{children}</main>
           <Footer />

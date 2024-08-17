@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @layer utilities {
+  .svg-noise-overlay {
+    @apply fixed top-0 left-0 w-full h-full pointer-events-none z-[9999];
+  }
+} */
+
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
