@@ -26,6 +26,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
     animateContainer(
       containerScope.current,
       {
+        zIndex: 50,
         boxShadow: "0px 0px 14px 0px hsl(var(--nextui-secondary-100))",
       },
       { type: "tween" }
@@ -54,6 +55,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
     animateContainer(
       containerScope.current,
       {
+        zIndex: 0,
         boxShadow: "0px 0px 0px 0px hsl(var(--nextui-secondary-100))",
       },
       { type: "tween" }
@@ -81,7 +83,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
   return (
     <motion.div
       ref={containerScope}
-      className="relative h-[300px] w-full sm:w-3/4 sm:mx-5 lg:w-[80%] border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md"
+      className="relative h-[300px] w-full sm:w-3/4 sm:mx-5 lg:w-[90%] border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md"
     >
       <motion.button
         ref={cardScope}
@@ -93,7 +95,17 @@ const ProjectContainer = (props: ProjectContainerProps) => {
         onHoverEnd={handleHoverEnd}
         onClick={() => onOpen()}
       >
-        <div className="absolute top-0 w-full h-full px-10 content-center text-center space-y-4 bg-background rounded-md z-20 shadow-sm">
+        <motion.div
+          ref={imgScope}
+          className="absolute top-0 left-0 w-full h-full shadow-md"
+        >
+          <img
+            src={props.image}
+            className="w-full h-full object-cover rounded-md"
+          />
+        </motion.div>
+
+        <div className="absolute top-0 w-full h-full px-4 content-center text-center space-y-4 bg-background rounded-md shadow-sm">
           <motion.h2
             className="text-4xl lg:text-5xl font-montserrat font-black text-[hsl(var(--nextui-primary-100))]"
             initial={{ opacity: 0 }}
@@ -109,16 +121,6 @@ const ProjectContainer = (props: ProjectContainerProps) => {
             {props.description}
           </motion.p>
         </div>
-
-        <motion.div
-          ref={imgScope}
-          className="absolute top-0 left-0 w-full h-full shadow-md"
-        >
-          <img
-            src={props.image}
-            className="w-full h-full object-cover rounded-md"
-          />
-        </motion.div>
       </motion.button>
 
       <ProjectModal {...props} isOpen={isOpen} onOpenChange={onOpenChange} />

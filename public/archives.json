@@ -20,17 +20,6 @@
     "link": "https://example.com/project2"
   },
   {
-    "year": "2024",
-    "title": "In Contrast",
-    "description": [
-      "In contrast to my previous portfolio, which felt busy and noisy, my goal with this iteration was to embrace minimalism while still incorporating some flair. I opted for a two-toned, high-contrast color palette accented by splashes of color and subtle movement. My intention was to highlight my skill set without overwhelming visitors with too many distractions. However, the result, while smooth and clean, initially struck me as a bit too subdued.",
-      "To bring more life to the design, I introduced subtle animations and interactive elements. These enhancements were carefully selected to elevate the user experience without detracting from the minimalist aesthetic. For example, animated icons and hover effects were implemented to add a touch of dynamism, subtly drawing attention to key sections of the portfolio.",
-      "I also devoted considerable thought to the divider sections between different parts of the portfolio. Custom components were developed to create adjustable spacing and visual separation, employing vertical lines and empty space. These dividers not only provided structure and flow but also ensured that each section had its own distinct presence while remaining harmoniously integrated into the overall design."
-    ],
-    "image": "/images/weatherornought.webp",
-    "link": "https://example.com/project2"
-  },
-  {
     "year": "WIP",
     "title": "SOON",
     "description": [

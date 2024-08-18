@@ -11,6 +11,7 @@ import {
   Montserrat,
 } from "next/font/google";
 import SvgNoise from "./components/SvgNoise";
+import LoadingManager from "./components/LoadingManager";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -74,9 +75,11 @@ export default function RootLayout({
         className={`font-roboto font-bold ${roboto.variable} ${playfairDisplay.variable} ${montserrat.variable}`}
       >
         <Providers>
-          <NavBar />
-          <main className={`px-4 overflow-clip`}>{children}</main>
-          <Footer />
+          <LoadingManager>
+            <NavBar />
+            <main className={`px-4 overflow-clip`}>{children}</main>
+            <Footer />
+          </LoadingManager>
           <SvgNoise />
         </Providers>
       </body>

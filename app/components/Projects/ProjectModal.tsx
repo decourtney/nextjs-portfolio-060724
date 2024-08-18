@@ -45,7 +45,7 @@ const ProjectModal = (props: ProjectModalProps) => {
             <ModalHeader className="flex flex-col gap-1">
               <motion.div
                 className="w-fit"
-                initial={{ scale: 1.2 }}
+                initial={{ scale: 1.05 }}
                 animate={{ scale: 1 }}
                 transition={{
                   duration: 0.5,
@@ -63,7 +63,7 @@ const ProjectModal = (props: ProjectModalProps) => {
             </ModalHeader>
             <ModalBody>
               <motion.div
-                className="w-full sm:w-1/2 mx-auto mb-4 space-y-4"
+                className="float-right w-3/4 sm:w-1/2 mx-auto mb-4 space-y-4"
                 initial={{ scale: 0.98 }}
                 animate={{ scale: 1 }}
                 transition={{
@@ -85,7 +85,7 @@ const ProjectModal = (props: ProjectModalProps) => {
                 </div>
               </motion.div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
+              <div className="flex flex-col gap-4">
                 {props.writeup.map((writeup, index) => (
                   <p>{writeup}</p>
                 ))}

@@ -1,4 +1,4 @@
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./components/LoadingPage";
 import React from "react";
 import AboutSection from "./components/About/AboutSection";
 import ContactSection from "./components/Contact/ContactSection";

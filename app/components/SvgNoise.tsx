@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const SvgNoise = () => {
   return (
     <div
-      className="fixed -top-1/2 -left-1/2 w-[200%] h-[200%] pointer-events-none opacity-[20%]"
+      className="fixed -top-1/2 -left-1/2 w-[200%] h-[200%] pointer-events-none opacity-[15%]"
       style={{zIndex: 100}}
     >
       <svg
