@@ -10,6 +10,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: ["var(--font-roboto)"],
+        playfairDisplay: ["var(--font-playfair-display)"],
+        montserrat: ["var(--font-montserrat)"],
+      },
       colors: {},
     },
   },
@@ -58,15 +63,11 @@ const config: Config = {
               "500": "#F4F4F4",
             },
             secondary: {
-              "100": "#CBECFE",
+              "100": "#f5a524",
               "200": "#97D5FD",
               "300": "#63B7F9",
               "400": "#3D9BF4",
               "500": "#006FEE",
-              "600": "#0055CC",
-              "700": "#003FAB",
-              "800": "#002C8A",
-              "900": "#001F72",
             },
             content1: {
               "100": "#2F2F2F",
@@ -91,15 +92,11 @@ const config: Config = {
               "500": "#2F2F2F",
             },
             secondary: {
-              "100": "#CBECFE",
+              "100": "#006FEE",
               "200": "#97D5FD",
               "300": "#63B7F9",
               "400": "#3D9BF4",
-              "500": "#006FEE",
-              "600": "#0055CC",
-              "700": "#003FAB",
-              "800": "#002C8A",
-              "900": "#001F72",
+              "500": "#f5a524",
             },
             content1: {
               "100": "#2F2F2F",

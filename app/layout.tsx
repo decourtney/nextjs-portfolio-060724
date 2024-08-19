@@ -2,6 +2,16 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 import Footer from "./Footer";
+import NavBar from "./Navbar";
+import {
+  Inter,
+  Poppins,
+  Playfair_Display,
+  Roboto,
+  Montserrat,
+} from "next/font/google";
+import SvgNoise from "./components/SvgNoise";
+import LoadingManager from "./components/LoadingManager";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -35,6 +45,25 @@ export const viewport: Viewport = {
   minimumScale: 1,
 };
 
+const playfairDisplay = Playfair_Display({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-playfair-display",
+});
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+});
+const montserrat = Montserrat({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,13 +71,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={"en"} suppressHydrationWarning={true}>
-      <body>
+      <body
+        className={`font-roboto font-bold ${roboto.variable} ${playfairDisplay.variable} ${montserrat.variable}`}
+      >
         <Providers>
-          <main className="relative w-full lg:max-w-[80%] mx-auto -mt-[48px] px-4 md:px-8">
-            {children}
-          </main>
+          <LoadingManager>
+            <NavBar />
+            <main className="overflow-clip">{children}</main>
+            <Footer />
+          </LoadingManager>
+          <SvgNoise />
         </Providers>
-        <Footer />
       </body>
     </html>
   );
