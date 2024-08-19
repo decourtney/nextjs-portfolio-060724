@@ -7,7 +7,8 @@ import ProjectSection from "./components/Projects/ProjectSection";
 import ToolsSection from "./components/Tools/ToolsSection";
 import DivierSection from "./components/Divider/dividerSection";
 
-export default function App() {
+export default function App({ onReady }: { onReady: () => void }) {
+
   return (
     <>
       <HomeSection />

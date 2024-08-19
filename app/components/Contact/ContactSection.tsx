@@ -82,7 +82,7 @@ const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="w-full 2xl:w-[60%] mx-auto pt-16 content-center min-h-dvh"
+      className="w-full 2xl:w-[60%] mx-auto pt-16 px-4 content-center min-h-dvh"
     >
       <div className="lg:w-3/4 mx-auto ">
         <div className="space-y-24 mb-6 font-playfairDisplay font-bold">

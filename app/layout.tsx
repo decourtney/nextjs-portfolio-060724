@@ -77,7 +77,7 @@ export default function RootLayout({
         <Providers>
           <LoadingManager>
             <NavBar />
-            <main className={`px-4 overflow-clip`}>{children}</main>
+            <main className="overflow-clip">{children}</main>
             <Footer />
           </LoadingManager>
           <SvgNoise />

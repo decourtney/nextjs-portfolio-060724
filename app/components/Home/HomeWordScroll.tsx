@@ -56,7 +56,13 @@ const HomeWordScroll = () => {
   });
 
   return (
-    <div ref={ref} className="relative w-full h-[400dvh] md:mt-8">
+    <motion.div
+      ref={ref}
+      className="relative w-full h-[400dvh] md:mt-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
       {/* Adjust */}
       <motion.div className="sticky top-[20%] grid grid-cols-2 gap-y-5 h-[400px] lg:h-[600px] text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black">
         <div className="col-span-1 text-end leading-[85px] h-[85px] overflow-hidden">
@@ -97,7 +103,7 @@ const HomeWordScroll = () => {
           <SvgMorph indexOfSvgs={indexOfSvgs} />
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

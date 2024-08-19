@@ -1,57 +1,85 @@
-import { useEffect, useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useAnimate,
-  usePresence,
-} from "framer-motion";
+import { Dispatch, useEffect, useRef, useState, SetStateAction } from "react";
+import { useTheme } from "next-themes";
+import loadingAnim from "@/public/loadingAnim.json";
+import nameAnim from "@/public/nameAnim.json";
+import { usePresence } from "framer-motion";
+import Lottie, { LottieOptions } from "lottie-react";
 
-const LoadingPage = () => {
+const changeLottieColors = (lottieData: any, theme: string) => {
+  const targetColor =
+    theme === "light"
+      ? [0.1843137254901961, 0.1843137254901961, 0.1843137254901961] // rgb(47, 47, 47)
+      : [0.9568627450980392, 0.9568627450980392, 0.9568627450980392]; // rgb(244, 244, 244)
+
+  const traverseAndReplaceColors = (obj: any) => {
+    // Base case: if the object has a 'c' property with a 'k' array, replace the color
+    if (obj && obj.c && Array.isArray(obj.c.k)) {
+      obj.c.k = targetColor;
+    }
+
+    // Recursive case: if the object has children, traverse them
+    if (obj && typeof obj === "object") {
+      for (const key in obj) {
+        if (obj[key] !== null && typeof obj[key] === "object") {
+          traverseAndReplaceColors(obj[key]);
+        }
+      }
+    }
+  };
+
+  // Start traversal from the top level of the lottieData
+  traverseAndReplaceColors(lottieData);
+
+  return lottieData;
+};
+
+interface LoadingPageProps {
+  setIsContentReady: Dispatch<SetStateAction<boolean>>;
+}
+
+const LoadingPage = ({ setIsContentReady }: LoadingPageProps) => {
   const [isPresent, safeToRemove] = usePresence();
-  const [scope, animate] = useAnimate();
+  const { theme } = useTheme();
+  const lottieRef = useRef(null);
+  const [lottieData, setLottieData] = useState(loadingAnim);
+  const [lottieOptions, setLottieOptions] = useState<LottieOptions>({
+    animationData: lottieData,
+    loop: true,
+  });
 
   useEffect(() => {
-    console.log(isPresent);
-    if (isPresent) {
-      const enterAnimation = async () => {
-        await animate(
-          "div",
-          { rotate: 360 },
-          { duration: 2,  ease: "linear" }
-        );
-      };
+    if (!theme) return;
+    const updatedLottieData = changeLottieColors({ ...lottieData }, theme);
+    setLottieData(updatedLottieData);
+  }, [theme]);
 
-      enterAnimation();
-    } else {
-      const exitAnimation = async () => {
-        await animate("div", {rotate: 360}, { duration: 1, ease: "linear" });
-        await animate("div", { scale: 1.5 }, { duration: 1 });
+  useEffect(() => {
+    if (!lottieRef.current) return;
+    setLottieOptions({ ...lottieOptions, animationData: lottieData });
+  }, [lottieData]);
 
-        safeToRemove();
-      };
+  useEffect(() => {
+    if (!isPresent && lottieRef.current && theme) {
+      const themedLottieData = changeLottieColors({ ...nameAnim }, theme);
 
-      exitAnimation();
+      setLottieOptions({
+        ...lottieOptions,
+        animationData: themedLottieData,
+        loop: false,
+        onComplete: () => {
+          setIsContentReady(true), safeToRemove();
+        },
+      });
     }
   }, [isPresent]);
 
   return (
-    <section
-      ref={scope}
-      className="fixed inset-0 flex items-center justify-center bg-background z-50"
-    >
-      <div className="your-svg-class">
-        {/* Replace with your SVG animation */}
-        <svg className="h-24 w-24" viewBox="0 0 100 100">
-          <rect
-            x="10"
-            y="10"
-            width="80"
-            height="80"
-            fill="hsl(var(--nextui-primary-100))"
-          />
-        </svg>
-      </div>
-    </section>
+    <Lottie
+      lottieRef={lottieRef}
+      id="lottie"
+      className="w-full h-full"
+      {...lottieOptions}
+    />
   );
 };
 

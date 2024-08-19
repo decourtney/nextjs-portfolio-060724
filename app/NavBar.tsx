@@ -2,8 +2,6 @@
 
 import { useRef, useState } from "react";
 import {
-  Button,
-  ButtonGroup,
   Link,
   Navbar,
   NavbarBrand,
@@ -15,20 +13,27 @@ import {
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import ThemeSwitcher from "./components/themeSwitcher";
-import { useInView } from "framer-motion";
+import { BrandIcon } from "./components/svgs";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuItems = ["Home", "About", "Projects", "Contact"];
 
+  const clearStorageAndReload = () => {
+    sessionStorage.removeItem("hasVisited"); // Clear the session storage item
+    window.location.reload(); // Reload the page to display the landing page
+  };
+
   const handleClose = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   return (
     <Navbar
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       isBlurred={false}
+      // height={"64px"}
     >
       <NavbarContent justify="start">
         <NavbarMenuToggle
@@ -37,7 +42,9 @@ const NavBar = () => {
         />
 
         <NavbarBrand>
-          <p className="font-bold text-[hsl(var(--nextui-primary-100))]">=D</p>
+          <Link href="/" onClick={clearStorageAndReload}>
+            <BrandIcon />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 

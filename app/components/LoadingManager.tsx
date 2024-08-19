@@ -3,32 +3,52 @@
 import { useState, useEffect } from "react";
 import LoadingPage from "./LoadingPage";
 import { AnimatePresence } from "framer-motion";
+import { NameSVG } from "./svgs";
 
 export default function LoadingManager({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isContentReady, setIsContentReady] = useState(false);
 
   useEffect(() => {
-    console.log("LoadingManager: Content is loading");
+    const hasVisited = sessionStorage.getItem("hasVisited");
 
-    // Simulate a data fetching or content preparation delay
-    const timer = setTimeout(() => {
-      console.log("LoadingManager: Content is ready");
-      setIsLoading(false);
-    }, 3000); // Adjust this delay as necessary
-
-    return () => clearTimeout(timer);
+    if (hasVisited) {
+      setIsContentReady(true);
+    } else {
+      setIsLoading(true);
+    }
   }, []);
+
+  useEffect(() => {
+    if (isLoading) {
+      // Simulate a data fetching or content preparation delay
+      const timer = setTimeout(() => {
+        sessionStorage.setItem("hasVisited", "true");
+        setIsLoading(false);
+      }, 2000); // Adjust this delay as necessary
+
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading]);
 
   return (
     <>
       <AnimatePresence mode="wait">
-        {isLoading && <LoadingPage key={"loading"} />}
+        {isLoading && (
+          <div className="w-[80%] lg:w-[60%] pt-32 mx-auto">
+            <LoadingPage
+              key={"loading"}
+              setIsContentReady={setIsContentReady}
+            />
+          </div>
+        )}
       </AnimatePresence>
-      {!isLoading && children}
+
+      {isContentReady && children}
     </>
   );
 }
