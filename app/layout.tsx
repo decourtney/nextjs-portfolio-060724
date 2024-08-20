@@ -70,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={"en"} suppressHydrationWarning={true} className="scroll-smooth">
+    <html lang={"en"} suppressHydrationWarning={true} className="">
       <body
         className={`font-roboto font-bold ${roboto.variable} ${playfairDisplay.variable} ${montserrat.variable}`}
       >

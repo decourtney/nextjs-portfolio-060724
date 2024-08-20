@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAnimate, motion } from 'framer-motion';
+import { useAnimate, motion, useInView } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 
 const ProjectArchivesContainer = () => {
@@ -9,6 +9,7 @@ const ProjectArchivesContainer = () => {
   const [img1Scope, animateImg1] = useAnimate();
   const [img2Scope, animateImg2] = useAnimate();
   const [img3Scope, animateImg3] = useAnimate();
+  const isInView = useInView(containerScope, { amount: 0.5, once: true });
   
   const handleHoverStart = () => {
     animateContainer(
@@ -88,9 +89,14 @@ const ProjectArchivesContainer = () => {
     );
   };
   return (
-    <div
+    <motion.div
       ref={containerScope}
-      className="relative w-full lg:w-[500px] h-[300px] mt-8 lg:mt-24 mx-auto border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md "
+      className="relative w-full lg:w-[500px] h-[300px] mt-8 lg:mt-24 mx-auto border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md"
+      style={{
+        translateY: isInView ? 0 : 100,
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.5s",
+      }}
     >
       <motion.div
         ref={cardScope}
@@ -138,7 +144,7 @@ const ProjectArchivesContainer = () => {
           />
         </motion.div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
