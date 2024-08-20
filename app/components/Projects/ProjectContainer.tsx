@@ -8,7 +8,7 @@ import { transform } from "next/dist/build/swc";
 interface ProjectContainerProps {
   title: string;
   description: string;
-  image: string;
+  images: string[];
   writeup: string[];
   toolIcons: string[];
   link: string;
@@ -100,7 +100,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
           className="absolute top-0 left-0 w-full h-full shadow-md"
         >
           <img
-            src={props.image}
+            src={props.images[0]}
             className="w-full h-full object-cover rounded-md"
           />
         </motion.div>

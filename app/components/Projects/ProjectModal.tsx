@@ -9,11 +9,13 @@ import {
   ModalHeader,
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
+import ModalSwiper from "./projectModalSwiper";
+import { init } from "next/dist/compiled/webpack/webpack";
 
 interface ProjectModalProps {
   title: string;
   description: string;
-  image: string;
+  images: string[];
   writeup: string[];
   toolIcons: string[];
   link: string;
@@ -32,12 +34,10 @@ const ProjectModal = (props: ProjectModalProps) => {
         variants: {
           enter: {
             zIndex: 50,
-            opacity: 1,
-            y: 15,
-            transition: { duration: 0.3, ease: "easeOut" },
+            transition: { duration: 5, ease: "easeIn" },
           },
         },
-        exit: { opacity: 0, y: 100 },
+        exit: { opacity: 0, y: 200, transition: { ease: "easeIn" } },
       }}
     >
       <ModalContent>
@@ -63,31 +63,29 @@ const ProjectModal = (props: ProjectModalProps) => {
               </motion.div>
             </ModalHeader>
             <ModalBody>
-                <motion.div
-                  className="h-[400px] mx-auto mb-10 px-4 space-y-4"
-                  initial={{ scale: 0.98 }}
-                  animate={{ scale: 1 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.1,
-                    type: "tween",
-                    ease: "easeOut",
-                  }}
-                >
-                  <img
-                    src={props.image}
-                    className="w-full h-full rounded-md object-cover shadow-md shadow-[hsl(var(--nextui-primary-100))]"
-                  />
+              <motion.div
+                className="w-full h-full mx-auto space-y-4"
+                initial={{ scale: 0.98 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.1,
+                  type: "tween",
+                  ease: "easeOut",
+                }}
+              >
+                <ModalSwiper images={props.images} />
 
-                  <div className="flex justify-around">
-                    {props.toolIcons.map((icon, index) => {
-                      return getToolIcon(icon); // Ensure you wrap the returned SVG in a JSX element with a key
-                    })}
-                  </div>
-                </motion.div>
+                <div className="flex justify-around">
+                  {props.toolIcons.map((icon, index) => {
+                    return getToolIcon(icon); // Ensure you wrap the returned SVG in a JSX element with a key
+                  })}
+                </div>
+
                 {props.writeup.map((writeup, index) => (
                   <p>{writeup}</p>
                 ))}
+              </motion.div>
             </ModalBody>
             <ModalFooter className="space-x-8">
               <Button
