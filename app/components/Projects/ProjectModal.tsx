@@ -24,7 +24,7 @@ interface ProjectModalProps {
 const ProjectModal = (props: ProjectModalProps) => {
   return (
     <Modal
-      size="5xl"
+      size="3xl"
       isOpen={props.isOpen}
       onOpenChange={props.onOpenChange}
       scrollBehavior="outside"
@@ -63,34 +63,31 @@ const ProjectModal = (props: ProjectModalProps) => {
               </motion.div>
             </ModalHeader>
             <ModalBody>
-              <motion.div
-                className="float-right w-3/4 sm:w-1/2 mx-auto mb-4 space-y-4"
-                initial={{ scale: 0.98 }}
-                animate={{ scale: 1 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.1,
-                  type: "tween",
-                  ease: "easeOut",
-                }}
-              >
-                <img
-                  src={props.image}
-                  className="rounded-md object-cover shadow-md shadow-[hsl(var(--nextui-primary-100))]"
-                />
+                <motion.div
+                  className="h-[400px] mx-auto mb-10 px-4 space-y-4"
+                  initial={{ scale: 0.98 }}
+                  animate={{ scale: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.1,
+                    type: "tween",
+                    ease: "easeOut",
+                  }}
+                >
+                  <img
+                    src={props.image}
+                    className="w-full h-full rounded-md object-cover shadow-md shadow-[hsl(var(--nextui-primary-100))]"
+                  />
 
-                <div className="flex justify-around">
-                  {props.toolIcons.map((icon, index) => {
-                    return getToolIcon(icon); // Ensure you wrap the returned SVG in a JSX element with a key
-                  })}
-                </div>
-              </motion.div>
-
-              <div className="flex flex-col gap-4">
+                  <div className="flex justify-around">
+                    {props.toolIcons.map((icon, index) => {
+                      return getToolIcon(icon); // Ensure you wrap the returned SVG in a JSX element with a key
+                    })}
+                  </div>
+                </motion.div>
                 {props.writeup.map((writeup, index) => (
                   <p>{writeup}</p>
                 ))}
-              </div>
             </ModalBody>
             <ModalFooter className="space-x-8">
               <Button
