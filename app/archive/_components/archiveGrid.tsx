@@ -34,7 +34,7 @@ const archiveGrid = () => {
   }, []);
 
   return (
-    <section className="flex flex-col w-full min-h-dvh mb-12">
+    <section className="flex flex-col w-full min-h-dvh pb-12">
       <div className="content-center font-montserrat font-bold text-6xl text-center text-[hsl(var(--nextui-primary-100))]">
         <h1>The Archives</h1>
       </div>

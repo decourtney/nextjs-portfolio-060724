@@ -157,7 +157,8 @@ const ContactSection: React.FC = () => {
               variant="bordered"
               onClear={() => console.log("input cleared")}
               onChange={handleInputChange(setMessage)}
-              className={`w-full ${errors.message ? "border-red-500" : ""}`}
+              className={`w-full  ${errors.message ? "border-red-500" : ""}`}
+              minRows={4}
               rows={4}
             />
             {errors.message && <p className="text-red-500">{errors.message}</p>}

@@ -111,7 +111,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            {props.title}
+            {props.title.toUpperCase()}
           </motion.h2>
           <motion.p
             className="font-playfairDisplay"

@@ -103,7 +103,7 @@ const ProjectArchivesContainer = () => {
       >
         <div className="absolute top-0 left-0 w-full h-full px-2 content-center text-center bg-background rounded-md shadow-sm z-10">
           <h2 className="text-4xl lg:text-5xl font-montserrat font-black text-[hsl(var(--nextui-primary-100))]">
-            Archived Portfolio Versions
+            ARCHIVED PORTFOLIO VERSIONS
           </h2>
           <p className="mt-[5%] font-playfairDisplay">
             *previous iterations of this site

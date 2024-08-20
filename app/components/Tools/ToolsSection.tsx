@@ -35,7 +35,7 @@ const ToolsSection = () => {
       className="w-full sm:w-[80%] lg:w-full mx-auto pt-16 px-4 min-h-dvh space-y-12 font-montserrat"
     >
       <div className="w-full text-center text-[hsl(var(--nextui-primary-100))] text-5xl font-montserrat font-bold">
-        <h1>Toolbox</h1>
+        <h1>TOOLBOX</h1>
       </div>
 
       <div className="w-full lg:w-3/4 2xl:w-[50%] mx-auto mt-6 md:mt-12 2xl:mt-24">

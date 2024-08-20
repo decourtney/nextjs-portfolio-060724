@@ -1,6 +1,7 @@
 import getToolIcon from "@/app/utilities/getToolIcon";
 import {
   Button,
+  Link,
   Modal,
   ModalBody,
   ModalContent,
@@ -42,7 +43,7 @@ const ProjectModal = (props: ProjectModalProps) => {
       <ModalContent>
         {(onClose) => (
           <>
-            <ModalHeader className="flex flex-col gap-1">
+            <ModalHeader>
               <motion.div
                 className="w-fit"
                 initial={{ scale: 1.05 }}
@@ -54,7 +55,7 @@ const ProjectModal = (props: ProjectModalProps) => {
                 }}
               >
                 <h1 className="font-montserrat font-bold text-3xl">
-                  {props.title}
+                  {props.title.toUpperCase()}
                 </h1>
                 <h2 className="font-playfairDisplay text-lg">
                   {props.description}
@@ -91,12 +92,24 @@ const ProjectModal = (props: ProjectModalProps) => {
                 ))}
               </div>
             </ModalBody>
-            <ModalFooter>
+            <ModalFooter className="space-x-8">
+              <Button
+                variant="faded"
+                className=" font-bold bg-[hsl(var(--nextui-secondary-100))]"
+              >
+                <Link
+                  href={props.link}
+                  target="_blank"
+                  className="text-lg text-[hsl(var(--nextui-primary-100))] font-playfairDisplay"
+                >
+                  <p>VISIT</p>
+                </Link>
+              </Button>
               <Button
                 className="text-[hsl(var(--nextui-primary-100))] mb-4"
                 onPress={onClose}
               >
-                Close
+                <p>Close</p>
               </Button>
             </ModalFooter>
           </>

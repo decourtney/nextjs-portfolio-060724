@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 // Define the type for archive data
 interface Archive {
@@ -12,13 +13,18 @@ interface Archive {
 }
 
 const ArchiveCard = (data: Archive) => {
-  const [isHovered, setIsHovered] = React.useState(false);
+  const handleCardClick = () => {
+    if (data.link) {
+      window.open(data.link, "_blank");
+    }
+  };
+
   return (
     <Card
       key={data.year}
       isPressable
       disableRipple
-      onClick={() => console.log("clicked")}
+      onClick={handleCardClick}
       id={data.year}
       className="h-fit py-4 bg-[hsl(var(--nextui-primary-300))] text-[hsl(var(--nextui-primary-500))] hover:bg-[hsl(var(--nextui-primary-100))] hover:text-background cursor-pointer"
     >

@@ -13,7 +13,7 @@ import {
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import ThemeSwitcher from "./components/themeSwitcher";
-import { BrandIcon } from "./components/svgs";
+import { BrandIcon } from "./utilities/svgs";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,7 +33,6 @@ const NavBar = () => {
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       isBlurred={false}
-      // height={"64px"}
     >
       <NavbarContent justify="start">
         <NavbarMenuToggle

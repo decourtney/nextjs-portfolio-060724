@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
-import { svgToolIcons } from "../svgs";
+import { svgBouncingIcons } from "../../utilities/svgs";
 
 interface Ball {
   x: number;
@@ -38,7 +38,7 @@ const BouncingIcons: React.FC<BouncingIconsProps> = ({
   const gravity = 0.0;
   const friction = 0.99;
 
-  const svgPaths = svgToolIcons; // Array of SVG strings with IDs
+  const svgPaths = svgBouncingIcons; // Array of SVG strings with IDs
 
   const parseSVG = (svg: string): Path2D => {
     const parser = new DOMParser();

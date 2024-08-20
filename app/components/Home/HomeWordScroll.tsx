@@ -10,7 +10,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useState } from "react";
-import { HeartIcon } from "../svgs";
+import { HeartIcon } from "../../utilities/svgs";
 import { useContainerSize } from "../../utilities";
 import SvgMorph from "../svgMorph";
 

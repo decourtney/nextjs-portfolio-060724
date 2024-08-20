@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { svgToolIcons } from "../svgs";
+import { svgBouncingIcons } from "../../utilities/svgs";
 
 interface BoringIconsProps {
   activeTool: string | null;
@@ -30,7 +30,7 @@ const BoringIcons: React.FC<BoringIconsProps> = ({ activeTool, onHover }) => {
   const [shuffledIcons, setShuffledIcons] = useState<string[]>([]);
 
   useEffect(() => {
-    setShuffledIcons(shuffleArray([...svgToolIcons]));
+    setShuffledIcons(shuffleArray([...svgBouncingIcons]));
   }, []);
 
   const getSVGId = (svg: string): string => {
@@ -49,7 +49,7 @@ const BoringIcons: React.FC<BoringIconsProps> = ({ activeTool, onHover }) => {
         // Modify the SVG string to change the color based on hover
         const highlightColor =
           activeTool === toolId
-            ? "hsl(var(--nextui-secondary-500))"
+            ? "hsl(var(--nextui-secondary-100))"
             : "hsl(var(--nextui-primary-100))";
         const highlightedSvgString = svgString.replace(
           /fill="[^"]*"/g,

@@ -2,7 +2,7 @@
   {
     "title": "In Contrast",
     "description": "UI/UX • Frontend",
-    "image": "/images/soon.webp",
+    "image": "/images/incontrast.webp",
     "writeup": [
       "In contrast to my previous portfolio, which felt busy and noisy, my goal with this iteration was to embrace minimalism while still incorporating some flair. I opted for a two-toned, high-contrast color palette accented by splashes of color and subtle movement. My intention was to present myself and highlight my skill set without overwhelming visitors with too many distractions.",
       "Each section is designed around a message and utilizes an animating element, a color-applied element, and a highlight font. Although these elements are not mutually exclusive, the color emphasizes the focus of a section, while the animations and font enhance the message conveyed by that focal point. For example, the red heart symbolizes my love for development, and the font accentuates the action in the animating statements. Vertical lines between sections break up white space, making each scroll meaningful. Finally, a white noise overlay softens the high contrast and breathes life into the site."
@@ -11,7 +11,7 @@
       "nextjs","tailwindcss", "framermotion", "typescript"
       
     ],
-    "link": "https://example.com/project2"
+    "link": "https://donovancourtney.dev"
   },
   {
     "title": "Tech Messages",
@@ -25,15 +25,15 @@
       "express",
       "mysql"
     ],
-    "link": "https://example.com/project2"
+    "link": "/projects/techmessages"
   },
   {
     "title": "Coding Kombat Quiz",
     "description": "Frontend",
-    "image": "/images/moviegenerator.webp",
+    "image": "/images/codingkombatquiz.webp",
     "writeup": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante."],
     "toolIcons": ["html5", "css3", "javascript"],
-    "link": "https://example.com/project3"
+    "link": "/projects/codingkombatquiz"
   },
   {
     "title": "Break-Sweat",
@@ -49,7 +49,7 @@
       "express",
       "mysql"
     ],
-    "link": "https://example.com/project3"
+    "link": "/projects/breaksweat"
   },
   {
     "title": "Weather Ornought",
@@ -57,6 +57,6 @@
     "image": "/images/weatherornought.webp",
     "writeup": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante."],
     "toolIcons": ["html5", "css3", "jquery", "bootstrap"],
-    "link": "https://example.com/project1"
+    "link": "/projects/weatherornought"
   }
 ]

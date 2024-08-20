@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import LoadingPage from "./LoadingPage";
 import { AnimatePresence } from "framer-motion";
-import { NameSVG } from "./svgs";
+import { NameSVG } from "../utilities/svgs";
 
 export default function LoadingManager({
   children,
