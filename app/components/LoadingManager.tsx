@@ -1,9 +1,10 @@
 "use client";
+// Original intended use case: Simulate a loading screen while fetching data or preparing content
+// For now its just serves as a loading screen that plays on initial visit
 
 import { useState, useEffect } from "react";
 import LoadingPage from "./LoadingPage";
 import { AnimatePresence } from "framer-motion";
-import { NameSVG } from "../utilities/svgs";
 
 export default function LoadingManager({
   children,

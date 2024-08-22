@@ -70,14 +70,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={"en"} suppressHydrationWarning={true} className="">
+    <html lang={"en"} suppressHydrationWarning={true}>
       <body
         className={`font-roboto font-bold ${roboto.variable} ${playfairDisplay.variable} ${montserrat.variable}`}
       >
         <Providers>
           <LoadingManager>
             <NavBar />
-            <main className="overflow-clip">{children}</main>
+            {children}
             <Footer />
           </LoadingManager>
           <SvgNoise />

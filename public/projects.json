@@ -19,7 +19,9 @@
     "description": "UI/UX • Frontend • Backend",
     "images": ["/images/techmessages.webp"],
     "writeup": [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante."
+      "Tech Messages is a user-friendly forum application designed to foster communication and collaboration. Registered users can seamlessly create, delete, reply to, and modify their posts within various discussion threads. The application emphasizes engagement by showcasing recent post activity in user-generated threads upon login, as well as providing access to active discussions created by others.",
+      "The front end is crafted using Handlebars, a powerful and dynamic templating engine that exceeded my expectations in terms of flexibility. For the backend, a MySQL database is utilized to manage thread activity, while bcrypt is employed to securely hash and store user passwords, ensuring robust data protection. While writing complex SQL can be enjoyable, integrating an ORM allowed me to focus on other crucial functionalities of the app, streamlining the development process.",
+      "The final result is an intuitive and efficient forum platform that highlights the latest thread activity within a sleek, distraction-free interface, providing a seamless user experience."
     ],
     "toolIcons": [
       "javascript",
@@ -28,7 +30,7 @@
       "express",
       "mysql"
     ],
-    "link": "/projects/techmessages"
+    "link": "https://donovancourtney.dev/techmessages"
   },
   {
     "title": "Coding Kombat Quiz",
@@ -37,38 +39,39 @@
     "writeup": [
       "Coding Kombat Quiz is one of my earliest creations, and despite its age, it remains a cherished project. The initial goal was straightforward: develop a timed quiz app. However, I wanted to take it a step further by gamifying the experience. My vision was an interface inspired by retro arcade machines and fighting games. Players would select a character and face increasingly challenging question sets, each represented by enemy characters. Correct answers would trigger attacks, while too many wrong choices or running out of time would result in defeat.",
       "While my ambition outpaced my early web development skills, especially given the one-week deadline, I was fortunate to have prior experience with 2D sprite sheets, animations, and basic game loops. The challenge was integrating these elements into a cohesive application.",
-      "Though I couldn’t implement all the game features I envisioned, the final product still captures the essence of my original idea. The quiz generator is designed for easy expansion, allowing for the inclusion of more difficult question banks. The main game loop, while functional, is set up for future refactoring to support multiple matches. Character selection is also ready for additional fighters, though the animation controllers will need adjustments to accommodate character-specific moves."
+      "Though I couldn't implement all the game features I envisioned, the final product still captures the essence of my original idea. The quiz generator is designed for easy expansion, allowing for the inclusion of more difficult question banks. The main game loop, while functional, is set up for future refactoring to support multiple matches. Character selection is also ready for additional fighters, though the animation controllers will need adjustments to accommodate character-specific moves."
     ],
     "toolIcons": ["html5", "css3", "javascript"],
-    "link": "/projects/codingkombatquiz"
+    "link": "https://donovancourtney.dev/codingkombatquiz"
   },
   {
     "title": "Break-Sweat",
     "description": "Collaboration • Frontend • Backend",
     "images": ["/images/breaksweat.webp"],
     "writeup": [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus purus urna, quis dapibus mi porta eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in venenatis tellus, nec fermentum lacus. Maecenas ante elit, suscipit id nunc ultricies, tristique consequat lectus. Curabitur quam leo, iaculis a leo non, tincidunt blandit lorem. Donec convallis vehicula neque. Phasellus egestas tempus magna sed iaculis. Curabitur pretium aliquet nulla imperdiet imperdiet. Vivamus malesuada leo in mi porttitor, eu scelerisque dolor posuere. Etiam rhoncus congue tortor in rutrum. Curabitur in erat eleifend, venenatis justo ut, commodo nulla. Praesent porta vel ipsum sed aliquet. Morbi ac nisi ultricies, dapibus leo ut, rhoncus dolor. Duis aliquet lectus iaculis leo ornare, eu laoreet leo venenatis. Sed vel erat tortor. Nam fermentum magna in faucibus tristique. Nullam placerat tortor est, et commodo arcu viverra sed. Nullam ornare justo vitae mauris lacinia aliquet. Aenean condimentum eu tellus sollicitudin rutrum. Nulla ultrices odio eget porttitor convallis. Nam tempor leo non risus eleifend euismod id eu purus. Sed semper risus quis tellus blandit, et aliquam arcu facilisis. Quisque consequat euismod posuere. Aliquam et lacinia lectus, ut scelerisque enim. Phasellus molestie erat rutrum, laoreet dui vitae, aliquam justo. Suspendisse euismod purus a sem congue, sit amet finibus ligula dictum. Ut justo leo, suscipit et lorem at, fringilla hendrerit ante."
+      "Break-Sweat is a fitness web application designed to empower users in achieving their workout goals. With a rich database of exercises and workouts, personalized recommendations, and progress tracking features, the platform aims to deliver a tailored fitness experience for users of all levels.",
+      "As a collaboration project, my primary responsibility was building the backend using technologies such as Handlebars, MySQL, Express, Node.js, and bcrypt for secure user authentication. I also played a key role in connecting the backend data to the Handlebars templates and ensuring seamless integration. Additionally, I managed the repository, overseeing branch merges and maintaining the project's codebase. We pulled a wide range of exercises and routines from an external API and structured the database to store this data efficiently, minimizing the need for repeated API calls.",
+      "Unfortunately, the final product fell short of our initial goals. While the backend was fully functional, fetching and storing all necessary data effectively, the front-end team faced challenges that prevented them from fully integrating this data into the user interface. As a result, the application does not currently display the rich data we've prepared on the backend. Despite these setbacks, the project highlights the importance of cohesive team collaboration and the robustness of the backend architecture that I developed."
     ],
     "toolIcons": [
-      "html5",
-      "css3",
       "javascript",
       "tailwindcss",
       "handlebars",
       "express",
       "mysql"
     ],
-    "link": "/projects/breaksweat"
+    "link": "https://donovancourtney.dev/breaksweat"
   },
   {
     "title": "Weather Ornought",
     "description": "UI/UX • Frontend",
     "images": ["/images/weatherornought.webp"],
     "writeup": [
-      "This project is one of my earliest builds but it still holds a special place in my heart. The original goal - create a timed quiz app. I thought that creating the quiz functionality would be easy enough that I would attempt to gamify the quiz. I envisioned an interface that resembled a retro arcade machine and a fighting game. Players would choose they're character and progress through tougher questions represented by additional enemy characters. Characters perform attacks based on selected answers and too many incorrect selections or if time runs out then the game ends.",
-      "I understood that my reimagination of the quiz app was out of my reach given my lack of experience in web development at that point and a one week time constraint. Fortunately, I was already familiar with 2D sprite sheets, animating, and basic game loops."
+      "Weather Ornought is a user-friendly weather application designed to provide both current weather conditions and a 5-day forecast for any searched or saved location. The interface is streamlined to keep all relevant information on a single, easily digestible page, ensuring that users can quickly understand both current and future weather conditions. The design prioritizes the current forecast, accompanied by weather-related images and icons for immediate visual confirmation, while the 5-day forecast offers just enough detail for effective planning.",
+      "This project served as a practical application of my skills in jQuery, Bootstrap, and API integration. I leveraged jQuery to programmatically build and update the app's design and HTML elements, while Bootstrap was utilized to expedite the styling process. The weather data is sourced from the OpenWeatherMap API, ensuring reliable and up-to-date information. To enhance user convenience, the app saves and displays the six most recent searches as clickable sections, allowing for quick retrieval of updated weather data.",
+      "The result is a clean, efficient weather app that balances comprehensive data presentation with ease of use, making weather updates both accessible and visually intuitive."
     ],
     "toolIcons": ["html5", "css3", "jquery", "bootstrap"],
-    "link": "/projects/weatherornought"
+    "link": "https://donovancourtney.dev/weatherornought"
   }
 ]

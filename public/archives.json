@@ -6,7 +6,7 @@
       "The objective was to design a simple, clean portfolio using HTML and CSS to effectively showcase my projects. I initially envisioned a scrolling parallax effect featuring a stream of 1's and 0's in the background, reminiscent of the Matrix. However, due to my limited experience at the time, achieving this effect proved challenging. As a result, I opted for a horizontal looping background within a vertical parallax effect, which still captured the dynamic feel I was aiming for."
     ],
     "image": "/images/portfolio2022.png",
-    "link": "https://donovancourtney.dev/op"
+    "link": "https://donovancourtney.dev/archive/op"
   },
   {
     "year": "2023",
@@ -17,7 +17,7 @@
       "The final product met my expectations, though not without its trade-offs. As anticipated, the heavy reliance on large images did impact site performance, making it sluggish and rendering updates or modifications more cumbersome. Despite these challenges, I succeeded in my objective to craft an unconventional site with a distinctive look and feel—reminiscent of an old, rusted machine."
     ],
     "image": "/images/portfolio2023.png",
-    "link": "https://donovancourtney.dev/themachine"
+    "link": "https://donovancourtney.dev/archive/themachine"
   },
   {
     "year": "WIP",
