@@ -36,6 +36,7 @@ const ArtSVG = () => {
       className="absolute top-0 left-0 w-full h-full -z-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
       <svg

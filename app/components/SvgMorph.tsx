@@ -21,7 +21,6 @@ const SvgMorph = ({ indexOfSvgs }: SvgMorphProps) => {
   ];
 
   useEffect(() => {
-    console.log(indexOfSvgs);
     if (!pathRef.current) return;
 
     // Didnt end up needing 5 paths so clamping the index

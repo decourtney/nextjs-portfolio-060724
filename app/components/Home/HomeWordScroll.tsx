@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  AnimatePresence,
   motion,
   MotionValue,
   useMotionValue,
@@ -101,7 +102,9 @@ const HomeWordScroll = () => {
         </div>
 
         <div className="relative col-span-2  h-[300px] lg:h-[400px]">
-          {indexOfSvgs != null && indexOfSvgs >= 4 && <ArtSVG />}
+          <AnimatePresence mode="wait">
+            {indexOfSvgs != null && indexOfSvgs >= 4 && <ArtSVG />}
+          </AnimatePresence>
 
           <SvgMorph indexOfSvgs={indexOfSvgs} />
         </div>
