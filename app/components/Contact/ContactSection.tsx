@@ -5,8 +5,10 @@ import { Button, Input, Textarea } from "@nextui-org/react";
 import emailjs from "@emailjs/browser";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
+import { useTheme } from "next-themes";
 
 const ContactSection: React.FC = () => {
+  const {theme} = useTheme();
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -48,11 +50,10 @@ const ContactSection: React.FC = () => {
         const result = await emailjs.send(
           serviceId,
           templateId,
-          { name, email, message },
+          { user_name: name, user_email: email, user_message: message },
           userId
         );
-        console.log("Email sent: ", result.text);
-        setSuccessMessage("Thank you! Your message has been sent.");
+        setSuccessMessage(`${theme === "dark" ? "Be vigilant and stick to the shadows!" : "Thank You! That really brightened my day!"}`);
         setName("");
         setEmail("");
         setMessage("");

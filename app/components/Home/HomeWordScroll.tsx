@@ -13,6 +13,7 @@ import { useState } from "react";
 import { HeartIcon } from "../../utilities/svgs";
 import { useContainerSize } from "../../utilities";
 import SvgMorph from "../svgMorph";
+import ArtSVG from "./homeArtSVG";
 
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];
@@ -99,7 +100,9 @@ const HomeWordScroll = () => {
           </motion.ul>
         </div>
 
-        <div className="col-span-2 w-full h-[300px] lg:h-[400px]">
+        <div className="relative col-span-2  h-[300px] lg:h-[400px]">
+          {indexOfSvgs != null && indexOfSvgs >= 4 && <ArtSVG />}
+
           <SvgMorph indexOfSvgs={indexOfSvgs} />
         </div>
       </motion.div>
