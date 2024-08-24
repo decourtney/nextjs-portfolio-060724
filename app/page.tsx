@@ -25,7 +25,7 @@ const App = () => {
 };
 
 export const metadata: Metadata = {
-  title: "Donovan's Portfolio",
+  title: "🛠️ Donovan Courtney 🛠️",
   description: "Vertical scrolling portfolio website",
 };
 

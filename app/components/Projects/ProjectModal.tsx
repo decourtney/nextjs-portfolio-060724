@@ -1,14 +1,13 @@
 import getToolIcon from "@/app/utilities/getToolIcon";
-import
-  {
-    Button,
-    Link,
-    Modal,
-    ModalBody,
-    ModalContent,
-    ModalFooter,
-    ModalHeader,
-  } from "@nextui-org/react";
+import {
+  Button,
+  Link,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+} from "@nextui-org/react";
 import { motion } from "framer-motion";
 import ModalSwiper from "./projectModalSwiper";
 
@@ -83,7 +82,7 @@ const ProjectModal = (props: ProjectModalProps) => {
                 </div>
 
                 {props.writeup.map((writeup, index) => (
-                  <p>{writeup}</p>
+                  <p key={index}>{writeup}</p>
                 ))}
               </motion.div>
             </ModalBody>

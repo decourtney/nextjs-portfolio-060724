@@ -1,15 +1,9 @@
 "use client";
 
 import axios from "axios";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import ProjectArchivesContainer from "./projectArchivesContainer";
-import ProjectContainerSkeleton from "./projectContainerSkeleton";
-
-const ProjectContainer = dynamic(() => import("./projectContainer"), {
-  ssr: false,
-  loading: () => <ProjectContainerSkeleton />,
-});
+import ProjectContainer from "./projectContainer";
 
 // Define the type for project data
 interface Project {

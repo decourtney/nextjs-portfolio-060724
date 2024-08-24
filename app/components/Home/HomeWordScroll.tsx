@@ -22,7 +22,6 @@ const HomeWordScroll = () => {
   const { ref } = useContainerSize();
   const { scrollYProgress } = useScroll({
     target: ref,
-    // offset: ["-161px", "end start"], // offset determined by hero viewport height
   });
 
   const [showHeart, setShowHeart] = useState(false);
