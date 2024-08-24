@@ -27,7 +27,7 @@ export async function GET(): Promise<ResponseData> {
 
     return NextResponse.json(jsonData);
   } catch (error) {
-    console.error("Error fetching image from S3:", error);
-    return new NextResponse("Error fetching projects from S3");
+    console.error("Error fetching image", error);
+    return new NextResponse("Error fetching projects");
   }
 }

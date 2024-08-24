@@ -40,7 +40,7 @@ const ContactSection: React.FC = () => {
     const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
 
     if (!serviceId || !templateId || !userId) {
-      console.error("Missing EmailJS environment variables.");
+      // console.error("Missing EmailJS environment variables.");
       return;
     }
 
@@ -69,7 +69,7 @@ const ContactSection: React.FC = () => {
           console.error("Failed to send email: ", error.message);
         } else {
           // Handle any other unknown errors
-          console.error("An unknown error occurred while sending the email.");
+          console.error("An error occurred while sending the email.");
         }
       } finally {
         setIsSending(false); // End sending process
@@ -162,7 +162,6 @@ const ContactSection: React.FC = () => {
               name="message"
               value={message}
               variant="bordered"
-              onClear={() => console.log("input cleared")}
               onChange={handleInputChange(setMessage)}
               className={`w-full  ${errors.message ? "border-red-500" : ""}`}
               minRows={4}
