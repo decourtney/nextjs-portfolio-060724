@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap-trial";
 import { MorphSVGPlugin } from "gsap-trial/MorphSVGPlugin";
+import { useEffect, useRef } from "react";
 
 // TODO Register the MorphSVGPlugin with GSAP
 gsap.registerPlugin(MorphSVGPlugin);
@@ -9,7 +9,7 @@ interface SvgMorphProps {
   indexOfSvgs: number | null; // Index of the path to morph to
 }
 
-const SvgMorph = ({ indexOfSvgs }: SvgMorphProps) => {
+const SVGMorph = ({ indexOfSvgs }: SvgMorphProps) => {
   const pathRef = useRef<SVGPathElement>(null);
 
   // Array containing SVG path data
@@ -59,4 +59,4 @@ const SvgMorph = ({ indexOfSvgs }: SvgMorphProps) => {
   );
 };
 
-export default SvgMorph;
+export default SVGMorph;

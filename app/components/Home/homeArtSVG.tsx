@@ -1,6 +1,5 @@
-import { ArtPicture } from "@/app/utilities/svgs";
-import React, { useEffect } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import React from "react";
 
 const ArtSVG = () => {
   const x = useMotionValue(0);

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
 import {
   motion,
   useMotionValueEvent,
   useScroll,
   useSpring,
 } from "framer-motion";
+import { useEffect, useState } from "react";
 
 interface DividerLineProps {
   initialYPosition: number;

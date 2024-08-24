@@ -1,9 +1,8 @@
-import { Dispatch, useEffect, useRef, useState, SetStateAction } from "react";
-import { useTheme } from "next-themes";
-import loadingAnim from "@/public/loadingAnim.json";
-import nameAnim from "@/public/nameAnim.json";
 import { usePresence } from "framer-motion";
 import Lottie, { LottieOptions } from "lottie-react";
+import { useTheme } from "next-themes";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { LoadingAnimation, NameAnimation } from "../utilities/getLottieAnims";
 
 const changeLottieColors = (lottieData: any, theme: string) => {
   const targetColor =
@@ -41,7 +40,7 @@ const LoadingPage = ({ setIsContentReady }: LoadingPageProps) => {
   const [isPresent, safeToRemove] = usePresence();
   const { theme } = useTheme();
   const lottieRef = useRef(null);
-  const [lottieData, setLottieData] = useState(loadingAnim);
+  const [lottieData, setLottieData] = useState(LoadingAnimation());
   const [lottieOptions, setLottieOptions] = useState<LottieOptions>({
     animationData: lottieData,
     loop: true,
@@ -60,7 +59,10 @@ const LoadingPage = ({ setIsContentReady }: LoadingPageProps) => {
 
   useEffect(() => {
     if (!isPresent && lottieRef.current && theme) {
-      const themedLottieData = changeLottieColors({ ...nameAnim }, theme);
+      const themedLottieData = changeLottieColors(
+        { ...NameAnimation() },
+        theme
+      );
 
       setLottieOptions({
         ...lottieOptions,

@@ -1,5 +1,6 @@
-import React from 'react'
-import { useAnimate, motion, useInView } from 'framer-motion';
+'use client';
+
+import { motion, useAnimate, useInView } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 
 const ProjectArchivesContainer = () => {
@@ -121,7 +122,7 @@ const ProjectArchivesContainer = () => {
           className="absolute top-0 left-0 w-full h-full shadow-md"
         >
           <img
-            src="/images/portfolio2022.png"
+            src="/images/archive/portfolio2022.webp"
             className="w-full h-full object-cover object-top rounded-md"
           />
         </motion.div>
@@ -130,7 +131,7 @@ const ProjectArchivesContainer = () => {
           className="absolute top-0 left-0 w-full h-full shadow-md"
         >
           <img
-            src="/images/portfolio2023.png"
+            src="/images/archive/portfolio2023.webp"
             className="w-full h-full object-cover object-top rounded-md"
           />
         </motion.div>
@@ -139,7 +140,7 @@ const ProjectArchivesContainer = () => {
           className="absolute top-0 left-0 w-full h-full shadow-md"
         >
           <img
-            src="/images/soon.webp"
+            src="/images/archive/soon.webp"
             className="w-full h-full object-cover object-center rounded-md"
           />
         </motion.div>

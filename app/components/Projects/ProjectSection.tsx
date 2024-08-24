@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-// import ProjectContainer from "./projectContainer";
-import ProjectArchivesContainer from "./projectArchivesContainer";
-import { useInView } from "framer-motion";
+import axios from "axios";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+import ProjectArchivesContainer from "./projectArchivesContainer";
 import ProjectContainerSkeleton from "./projectContainerSkeleton";
 
 const ProjectContainer = dynamic(() => import("./projectContainer"), {
@@ -29,11 +28,8 @@ const ProjectSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/projects.json");
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data = await response.json();
+        const response = await axios.get("/api/projects");
+        const data = response.data;
         setProjects(data);
       } catch (error) {
         console.error("Error fetching data:", error);

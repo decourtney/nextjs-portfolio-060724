@@ -3,7 +3,6 @@
 import {
   AnimatePresence,
   motion,
-  MotionValue,
   useMotionValue,
   useMotionValueEvent,
   useScroll,
@@ -12,9 +11,9 @@ import {
 } from "framer-motion";
 import { useState } from "react";
 import { HeartIcon } from "../../utilities/svgs";
-import { useContainerSize } from "../../utilities";
-import SvgMorph from "../svgMorph";
+import useContainerSize from "../../utilities/useContainerSize";
 import ArtSVG from "./homeArtSVG";
+import SvgMorph from "./homeSVGMorph";
 
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];

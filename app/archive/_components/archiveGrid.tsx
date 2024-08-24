@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useEffect, useLayoutEffect, useState } from "react";
-import ArchiveCard from "./archiveCard";
+import axios from "axios";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+import ArchiveCardSkeleton from "./archiveCardSkeleton";
 
 interface Archive {
   year: string;
@@ -12,18 +14,22 @@ interface Archive {
   link: string;
 }
 
-const archiveGrid = () => {
-  const [archivesData, setArchiveData] = useState<Archive[]>([]);
+const ArchiveCard = dynamic(
+  () => import("@/app/archive/_components/archiveCard"),
+  {
+    ssr: false,
+    loading: () => <ArchiveCardSkeleton />,
+  }
+);
+
+const ArchiveGrid = () => {
+  const [archivesData, setArchiveData] = useState<Archive[] | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/archives.json");
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data = await response.json();
-        console.log(data);
+        const response = await axios.get("/api/archive");
+        const data = response.data;
         setArchiveData(data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -33,23 +39,20 @@ const archiveGrid = () => {
     fetchData();
   }, []);
 
+  if(!archivesData) return 
+
   return (
-    <section className="flex flex-col w-full min-h-dvh pb-12">
-      <div className="content-center font-montserrat font-bold text-6xl text-center text-[hsl(var(--nextui-primary-100))]">
-        <h1>The Archives</h1>
-      </div>
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-4 w-full lg:w-[90%] mx-auto mt-12 lg:p-4 border-large border-[hsl(var(--nextui-primary-100))] rounded-md"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.1 }}
-      >
-        {archivesData.map((archive, index) => (
-          <ArchiveCard key={index} {...archive} />
-        ))}
-      </motion.div>
-    </section>
+    <motion.div
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-4 w-full lg:w-[90%] mx-auto mt-12 p-2 lg:p-4 border-large border-[hsl(var(--nextui-primary-100))] rounded-md"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.1 }}
+    >
+      {archivesData.map((archive, index) => (
+        <ArchiveCard key={index} {...archive} />
+      ))}
+    </motion.div>
   );
 };
 
-export default archiveGrid;
+export default ArchiveGrid;

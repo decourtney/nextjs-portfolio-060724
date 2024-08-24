@@ -49,5 +49,3 @@ main {
 .swiper-button-prev:hover {
   color: hsl(var(--nextui-primary-400)) !important; /* Custom hover color */
 }
-
-

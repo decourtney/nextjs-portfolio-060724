@@ -1,13 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useSpring,
-} from "framer-motion";
-import { useWindowSize } from "../../utilities";
+import { useEffect, useState } from "react";
+import useWindowSize from "../../utilities/useWindowSize";
 import DividerLine from "./dividerLine";
 
 // Function to generate random values

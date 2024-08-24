@@ -1,16 +1,16 @@
 import getToolIcon from "@/app/utilities/getToolIcon";
-import {
-  Button,
-  Link,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-} from "@nextui-org/react";
+import
+  {
+    Button,
+    Link,
+    Modal,
+    ModalBody,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+  } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import ModalSwiper from "./projectModalSwiper";
-import { init } from "next/dist/compiled/webpack/webpack";
 
 interface ProjectModalProps {
   title: string;

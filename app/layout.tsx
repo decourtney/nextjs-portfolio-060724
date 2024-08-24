@@ -1,17 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
-import { Providers } from "./providers";
-import Footer from "./Footer";
-import NavBar from "./Navbar";
-import {
-  Inter,
-  Poppins,
-  Playfair_Display,
-  Roboto,
-  Montserrat,
-} from "next/font/google";
-import SvgNoise from "./components/SvgNoise";
+import { Montserrat, Playfair_Display, Roboto } from "next/font/google";
 import LoadingManager from "./components/LoadingManager";
+import SvgNoise from "./components/SvgNoise";
+import Footer from "./Footer";
+import "./globals.css";
+import NavBar from "./Navbar";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",

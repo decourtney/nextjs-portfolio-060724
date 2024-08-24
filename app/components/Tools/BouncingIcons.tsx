@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 import { svgBouncingIcons } from "../../utilities/svgs";
 
 interface Ball {

@@ -1,14 +1,14 @@
 "use client";
 
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import { Button, Input, Textarea } from "@nextui-org/react";
 import emailjs from "@emailjs/browser";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { motion, useInView } from "framer-motion";
+import { Button, Input, Textarea } from "@nextui-org/react";
+import { useInView } from "framer-motion";
 import { useTheme } from "next-themes";
+import React, { ChangeEvent, FormEvent, useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const ContactSection: React.FC = () => {
-  const {theme} = useTheme();
+  const { theme } = useTheme();
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -53,7 +53,13 @@ const ContactSection: React.FC = () => {
           { user_name: name, user_email: email, user_message: message },
           userId
         );
-        setSuccessMessage(`${theme === "dark" ? "Be vigilant and stick to the shadows!" : "Thank You! That really brightened my day!"}`);
+        setSuccessMessage(
+          `${
+            theme === "dark"
+              ? "Be vigilant and stick to the shadows!"
+              : "Thank You! That really brightened my day!"
+          }`
+        );
         setName("");
         setEmail("");
         setMessage("");

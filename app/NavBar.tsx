@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import {
   Link,
   Navbar,
@@ -12,6 +11,7 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import ThemeSwitcher from "./components/themeSwitcher";
 import { BrandIcon } from "./utilities/svgs";
 
@@ -73,7 +73,6 @@ const NavBar = () => {
         </NavbarItem>
       </NavbarContent>
 
-      {/* TODO needs better styling */}
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>

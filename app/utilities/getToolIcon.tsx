@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 let height = 20;
 let width = 20;
@@ -184,8 +184,8 @@ const toolIcons: { [key: string]: ReactNode } = {
 };
 
 const getToolIcon = (iconName: string) => {
-  console.log("getToolIcon log1: ", iconName);
-  console.log("getToolIcon log2: ", toolIcons[iconName]);
+  // console.log("getToolIcon log1: ", iconName);
+  // console.log("getToolIcon log2: ", toolIcons[iconName]);
   return toolIcons[iconName] || null; // Return the SVG or null if the iconName doesn't match
 };
 
