@@ -23,7 +23,7 @@ const ArchiveCard = dynamic(
 const ArchiveGrid = ({ archives }: { archives: Archive[] }) => {
   return (
     <motion.div
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-4 w-full lg:w-[90%] mx-auto mt-12 p-2 lg:p-4 border-large border-[hsl(var(--nextui-primary-100))] rounded-md"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-4 w-[90%] mx-auto mt-12 p-2 lg:p-4 border-large border-[hsl(var(--nextui-primary-100))] rounded-md"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}

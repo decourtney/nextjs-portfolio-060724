@@ -90,62 +90,64 @@ const ProjectArchivesContainer = () => {
     );
   };
   return (
-    <motion.div
-      ref={containerScope}
-      className="relative w-full lg:w-[500px] h-[300px] mt-8 lg:mt-24 mx-auto border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md"
-      style={{
-        translateY: isInView ? 0 : 100,
-        opacity: isInView ? 1 : 0,
-        transition: "all 0.5s",
-      }}
-    >
+    // <div className=' w-full bg-blue-500'>
       <motion.div
-        ref={cardScope}
-        className="absolute top-0 left-0 w-full h-full cursor-pointer"
-        onHoverStart={handleHoverStart}
-        onHoverEnd={handleHoverEnd}
-        onClick={() => {
-          router.push("/archive");
+        ref={containerScope}
+        className="relative w-full md:w-[500px] h-[300px] mx-auto mt-8 lg:mt-24 border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md"
+        style={{
+          translateY: isInView ? 0 : 100,
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.5s",
         }}
       >
-        <div className="absolute top-0 left-0 w-full h-full px-2 content-center text-center bg-background rounded-md shadow-sm z-10">
-          <h2 className="text-4xl lg:text-5xl font-montserrat font-black text-[hsl(var(--nextui-primary-100))]">
-            ARCHIVED PORTFOLIO VERSIONS
-          </h2>
-          <p className="mt-[5%] font-playfairDisplay">
-            *previous iterations of this site
-          </p>
-        </div>
+        <motion.div
+          ref={cardScope}
+          className="absolute top-0 left-0 w-full h-full cursor-pointer"
+          onHoverStart={handleHoverStart}
+          onHoverEnd={handleHoverEnd}
+          onClick={() => {
+            router.push("/archive");
+          }}
+        >
+          <div className="absolute top-0 left-0 w-full h-full px-2 content-center text-center bg-background rounded-md shadow-sm z-10">
+            <h2 className="text-4xl lg:text-5xl font-montserrat font-black text-[hsl(var(--nextui-primary-100))]">
+              ARCHIVED PORTFOLIO VERSIONS
+            </h2>
+            <p className="mt-[5%] font-playfairDisplay">
+              *previous iterations of this site
+            </p>
+          </div>
 
-        <motion.div
-          ref={img1Scope}
-          className="absolute top-0 left-0 w-full h-full shadow-md"
-        >
-          <img
-            src="/images/archive/portfolio2022.webp"
-            className="w-full h-full object-cover object-top rounded-md"
-          />
-        </motion.div>
-        <motion.div
-          ref={img2Scope}
-          className="absolute top-0 left-0 w-full h-full shadow-md"
-        >
-          <img
-            src="/images/archive/portfolio2023.webp"
-            className="w-full h-full object-cover object-top rounded-md"
-          />
-        </motion.div>
-        <motion.div
-          ref={img3Scope}
-          className="absolute top-0 left-0 w-full h-full shadow-md"
-        >
-          <img
-            src="/images/archive/soon.webp"
-            className="w-full h-full object-cover object-center rounded-md"
-          />
+          <motion.div
+            ref={img1Scope}
+            className="absolute top-0 left-0 w-full h-full shadow-md"
+          >
+            <img
+              src="/images/archive/portfolio2022.webp"
+              className="w-full h-full object-cover object-top rounded-md"
+            />
+          </motion.div>
+          <motion.div
+            ref={img2Scope}
+            className="absolute top-0 left-0 w-full h-full shadow-md"
+          >
+            <img
+              src="/images/archive/portfolio2023.webp"
+              className="w-full h-full object-cover object-top rounded-md"
+            />
+          </motion.div>
+          <motion.div
+            ref={img3Scope}
+            className="absolute top-0 left-0 w-full h-full shadow-md"
+          >
+            <img
+              src="/images/archive/soon.webp"
+              className="w-full h-full object-cover object-center rounded-md"
+            />
+          </motion.div>
         </motion.div>
       </motion.div>
-    </motion.div>
+    // </div>
   );
 }
 

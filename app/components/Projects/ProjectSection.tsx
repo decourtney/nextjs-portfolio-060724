@@ -54,7 +54,6 @@ const ProjectSection = () => {
           </div>
         ))}
       </div>
-
       <ProjectArchivesContainer />
     </section>
   );

@@ -184,7 +184,7 @@ const ContactSection: React.FC = () => {
           <p className="text-green-500 text-center pt-4">{successMessage}</p>
         )}
 
-        <div className="flex justify-start 2xl:w-3/4 mx-auto mt-4 mb-2 gap-4">
+        <div className="flex justify-start 2xl:w-3/4 mx-auto my-2 gap-4">
           <Button
             size="lg"
             isIconOnly
