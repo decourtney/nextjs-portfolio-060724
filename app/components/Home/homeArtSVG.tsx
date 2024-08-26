@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 
 const ArtSVG = () => {
   const x = useMotionValue(0);
@@ -23,7 +23,7 @@ const ArtSVG = () => {
     y.set(event.clientY);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);

@@ -76,7 +76,9 @@ const config: Config = {
               "400": "#1B0E12",
               "500": "#16090D",
             },
-            content2: {},
+            content2: {
+              "100": "#F4F4F4",
+            },
             content3: {},
             content4: {},
           },
@@ -108,7 +110,10 @@ const config: Config = {
               "400": "#1B0E12",
               "500": "#16090D",
             },
-            content2: {},
+            content2: {
+              "100": "#faf395",
+              "200": "#185C37",
+            },
             content3: {},
             content4: {},
           },
