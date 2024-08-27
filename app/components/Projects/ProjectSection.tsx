@@ -3,7 +3,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ProjectArchivesContainer from "./projectArchivesContainer";
-import ProjectContainer from "./projectContainer";
+import ProjectContainer from "./rojectContainer";
 
 // Define the type for project data
 interface Project {

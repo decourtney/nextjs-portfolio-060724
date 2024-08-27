@@ -4,7 +4,7 @@ import LoadingManager from "./components/LoadingManager";
 import SvgNoise from "./components/SvgNoise";
 import Footer from "./Footer";
 import "./globals.css";
-import NavBar from "./Navbar";
+import NavBar from "./avbar";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {

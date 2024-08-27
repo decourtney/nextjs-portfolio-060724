@@ -1,5 +1,5 @@
 import { NameSVG } from "../../utilities/svgs";
-import HomeWordScroll from "./homeWordScroll";
+import HomeWordScroll from "./omeWordScroll";
 
 const HomeSection = () => {
   return (
