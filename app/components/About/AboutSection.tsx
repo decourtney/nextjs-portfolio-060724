@@ -1,4 +1,4 @@
-import AboutContent from "./boutContent";
+import AboutContent from "./aboutContent";
 
 const AboutSection = () => {
   return (
