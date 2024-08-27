@@ -1,12 +1,14 @@
 "use client";
 
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import { Button, Input, Textarea } from "@nextui-org/react";
 import emailjs from "@emailjs/browser";
+import { Button, Input, Textarea } from "@nextui-org/react";
+import { useInView } from "framer-motion";
+import { useTheme } from "next-themes";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { motion, useInView } from "framer-motion";
 
 const ContactSection: React.FC = () => {
+  const { theme } = useTheme();
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -38,7 +40,7 @@ const ContactSection: React.FC = () => {
     const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
 
     if (!serviceId || !templateId || !userId) {
-      console.error("Missing EmailJS environment variables.");
+      // console.error("Missing EmailJS environment variables.");
       return;
     }
 
@@ -48,11 +50,16 @@ const ContactSection: React.FC = () => {
         const result = await emailjs.send(
           serviceId,
           templateId,
-          { name, email, message },
+          { user_name: name, user_email: email, user_message: message },
           userId
         );
-        console.log("Email sent: ", result.text);
-        setSuccessMessage("Thank you! Your message has been sent.");
+        setSuccessMessage(
+          `${
+            theme === "dark"
+              ? "Be vigilant and stick to the shadows!"
+              : "Thank You! That really brightened my day!"
+          }`
+        );
         setName("");
         setEmail("");
         setMessage("");
@@ -62,7 +69,7 @@ const ContactSection: React.FC = () => {
           console.error("Failed to send email: ", error.message);
         } else {
           // Handle any other unknown errors
-          console.error("An unknown error occurred while sending the email.");
+          console.error("An error occurred while sending the email.");
         }
       } finally {
         setIsSending(false); // End sending process
@@ -155,9 +162,9 @@ const ContactSection: React.FC = () => {
               name="message"
               value={message}
               variant="bordered"
-              onClear={() => console.log("input cleared")}
               onChange={handleInputChange(setMessage)}
-              className={`w-full ${errors.message ? "border-red-500" : ""}`}
+              className={`w-full  ${errors.message ? "border-red-500" : ""}`}
+              minRows={4}
               rows={4}
             />
             {errors.message && <p className="text-red-500">{errors.message}</p>}
@@ -177,7 +184,7 @@ const ContactSection: React.FC = () => {
           <p className="text-green-500 text-center pt-4">{successMessage}</p>
         )}
 
-        <div className="flex justify-start 2xl:w-3/4 mx-auto mt-4 mb-2 gap-4">
+        <div className="flex justify-start 2xl:w-3/4 mx-auto my-2 gap-4">
           <Button
             size="lg"
             isIconOnly

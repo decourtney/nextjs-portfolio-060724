@@ -3,12 +3,11 @@
 import { useDisclosure } from "@nextui-org/react";
 import { motion, useAnimate, useInView } from "framer-motion";
 import ProjectModal from "./projectModal";
-import { transform } from "next/dist/build/swc";
 
 interface ProjectContainerProps {
   title: string;
   description: string;
-  image: string;
+  images: string[];
   writeup: string[];
   toolIcons: string[];
   link: string;
@@ -20,6 +19,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
   const [imgScope, animateImg] = useAnimate();
   const [cardScope, animateCard] = useAnimate();
   const [containerScope, animateContainer] = useAnimate();
+  const isInView = useInView(containerScope, { amount: 0.5, once: true });
   const skewAmount = 1;
 
   const handleHoverStart = () => {
@@ -83,7 +83,12 @@ const ProjectContainer = (props: ProjectContainerProps) => {
   return (
     <motion.div
       ref={containerScope}
-      className="relative h-[300px] w-full sm:w-3/4 sm:mx-5 lg:w-[90%] border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md"
+      className="relative w-full md:w-[500px] h-[300px] border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md"
+      style={{
+        translateY: isInView ? 0 : 100,
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.5s",
+      }}
     >
       <motion.button
         ref={cardScope}
@@ -100,7 +105,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
           className="absolute top-0 left-0 w-full h-full shadow-md"
         >
           <img
-            src={props.image}
+            src={props.images[0]}
             className="w-full h-full object-cover rounded-md"
           />
         </motion.div>
@@ -111,7 +116,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            {props.title}
+            {props.title.toUpperCase()}
           </motion.h2>
           <motion.p
             className="font-playfairDisplay"

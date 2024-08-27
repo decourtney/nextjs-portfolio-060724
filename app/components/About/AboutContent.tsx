@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import AboutBio from "./AboutBio";
-import { useInView } from "framer-motion";
 import { Button } from "@nextui-org/react";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const AboutContent = () => {
   const ref = useRef(null);

@@ -8,7 +8,6 @@
   }
 } */
 
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -37,4 +36,16 @@ body {
 }
 
 main {
+}
+
+/* Add this to your global CSS file or inside a style block */
+.swiper-button-next,
+.swiper-button-prev {
+  color: hsl(var(--nextui-primary-100)) !important; /* Custom color */
+}
+
+/* Optionally, change the color on hover */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: hsl(var(--nextui-primary-400)) !important; /* Custom hover color */
 }

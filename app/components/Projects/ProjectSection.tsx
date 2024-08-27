@@ -1,22 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-// import ProjectContainer from "./projectContainer";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import ProjectArchivesContainer from "./projectArchivesContainer";
-import { useInView } from "framer-motion";
-import dynamic from "next/dynamic";
-import ProjectContainerSkeleton from "./projectContainerSkeleton";
-
-const ProjectContainer = dynamic(() => import("./projectContainer"), {
-  ssr: false,
-  loading: () => <ProjectContainerSkeleton />,
-});
+import ProjectContainer from "./projectContainer";
 
 // Define the type for project data
 interface Project {
   title: string;
   description: string;
-  image: string;
+  images: string[];
   writeup: string[];
   toolIcons: string[];
   link: string;
@@ -29,11 +22,8 @@ const ProjectSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/projects.json");
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data = await response.json();
+        const response = await axios.get("/api/projects");
+        const data = response.data;
         setProjects(data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -64,7 +54,6 @@ const ProjectSection = () => {
           </div>
         ))}
       </div>
-
       <ProjectArchivesContainer />
     </section>
   );

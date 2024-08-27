@@ -1,8 +1,8 @@
 "use client";
 
 import {
+  AnimatePresence,
   motion,
-  MotionValue,
   useMotionValue,
   useMotionValueEvent,
   useScroll,
@@ -10,9 +10,10 @@ import {
   useTransform,
 } from "framer-motion";
 import { useState } from "react";
-import { HeartIcon } from "../svgs";
-import { useContainerSize } from "../../utilities";
-import SvgMorph from "../svgMorph";
+import { HeartIcon } from "../../utilities/svgs";
+import useContainerSize from "../../utilities/useContainerSize";
+import ArtSVG from "./homeArtSVG";
+import SvgMorph from "./homeSVGMorph";
 
 const verbs = ["make", "develop", "design", "build", "create", "making"];
 const nouns = ["stuff", "art", "products", "experiences", "solutions", "stuff"];
@@ -21,7 +22,6 @@ const HomeWordScroll = () => {
   const { ref } = useContainerSize();
   const { scrollYProgress } = useScroll({
     target: ref,
-    // offset: ["-161px", "end start"], // offset determined by hero viewport height
   });
 
   const [showHeart, setShowHeart] = useState(false);
@@ -99,7 +99,11 @@ const HomeWordScroll = () => {
           </motion.ul>
         </div>
 
-        <div className="col-span-2 w-full h-[300px] lg:h-[400px]">
+        <div className="relative col-span-2  h-[300px] lg:h-[400px]">
+          <AnimatePresence mode="wait">
+            {indexOfSvgs != null && indexOfSvgs >= 4 && <ArtSVG />}
+          </AnimatePresence>
+
           <SvgMorph indexOfSvgs={indexOfSvgs} />
         </div>
       </motion.div>

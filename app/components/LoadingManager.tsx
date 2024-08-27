@@ -1,9 +1,10 @@
 "use client";
+// Original intended use case: Simulate a loading screen while fetching data or preparing content
+// For now its just serves as a loading screen that plays on initial visit
 
-import { useState, useEffect } from "react";
-import LoadingPage from "./LoadingPage";
 import { AnimatePresence } from "framer-motion";
-import { NameSVG } from "./svgs";
+import { useEffect, useState } from "react";
+import LoadingPage from "./LoadingPage";
 
 export default function LoadingManager({
   children,
@@ -25,7 +26,7 @@ export default function LoadingManager({
 
   useEffect(() => {
     if (isLoading) {
-      // Simulate a data fetching or content preparation delay
+      // Simulate data fetching or content preparation delay
       const timer = setTimeout(() => {
         sessionStorage.setItem("hasVisited", "true");
         setIsLoading(false);

@@ -1,8 +1,8 @@
 "use client";
 
+import { useInView } from "framer-motion";
 import React, { useState } from "react";
-import { motion, useInView } from "framer-motion";
-import { useIsMobile } from "../../utilities";
+import useIsMobile from "../../utilities/useIsMobile";
 import BoringIcons from "./BoringIcons";
 import BouncingIcons from "./BouncingIcons";
 
@@ -11,7 +11,6 @@ const ToolsSection = () => {
   const text1ref = React.useRef(null);
   const text2ref = React.useRef(null);
   const isInView1 = useInView(text1ref, { once: true, amount: "some" });
-  const isInView2 = useInView(text2ref, { once: true, amount: "some" });
 
   // State to keep track of the active tool
   const [activeTool, setActiveTool] = useState<string | null>(null);
@@ -35,7 +34,7 @@ const ToolsSection = () => {
       className="w-full sm:w-[80%] lg:w-full mx-auto pt-16 px-4 min-h-dvh space-y-12 font-montserrat"
     >
       <div className="w-full text-center text-[hsl(var(--nextui-primary-100))] text-5xl font-montserrat font-bold">
-        <h1>Toolbox</h1>
+        <h1>TOOLBOX</h1>
       </div>
 
       <div className="w-full lg:w-3/4 2xl:w-[50%] mx-auto mt-6 md:mt-12 2xl:mt-24">

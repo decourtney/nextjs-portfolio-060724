@@ -1,25 +1,32 @@
-import LandingPage from "./components/LoadingPage";
-import React from "react";
+import { Metadata } from "next";
 import AboutSection from "./components/About/AboutSection";
 import ContactSection from "./components/Contact/ContactSection";
+import DivierSection from "./components/Divider/dividerSection";
 import HomeSection from "./components/Home/HomeSection";
 import ProjectSection from "./components/Projects/ProjectSection";
 import ToolsSection from "./components/Tools/ToolsSection";
-import DivierSection from "./components/Divider/dividerSection";
 
-export default function App({ onReady }: { onReady: () => void }) {
-
+const App = () => {
   return (
     <>
-      <HomeSection />
-      <DivierSection />
-      <AboutSection />
-      <DivierSection />
-      <ToolsSection />
-      <DivierSection />
-      <ProjectSection />
-      <DivierSection />
-      <ContactSection />
+      <main className="overflow-clip">
+        <HomeSection />
+        <DivierSection />
+        <AboutSection />
+        <DivierSection />
+        <ToolsSection />
+        <DivierSection />
+        <ProjectSection />
+        <DivierSection />
+        <ContactSection />
+      </main>
     </>
   );
-}
+};
+
+export const metadata: Metadata = {
+  title: "🛠️ Donovan Courtney 🛠️",
+  description: "Vertical scrolling portfolio website",
+};
+
+export default App;
