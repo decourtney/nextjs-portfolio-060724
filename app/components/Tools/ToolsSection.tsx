@@ -3,8 +3,8 @@
 import { useInView } from "framer-motion";
 import React, { useState } from "react";
 import useIsMobile from "../../utilities/useIsMobile";
-import BoringIcons from "./BoringIcons";
-import BouncingIcons from "./BouncingIcons";
+import BoringIcons from "./oringIcons";
+import BouncingIcons from "./ouncingIcons";
 
 const ToolsSection = () => {
   const isMobile = useIsMobile();
