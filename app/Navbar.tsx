@@ -18,7 +18,7 @@ import dynamic from "next/dynamic";
 import ThemeSwitcherSkeleton from "./components/themeSwitcherSkeleton";
 
 const ThemeSwitcher = dynamic(
-  () => import("./components/themeSwitcher"),
+  () => import("./components/hemeSwitcher"),
   { ssr: false, loading: () => <ThemeSwitcherSkeleton /> }  
 );
 
