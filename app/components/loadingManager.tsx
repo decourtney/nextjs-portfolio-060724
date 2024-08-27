@@ -4,7 +4,7 @@
 
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import LoadingPage from "./LoadingPage";
+import LoadingPage from "./loadingPage";
 
 export default function LoadingManager({
   children,
