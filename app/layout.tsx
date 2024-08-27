@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Playfair_Display, Roboto } from "next/font/google";
-import LoadingManager from "./components/LoadingManager";
-import SvgNoise from "./components/SvgNoise";
+import LoadingManager from "./components/oadingManager";
+import SvgNoise from "./components/svgNoise";
 import Footer from "./Footer";
 import "./globals.css";
 import NavBar from "./Navbar";
