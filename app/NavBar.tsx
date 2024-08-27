@@ -12,8 +12,15 @@ import {
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import ThemeSwitcher from "./components/themeSwitcher";
+// import ThemeSwitcher from "./components/themeSwitcher";
 import { BrandIcon } from "./utilities/svgs";
+import dynamic from "next/dynamic";
+import ThemeSwitcherSkeleton from "./components/themeSwitcherSkeleton";
+
+const ThemeSwitcher = dynamic(
+  () => import("./components/themeSwitcher"),
+  { ssr: false, loading: () => <ThemeSwitcherSkeleton /> }  
+);
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,7 +48,7 @@ const NavBar = () => {
         />
 
         <NavbarBrand>
-          <Link href="/" onClick={clearStorageAndReload}>
+          <Link href="/" onPress={clearStorageAndReload}>
             <BrandIcon />
           </Link>
         </NavbarBrand>
@@ -52,7 +59,7 @@ const NavBar = () => {
         justify="center"
       >
         {menuItems.map((item, index) => (
-          <NavbarItem key={`${item}-${index}`}>
+          <NavbarItem key={index}>
             <Link href={`/#${item.toLowerCase()}`} size="sm">
               <p className=" text-[hsl(var(--nextui-primary-100))]">{item}</p>
             </Link>
@@ -78,7 +85,7 @@ const NavBar = () => {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               href={`/#${item.toLowerCase()}`}
-              onPress={() => handleClose()}
+              onPress={handleClose}
             >
               <p className="text-5xl text-[hsl(var(--nextui-primary-100))]">
                 {item}
@@ -87,10 +94,10 @@ const NavBar = () => {
           </NavbarMenuItem>
         ))}
         <NavbarItem>
-          <Link href="/archive" onPress={() => handleClose()}>
-            <motion.p className="text-5xl text-[hsl(var(--nextui-primary-100))]">
+          <Link href="/archive" onPress={handleClose}>
+            <p className="text-5xl text-[hsl(var(--nextui-primary-100))]">
               Archives
-            </motion.p>
+            </p>
           </Link>
         </NavbarItem>
       </NavbarMenu>
