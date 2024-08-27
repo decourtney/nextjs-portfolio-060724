@@ -2,7 +2,7 @@
 
 import { useDisclosure } from "@nextui-org/react";
 import { motion, useAnimate, useInView } from "framer-motion";
-import ProjectModal from "./rojectModal";
+import ProjectModal from "./projectModal";
 
 interface ProjectContainerProps {
   title: string;
