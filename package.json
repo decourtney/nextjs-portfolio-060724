@@ -17,7 +17,7 @@
     "@types/d3": "^7.4.3",
     "axios": "^1.7.4",
     "framer-motion": "^11.2.10",
-    "gsap-trial": "^3.12.5",
+    "gsap": "npm:@gsap/shockingly@^3.12.5",
     "lottie-react": "^2.4.0",
     "next": "14.2.3",
     "next-themes": "^0.3.0",

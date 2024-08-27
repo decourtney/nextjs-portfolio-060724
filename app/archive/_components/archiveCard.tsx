@@ -24,20 +24,20 @@ const ArchiveCard = (data: Archive) => {
       disableRipple
       onClick={handleCardClick}
       id={data.year}
-      className="h-fit py-4 bg-[hsl(var(--nextui-primary-300))] text-[hsl(var(--nextui-primary-500))] hover:bg-[hsl(var(--nextui-primary-100))] hover:text-background cursor-pointer"
+      className="w-full py-4 bg-[hsl(var(--nextui-primary-300))] text-[hsl(var(--nextui-primary-500))] hover:bg-[hsl(var(--nextui-primary-100))] hover:text-background cursor-pointer"
     >
       <CardHeader className="py-0 px-4 flex flex-col">
         <h1 className="font-bold text-large">{data.year}</h1>
         <h2>{data.title}</h2>
       </CardHeader>
-      <CardBody className="max-h-[500px] 2xl:max-h-[800px] py-2 overflow-scroll">
+      <CardBody className="py-2 overflow-scroll">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <Image
             alt="Card background"
             className="object-cover rounded-lg"
             src={data.image}
           />
-          <div className="m-4 space-y-4">
+          <div className="m-4 space-y-4  xl:text-xl">
             {data.description.map((desc, index) => (
               <p key={index}>{desc}</p>
             ))}

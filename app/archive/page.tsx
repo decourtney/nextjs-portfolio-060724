@@ -1,5 +1,5 @@
 import { GetStaticProps, Metadata } from "next";
-import ArchiveGrid from "./_components/archiveGrid";
+import CardContainer from "./_components/archiveCardContainer";
 import axios from "axios";
 
 interface Archive {
@@ -37,7 +37,7 @@ const ArchivePage = async () => {
       <div className="content-center font-montserrat font-bold text-6xl text-center text-[hsl(var(--nextui-primary-100))]">
         <h1>The Archives</h1>
       </div>
-      <ArchiveGrid archives={archives} />
+      <CardContainer archives={archives} />
     </section>
   );
 };

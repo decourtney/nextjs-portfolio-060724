@@ -20,19 +20,26 @@ const ArchiveCard = dynamic(
   }
 );
 
-const ArchiveGrid = ({ archives }: { archives: Archive[] }) => {
+const CardContainer
+ = ({ archives }: { archives: Archive[] }) => {
   return (
     <motion.div
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 lg:gap-4 w-[90%] mx-auto mt-12 p-2 lg:p-4 border-large border-[hsl(var(--nextui-primary-100))] rounded-md"
+      className="flex flex-wrap gap-2 w-[90%] mx-auto mt-12 rounded-md"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       {archives.map((archive, index) => (
-        <ArchiveCard key={index} {...archive} />
+        <div
+          key={index}
+          className="flex-grow md:flex-basis-[calc(50%-1rem)] md:max-w-[calc(50%-1rem)] lg:flex-basis-[calc(33.333%-1rem)] lg:max-w-[calc(33.333%-1rem)] h-full"
+        >
+          <ArchiveCard {...archive} />
+        </div>
       ))}
     </motion.div>
   );
 };
 
-export default ArchiveGrid;
+export default CardContainer
+;

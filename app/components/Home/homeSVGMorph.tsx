@@ -1,5 +1,5 @@
-import { gsap } from "gsap-trial";
-import { MorphSVGPlugin } from "gsap-trial/MorphSVGPlugin";
+import { gsap } from "gsap";
+import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 import { useEffect, useRef } from "react";
 
 // TODO Register the MorphSVGPlugin with GSAP
