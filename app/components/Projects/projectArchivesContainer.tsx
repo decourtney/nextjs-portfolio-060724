@@ -93,7 +93,7 @@ const ProjectArchivesContainer = () => {
   return (
     <motion.div
       ref={containerScope}
-      className="relative w-full md:w-[500px] h-[300px] mx-auto mt-8 lg:mt-24 border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md"
+      className="relative w-full md:w-[500px] h-[300px] mx-auto mt-8 md:mt-24 border-large border-[hsl(var(--nextui-primary-100))] bg-[hsl(var(--nextui-primary-100))] rounded-md"
       style={{
         translateY: isInView ? 0 : 100,
         opacity: isInView ? 1 : 0,

@@ -23,7 +23,7 @@ export async function GET(): Promise<NextResponse> {
 
     return NextResponse.json(jsonData);
   } catch (error) {
-    console.error("Error fetching image", error);
+    console.error("Error fetching object:", error);
     return new NextResponse("Error fetching projects");
   }
 }
