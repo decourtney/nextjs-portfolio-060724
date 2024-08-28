@@ -63,7 +63,7 @@ const ProjectModal = (props: ProjectModalProps) => {
             </ModalHeader>
             <ModalBody>
               <motion.div
-                className="w-full h-full mx-auto space-y-4"
+                className="w-full h-full mx-auto"
                 initial={{ scale: 0.98 }}
                 animate={{ scale: 1 }}
                 transition={{
@@ -75,15 +75,17 @@ const ProjectModal = (props: ProjectModalProps) => {
               >
                 <ModalSwiper images={props.images} />
 
-                <div className="flex justify-around">
+                <div className="flex justify-around mt-2 mb-4">
                   {props.toolIcons.map((icon, index) => {
                     return getToolIcon(icon); // Ensure you wrap the returned SVG in a JSX element with a key
                   })}
                 </div>
 
-                {props.writeup.map((writeup, index) => (
-                  <p key={index}>{writeup}</p>
-                ))}
+                <div className="w-[85%] mx-auto space-y-4">
+                  {props.writeup.map((writeup, index) => (
+                    <p key={index}>{writeup}</p>
+                  ))}
+                </div>
               </motion.div>
             </ModalBody>
             <ModalFooter className="space-x-8">

@@ -15,7 +15,6 @@ interface ArchivePageProps {
 }
 
 export const getStaticProps: GetStaticProps<ArchivePageProps> = async () => {
-  console.log("Projects")
   const response = await axios.get("http://localhost:3000/api/archive");
   const archives: Archive[] = await response.data;
 

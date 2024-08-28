@@ -43,7 +43,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
     animateImg(
       imgScope.current,
       {
-        x: props.isLeft ? "30%" : "-30%",
+        x: props.isLeft ? "15%" : "-15%",
         y: 30,
         rotateZ: props.isLeft ? 2 : -2,
       },
@@ -108,7 +108,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
             src={props.images[0]}
             alt="Project Image"
             removeWrapper
-            className="w-full h-full object-cover rounded-md z-0"
+            className="w-full h-full object-cover rounded-md -z-10"
           />
         </motion.div>
 

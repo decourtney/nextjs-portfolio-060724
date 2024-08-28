@@ -33,7 +33,7 @@ const ModalSwiper = ({ images }: { images: string[] }) => {
               alt={`Slide ${index + 1}`}
               src={image}
               removeWrapper
-              className="w-fit max-h-[400px] mx-auto rounded-md object-contain shadow-md shadow-[hsl(var(--nextui-primary-100))]"
+              className="w-fit h-[400px] mx-auto rounded-md object-cover shadow-md shadow-[hsl(var(--nextui-primary-100))]"
             />
           </SwiperSlide>
         ))}
