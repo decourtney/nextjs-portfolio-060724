@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@nextui-org/react";
+import { Button, Image } from "@nextui-org/react";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -19,7 +19,7 @@ const AboutContent = () => {
             transition: "all 0.5s ease",
           }}
         >
-          <img
+          <Image
             src={"/images/profilepic.jpg"}
             className="w-full h-full rounded-xl object-cover"
             alt="Lake"
@@ -27,9 +27,9 @@ const AboutContent = () => {
         </div>
 
         <p className="col-span-2 md:col-span-1 lg:w-[100%] lg:text-xl xl:text-xl 2xl:text-3xl font-normal leading-tight xl:leading-relaxed">
-          I'm a software developer passionate about creating engaging user
+          I&apos;m a software developer passionate about creating engaging user
           experiences and visually appealing designs. With a rich history in IT
-          and a solid foundation in web development, I'm always seeking new
+          and a solid foundation in web development, I&apos;m always seeking new
           opportunities to learn and grow as a developer.
         </p>
       </div>
@@ -39,22 +39,22 @@ const AboutContent = () => {
           A few more bytes...
         </p>
         <p className="lg:w-[40%] xl:w-[35%] ml-auto lg:mr-[10%] xl:mr-[15%] lg:text-left lg:-translate-y-[30%]">
-          In recent years, I've focused on building web applications using HTML,
-          CSS, and JavaScript. On the front end, I primarily leverage React
-          frameworks to create dynamic and smooth user experiences, while on the
-          backend, I work with MySQL or MongoDB depending on the project's
-          requirements. For cloud computing, hosting, and storage, I rely on AWS
-          services.
+          In recent years, I&apos;ve focused on building web applications using
+          HTML, CSS, and JavaScript. On the front end, I primarily leverage
+          React frameworks to create dynamic and smooth user experiences, while
+          on the backend, I work with MySQL or MongoDB depending on the
+          project&apos;s requirements. For cloud computing, hosting, and
+          storage, I rely on AWS services.
         </p>
         <p className="lg:w-[45%] xl:w-[40%] lg:ml-[15%] xl:mr-6 lg:text-left lg:-translate-y-[0%]">
-          As I continue to evolve as a developer, I'm excited to take on new
-          challenges and collaborate with like-minded individuals who are
-          equally passionate about technology. Whether it's building innovative
-          web applications, exploring new programming paradigms, or creating
-          captivating digital experiences, I'm driven by the endless
-          possibilities that coding offers. I'm eager to bring my unique blend
-          of skills and experiences to new projects and make a meaningful
-          impact.
+          As I continue to evolve as a developer, I&apos;m excited to take on
+          new challenges and collaborate with like-minded individuals who are
+          equally passionate about technology. Whether it&apos;s building
+          innovative web applications, exploring new programming paradigms, or
+          creating captivating digital experiences, I&apos;m driven by the
+          endless possibilities that coding offers. I&apos;m eager to bring my
+          unique blend of skills and experiences to new projects and make a
+          meaningful impact.
         </p>
         <div className="w-fit mx-auto lg:ml-auto lg:mr-[20%] lg:-translate-y-[100px]">
           <Button

@@ -1,14 +1,15 @@
+import { Image } from "@nextui-org/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
-import
-  {
-    A11y,
-    Autoplay,
-    Navigation,
-    Pagination,
-    Scrollbar,
-  } from "swiper/modules";
+import "swiper/css/virtual";
+import {
+  A11y,
+  Autoplay,
+  Navigation,
+  Pagination,
+  Scrollbar,
+} from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const ModalSwiper = ({ images }: { images: string[] }) => {
@@ -22,19 +23,17 @@ const ModalSwiper = ({ images }: { images: string[] }) => {
           disableOnInteraction: false,
         }}
         loop
-        spaceBetween={10}
+        spaceBetween={1}
         slidesPerView={1}
         navigation
       >
         {images.map((image, index) => (
-          <SwiperSlide
-            key={index}
-            className="p-3"
-          >
-            <img
+          <SwiperSlide key={index} className="p-3">
+            <Image
               alt={`Slide ${index + 1}`}
               src={image}
-              className="w-fit max-h-[400px] mx-auto rounded-md object-contain shadow-md shadow-[hsl(var(--nextui-primary-100))]"
+              removeWrapper
+              className="w-fit h-[400px] mx-auto rounded-md object-cover shadow-md shadow-[hsl(var(--nextui-primary-100))]"
             />
           </SwiperSlide>
         ))}

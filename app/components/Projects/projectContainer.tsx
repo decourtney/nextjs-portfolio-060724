@@ -1,6 +1,6 @@
 "use client";
 
-import { useDisclosure } from "@nextui-org/react";
+import { Image, useDisclosure } from "@nextui-org/react";
 import { motion, useAnimate, useInView } from "framer-motion";
 import ProjectModal from "./projectModal";
 
@@ -43,7 +43,7 @@ const ProjectContainer = (props: ProjectContainerProps) => {
     animateImg(
       imgScope.current,
       {
-        x: props.isLeft ? "30%" : "-30%",
+        x: props.isLeft ? "15%" : "-15%",
         y: 30,
         rotateZ: props.isLeft ? 2 : -2,
       },
@@ -104,9 +104,11 @@ const ProjectContainer = (props: ProjectContainerProps) => {
           ref={imgScope}
           className="absolute top-0 left-0 w-full h-full shadow-md"
         >
-          <img
+          <Image
             src={props.images[0]}
-            className="w-full h-full object-cover rounded-md"
+            alt="Project Image"
+            removeWrapper
+            className="w-full h-full object-cover rounded-md -z-10"
           />
         </motion.div>
 

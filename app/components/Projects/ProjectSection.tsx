@@ -1,5 +1,3 @@
-"use client";
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ProjectArchivesContainer from "./projectArchivesContainer";
@@ -15,23 +13,10 @@ interface Project {
   link: string;
 }
 
-const ProjectSection = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-
-  // Fetch project data from the JSON file stored in the S3 bucket
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("/api/projects");
-        const data = response.data;
-        setProjects(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+const ProjectSection = async () => {
+  // const [projects, setProjects] = useState<Project[]>([]);
+  const response = await axios.get("http://localhost:3000/api/projects");
+  const projects: Project[] = await response.data;
 
   return (
     <section

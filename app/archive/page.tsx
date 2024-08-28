@@ -1,4 +1,4 @@
-import { GetStaticProps, Metadata } from "next";
+import { Metadata } from "next";
 import CardContainer from "./_components/archiveCardContainer";
 import axios from "axios";
 
@@ -9,24 +9,6 @@ interface Archive {
   image: string;
   link: string;
 }
-
-interface ArchivePageProps {
-  archives: Archive[];
-}
-
-export const getStaticProps: GetStaticProps<ArchivePageProps> = async () => {
-  console.log("Projects")
-  const response = await axios.get("http://localhost:3000/api/archive");
-  const archives: Archive[] = await response.data;
-
-  console.log("Projects from fetch:", archives);
-  return {
-    props: {
-      archives,
-    },
-    revalidate: 60, // Revalidate every 60 seconds
-  };
-};
 
 const ArchivePage = async () => {
   const response = await axios.get("http://localhost:3000/api/archive");

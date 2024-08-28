@@ -20,8 +20,7 @@ const ArchiveCard = dynamic(
   }
 );
 
-const CardContainer
- = ({ archives }: { archives: Archive[] }) => {
+const CardContainer = ({ archives }: { archives: Archive[] }) => {
   return (
     <motion.div
       className="flex flex-wrap gap-2 w-[90%] mx-auto mt-12 rounded-md"
@@ -41,5 +40,4 @@ const CardContainer
   );
 };
 
-export default CardContainer
-;
+export default CardContainer;
