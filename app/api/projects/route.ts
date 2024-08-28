@@ -1,10 +1,6 @@
 import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { NextResponse } from "next/server";
 
-type ResponseData = {
-  url: string;
-};
-
 const s3 = new S3Client({
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
@@ -13,7 +9,7 @@ const s3 = new S3Client({
   region: process.env.AWS_REGION,
 });
 
-export async function GET(): Promise<ResponseData> {
+export async function GET(): Promise<NextResponse> {
   const command = new GetObjectCommand({
     Bucket: process.env.AWS_BUCKET_NAME!,
     Key: "nextjs-portfolio/projects.json",

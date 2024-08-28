@@ -112,7 +112,7 @@ const ContactSection: React.FC = () => {
               transition: "all 0.5s ease-out",
             }}
           >
-            <p>I'm always open to exploring</p>
+            <p>I&apos;m always open to exploring</p>
             <p> new roles and challenges.</p>
           </div>
           <div
@@ -123,7 +123,7 @@ const ContactSection: React.FC = () => {
               transition: "all 0.5s ease-out",
             }}
           >
-            <p>Let's connect and see how </p>
+            <p>Let&apos;s connect and see how </p>
             <p>I can bring value to your project.</p>
           </div>
         </div>
