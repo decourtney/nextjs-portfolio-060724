@@ -1,5 +1,3 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import ProjectArchivesContainer from "./projectArchivesContainer";
 import ProjectContainer from "./projectContainer";
 
@@ -15,8 +13,10 @@ interface Project {
 
 const ProjectSection = async () => {
   // const [projects, setProjects] = useState<Project[]>([]);
-  const response = await axios.get("http://localhost:3000/api/projects");
-  const projects: Project[] = await response.data;
+  const response = await fetch("http://localhost:3000/api/projects", {
+    cache: "no-store",
+  });
+  const projects: Project[] = await response.json();
 
   return (
     <section

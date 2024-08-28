@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import CardContainer from "./_components/archiveCardContainer";
-import axios from "axios";
 
 interface Archive {
   year: string;
@@ -11,8 +10,8 @@ interface Archive {
 }
 
 const ArchivePage = async () => {
-  const response = await axios.get("http://localhost:3000/api/archive");
-  const archives: Archive[] = await response.data;
+  const response = await fetch("http://localhost:3000/api/archive",{ cache: 'no-store' });
+  const archives: Archive[] = await response.json();
 
   return (
     <section className="flex flex-col w-full min-h-dvh pb-12">
