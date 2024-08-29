@@ -8,7 +8,7 @@ export default function LoadingWrapper({
 }: {
   children: React.ReactNode;
 }) {
-  const [isLoading, setIsLoading] = useState(true); // Set initial state to true
+  const [isLoading, setIsLoading] = useState(false);
   const [storageValue, setStorageValue] = useState<string | null>(null);
 
   useEffect(() => {
@@ -19,12 +19,8 @@ export default function LoadingWrapper({
 
     if (hasVisited === null) {
       setIsLoading(true);
-    } else {
-      setIsLoading(false);
     }
-  }, []);
 
-  useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsLoading(false);
@@ -32,23 +28,30 @@ export default function LoadingWrapper({
       }
     };
 
-    if (isLoading) {
-      window.addEventListener("keydown", handleKeyDown);
-    }
+    const handleMouseDown = (event: MouseEvent) => {
+      if (event.button === 0) {
+        setIsLoading(false);
+        sessionStorage.setItem("hasVisited", "true"); // Mark as visited
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("mousedown", handleMouseDown);
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("mousedown", handleMouseDown);
     };
   }, [isLoading]);
 
   return (
     <>
       {isLoading && (
-        <div className="w-[80%] min-h-dvh lg:w-[60%] pt-32 mx-auto">
+        <div className="w-[80%] h-dvh lg:w-[60%] pt-32 mx-auto">
           <LoadingPage setIsLoading={setIsLoading} />
         </div>
       )}
-      {!isLoading && children}
+      {storageValue !== null && !isLoading && children}
     </>
   );
 }
