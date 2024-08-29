@@ -44,7 +44,7 @@ export default function LoadingWrapper({
   return (
     <>
       {isLoading && (
-        <div className="w-[80%] h-dvh lg:w-[60%] pt-32 mx-auto">
+        <div className="w-[80%] min-h-dvh lg:w-[60%] pt-32 mx-auto">
           <LoadingPage setIsLoading={setIsLoading} />
         </div>
       )}
