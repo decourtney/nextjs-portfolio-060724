@@ -1,9 +1,12 @@
+'use client';
+
 import { usePresence } from "framer-motion";
 import Lottie, { LottieOptions } from "lottie-react";
 import { useTheme } from "next-themes";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { LoadingAnimation, NameAnimation } from "../utilities/getLottieAnims";
+import { LoadingAnimation } from "../utilities/getLottieAnims";
 
+// parse through lottie json and change color values
 const changeLottieColors = (lottieData: any, theme: string) => {
   const targetColor =
     theme === "light"
@@ -33,10 +36,10 @@ const changeLottieColors = (lottieData: any, theme: string) => {
 };
 
 interface LoadingPageProps {
-  setIsContentReady: Dispatch<SetStateAction<boolean>>;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
-const LoadingPage = ({ setIsContentReady }: LoadingPageProps) => {
+const LoadingPage = ({ setIsLoading }: LoadingPageProps) => {
   const [isPresent, safeToRemove] = usePresence();
   const { theme } = useTheme();
   const lottieRef = useRef(null);
@@ -53,33 +56,25 @@ const LoadingPage = ({ setIsContentReady }: LoadingPageProps) => {
   }, [theme]);
 
   useEffect(() => {
-    if (!lottieRef.current) return;
-    setLottieOptions({ ...lottieOptions, animationData: lottieData });
-  }, [lottieData]);
-
-  useEffect(() => {
-    if (!isPresent && lottieRef.current && theme) {
-      const themedLottieData = changeLottieColors(
-        { ...NameAnimation() },
-        theme
-      );
+    if (lottieRef.current) {
 
       setLottieOptions({
         ...lottieOptions,
-        animationData: themedLottieData,
+        animationData: lottieData,
         loop: false,
         onComplete: () => {
-          setIsContentReady(true), safeToRemove();
+          sessionStorage.setItem("hasVisited", "true");
+          setIsLoading(false);
         },
       });
     }
-  }, [isPresent]);
+  }, [lottieData]);
 
   return (
     <Lottie
       lottieRef={lottieRef}
       id="lottie"
-      className="w-full h-full"
+      className="w-full "
       {...lottieOptions}
     />
   );

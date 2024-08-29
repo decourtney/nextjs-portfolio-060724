@@ -24,6 +24,8 @@ const ArtSVG = () => {
   };
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);

@@ -24,6 +24,8 @@ const DividerLine = ({
   const [yPosition, setYPosition] = useState(initialYPosition);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    
     // Generate random values on the client side after mount
     const generatedLineWidth = Math.floor(Math.random() * 4) + 2;
     const generatedLineLength =

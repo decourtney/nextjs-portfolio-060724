@@ -191,9 +191,10 @@ const ContactSection: React.FC = () => {
             radius="full"
             variant="light"
             className=" text-[hsl(var(--nextui-primary-100))]"
-            onPress={() =>
-              window.open("https://www.linkedin.com/in/decourtney/")
-            }
+            onPress={() => {
+              if (typeof window !== "undefined")
+                window.open("https://www.linkedin.com/in/decourtney/");
+            }}
           >
             <FaLinkedin size={30} />
           </Button>
@@ -203,7 +204,10 @@ const ContactSection: React.FC = () => {
             radius="full"
             variant="light"
             className=" text-[hsl(var(--nextui-primary-100))]"
-            onPress={() => window.open("https://github.com/decourtney")}
+            onPress={() => {
+              if (typeof window !== "undefined")
+                window.open("https://github.com/decourtney");
+            }}
           >
             <FaGithub size={30} />
           </Button>

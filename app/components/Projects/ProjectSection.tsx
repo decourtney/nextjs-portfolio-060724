@@ -12,7 +12,6 @@ interface Project {
 }
 
 const ProjectSection = async () => {
-  // const [projects, setProjects] = useState<Project[]>([]);
   const response = await fetch("http://localhost:3000/api/projects", {
     cache: "no-store",
   });

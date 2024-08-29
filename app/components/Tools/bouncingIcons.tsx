@@ -241,6 +241,8 @@ const BouncingIcons: React.FC<BouncingIconsProps> = ({
     };
 
     const handleMouseLeave = () => {
+      if (typeof window === "undefined") return;
+
       onHover(null); // Reset the hover state when the mouse leaves the canvas
     };
 

@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from "react";
 
 // Function to check if the device is mobile
@@ -5,9 +7,11 @@ const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
+      if (typeof window === "undefined") return
+
+        const handleResize = () => {
+          setIsMobile(window.innerWidth < 1024);
+        };
 
     handleResize();
     window.addEventListener("resize", handleResize);
