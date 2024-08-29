@@ -75,7 +75,7 @@ export default function RootLayout({
             {children}
             <Footer />
           </LoadingWrapper>
-          {/* <SvgNoise /> */}
+          <SvgNoise />
         </Providers>
       </body>
     </html>
