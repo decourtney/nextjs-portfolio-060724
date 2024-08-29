@@ -27,6 +27,7 @@ export async function GET(): Promise<NextResponse> {
     if (!str) {
       throw new Error("Failed to read response body as string");
     }
+    console.log(str);
 
     // Safely parse JSON
     let jsonData;
