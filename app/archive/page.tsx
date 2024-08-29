@@ -10,7 +10,7 @@ interface Archive {
 }
 
 const ArchivePage = async () => {
-  const response = await fetch("http://localhost:3030/api/archive",{ cache: 'no-store' });
+  const response = await fetch("http://localhost:3000/api/archive",{ cache: 'no-store' });
   const archives: Archive[] = await response.json();
 
   return (
