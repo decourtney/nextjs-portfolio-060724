@@ -1,12 +1,11 @@
-'use client';
+"use client";
 
-import { usePresence } from "framer-motion";
 import Lottie, { LottieOptions } from "lottie-react";
 import { useTheme } from "next-themes";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { LoadingAnimation } from "../utilities/getLottieAnims";
 
-// parse through lottie json and change color values
+// Function to parse through Lottie JSON and change color values
 const changeLottieColors = (lottieData: any, theme: string) => {
   const targetColor =
     theme === "light"
@@ -14,12 +13,10 @@ const changeLottieColors = (lottieData: any, theme: string) => {
       : [0.9568627450980392, 0.9568627450980392, 0.9568627450980392]; // rgb(244, 244, 244)
 
   const traverseAndReplaceColors = (obj: any) => {
-    // Base case: if the object has a 'c' property with a 'k' array, replace the color
     if (obj && obj.c && Array.isArray(obj.c.k)) {
       obj.c.k = targetColor;
     }
 
-    // Recursive case: if the object has children, traverse them
     if (obj && typeof obj === "object") {
       for (const key in obj) {
         if (obj[key] !== null && typeof obj[key] === "object") {
@@ -29,7 +26,6 @@ const changeLottieColors = (lottieData: any, theme: string) => {
     }
   };
 
-  // Start traversal from the top level of the lottieData
   traverseAndReplaceColors(lottieData);
 
   return lottieData;
@@ -40,8 +36,8 @@ interface LoadingPageProps {
 }
 
 const LoadingPage = ({ setIsLoading }: LoadingPageProps) => {
-  const [isPresent, safeToRemove] = usePresence();
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [isReady, setIsReady] = useState(false); // Add a ready state
   const lottieRef = useRef(null);
   const [lottieData, setLottieData] = useState(LoadingAnimation());
   const [lottieOptions, setLottieOptions] = useState<LottieOptions>({
@@ -50,14 +46,19 @@ const LoadingPage = ({ setIsLoading }: LoadingPageProps) => {
   });
 
   useEffect(() => {
-    if (!theme) return;
-    const updatedLottieData = changeLottieColors({ ...lottieData }, theme);
+    if (!resolvedTheme) return;
+
+    // Apply the theme before rendering the animation
+    const updatedLottieData = changeLottieColors(
+      { ...lottieData },
+      resolvedTheme
+    );
     setLottieData(updatedLottieData);
-  }, [theme]);
+    setIsReady(true); // Set ready state to true after theme is applied
+  }, [resolvedTheme]);
 
   useEffect(() => {
-    if (lottieRef.current) {
-
+    if (isReady && lottieRef.current) {
       setLottieOptions({
         ...lottieOptions,
         animationData: lottieData,
@@ -68,13 +69,17 @@ const LoadingPage = ({ setIsLoading }: LoadingPageProps) => {
         },
       });
     }
-  }, [lottieData]);
+  }, [isReady, lottieData]);
+
+  if (!isReady) {
+    return null; // Render nothing until the theme is resolved and applied
+  }
 
   return (
     <Lottie
       lottieRef={lottieRef}
       id="lottie"
-      className="w-full "
+      className="w-full"
       {...lottieOptions}
     />
   );
