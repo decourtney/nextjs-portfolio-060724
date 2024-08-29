@@ -58,7 +58,7 @@ const HomeWordScroll = () => {
   return (
     <motion.div
       ref={ref}
-      className="relative w-full h-[400dvh] md:mt-8"
+      className="relative w-full min-h-[400dvh] md:mt-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
