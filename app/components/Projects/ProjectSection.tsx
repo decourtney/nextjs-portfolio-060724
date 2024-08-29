@@ -12,7 +12,7 @@ interface Project {
 }
 
 const ProjectSection = async () => {
-  const response = await fetch("http://localhost:3000/api/projects", {
+  const response = await fetch("https://localhost:3000/api/projects", {
     cache: "no-store",
   });
   const projects: Project[] = await response.json();
