@@ -8,7 +8,6 @@ import ToolsSection from "./components/Tools/ToolsSection";
 
 const App = () => {
   return (
-    <>
       <main className="overflow-clip">
         <HomeSection />
         <DivierSection />
@@ -20,7 +19,6 @@ const App = () => {
         <DivierSection />
         <ContactSection />
       </main>
-    </>
   );
 };
 

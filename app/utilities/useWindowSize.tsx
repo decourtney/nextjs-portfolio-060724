@@ -8,6 +8,8 @@ const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
+  if (typeof window === "undefined") return;
+
     function handleResize() {
       // Set window width/height to state
       setWindowSize({

@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Playfair_Display, Roboto } from "next/font/google";
-import LoadingManager from "./components/loadingManager";
 import SvgNoise from "./components/svgNoise";
 import Footer from "./Footer";
 import "./globals.css";
 import NavBar from "./Navbar";
 import { Providers } from "./providers";
+import LoadingWrapper from "./components/loadingWrapper";
 
 export const metadata: Metadata = {
   title: "Donovan Courtney",
@@ -69,12 +69,12 @@ export default function RootLayout({
         className={`font-roboto font-bold ${roboto.variable} ${playfairDisplay.variable} ${montserrat.variable}`}
       >
         <Providers>
-          <LoadingManager>
+          <LoadingWrapper>
             <NavBar />
             {children}
             <Footer />
-          </LoadingManager>
-          {/* <SvgNoise /> */}
+          </LoadingWrapper>
+          <SvgNoise />
         </Providers>
       </body>
     </html>

@@ -1,18 +1,36 @@
-// TODO - Create art for 404 page
 "use client";
 
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const NotFound = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const moveX1 = useTransform(x, [0, window.innerWidth], [-10, 10]);
-  const moveY1 = useTransform(y, [0, window.innerHeight], [-10, 10]);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-  const moveX2 = useTransform(x, [0, window.innerWidth], [10, -10]);
-  const moveY2 = useTransform(y, [0, window.innerHeight], [10, -10]);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Get the initial window dimensions
+      setDimensions({ width: window.innerWidth, height: window.innerHeight });
+
+      const handleResize = () => {
+        setDimensions({ width: window.innerWidth, height: window.innerHeight });
+      };
+
+      // Update the dimensions on resize
+      window.addEventListener("resize", handleResize);
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
+
+  const moveX1 = useTransform(x, [0, dimensions.width], [-10, 10]);
+  const moveY1 = useTransform(y, [0, dimensions.height], [-10, 10]);
+
+  const moveX2 = useTransform(x, [0, dimensions.width], [10, -10]);
+  const moveY2 = useTransform(y, [0, dimensions.height], [10, -10]);
 
   const handleMouseMove = (event: MouseEvent) => {
     x.set(event.clientX);
@@ -20,10 +38,12 @@ const NotFound = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    if (typeof window !== "undefined") {
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
+    }
   }, []);
 
   return (

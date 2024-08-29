@@ -10,23 +10,23 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from "@nextui-org/react";
-import { motion } from "framer-motion";
 import { useState } from "react";
-// import ThemeSwitcher from "./components/themeSwitcher";
 import { BrandIcon } from "./utilities/svgs";
 import dynamic from "next/dynamic";
 import ThemeSwitcherSkeleton from "./components/themeSwitcherSkeleton";
 
-const ThemeSwitcher = dynamic(
-  () => import("./components/themeSwitcher"),
-  { ssr: false, loading: () => <ThemeSwitcherSkeleton /> }  
-);
+const ThemeSwitcher = dynamic(() => import("./components/themeSwitcher"), {
+  ssr: false,
+  loading: () => <ThemeSwitcherSkeleton />,
+});
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuItems = ["Home", "About", "Projects", "Contact"];
 
   const clearStorageAndReload = () => {
+    if (typeof window === "undefined") return;
+
     sessionStorage.removeItem("hasVisited"); // Clear the session storage item
     window.location.reload(); // Reload the page to display the landing page
   };
@@ -83,10 +83,7 @@ const NavBar = () => {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              href={`/#${item.toLowerCase()}`}
-              onPress={handleClose}
-            >
+            <Link href={`/#${item.toLowerCase()}`} onPress={handleClose}>
               <p className="text-5xl text-[hsl(var(--nextui-primary-100))]">
                 {item}
               </p>

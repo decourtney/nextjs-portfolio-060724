@@ -12,6 +12,8 @@ interface Archive {
 
 const ArchiveCard = (data: Archive) => {
   const handleCardClick = () => {
+    if (typeof window === "undefined") return;
+
     if (data.link) {
       window.open(data.link, "_blank");
     }
