@@ -31,7 +31,7 @@ const CardContainer = ({ archives }: { archives: Archive[] }) => {
       {archives.map((archive, index) => (
         <div
           key={index}
-          className="flex-grow md:flex-basis-[calc(50%-1rem)] md:max-w-[calc(50%-1rem)] lg:flex-basis-[calc(33.333%-1rem)] lg:max-w-[calc(33.333%-1rem)] h-full"
+          className="flex-grow md:flex-basis-[calc(50%-1rem)] md:max-w-[calc(50%-1rem)] lg:flex-basis-[calc(33.333%-1rem)] lg:max-w-[calc(33.333%-1rem)] h-full mx-auto"
         >
           <ArchiveCard {...archive} />
         </div>

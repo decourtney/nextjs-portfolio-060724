@@ -8,7 +8,7 @@ export default function LoadingWrapper({
 }: {
   children: React.ReactNode;
 }) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // Set initial state to true
   const [storageValue, setStorageValue] = useState<string | null>(null);
 
   useEffect(() => {
@@ -19,7 +19,26 @@ export default function LoadingWrapper({
 
     if (hasVisited === null) {
       setIsLoading(true);
+    } else {
+      setIsLoading(false);
     }
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsLoading(false);
+        sessionStorage.setItem("hasVisited", "true"); // Mark as visited
+      }
+    };
+
+    if (isLoading) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [isLoading]);
 
   return (
@@ -29,7 +48,7 @@ export default function LoadingWrapper({
           <LoadingPage setIsLoading={setIsLoading} />
         </div>
       )}
-      {storageValue !== null && !isLoading && children}
+      {!isLoading && children}
     </>
   );
 }
