@@ -17,7 +17,8 @@ export const metadata: Metadata = {
     url: "https://donovancourtney.dev",
     images: [
       {
-        url: "https://donovancourtney.dev/images/demoticon_banner.hpg",
+        secureUrl: "https://donovancourtney.dev/images/demoticon_banner.jpg",
+        url: "https://donovancourtney.dev/images/demoticon_banner.jpg",
         width: 1200,
         height: 630,
         alt: "Brand Image",
