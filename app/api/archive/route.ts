@@ -17,13 +17,29 @@ export async function GET(): Promise<NextResponse> {
 
   try {
     const response = await s3.send(command);
-    const str = await response.Body?.transformToString();
+    
+    // Ensuring that response.Body is valid and convert to string
+    if (!response.Body) {
+      throw new Error("S3 response has no Body");
+    }
 
-    const jsonData = JSON.parse(str || "{}");
+    const str = await response.Body.transformToString();
+    if (!str) {
+      throw new Error("Failed to read response body as string");
+    }
+
+    // Safely parse JSON
+    let jsonData;
+    try {
+      jsonData = JSON.parse(str);
+    } catch (parseError) {
+      console.error("Failed to parse JSON:", parseError);
+      throw new Error("Invalid JSON format received");
+    }
 
     return NextResponse.json(jsonData);
   } catch (error) {
     console.error("Error fetching object:", error);
-    return new NextResponse("Error fetching projects");
+    return new NextResponse("Error fetching projects", { status: 500 });
   }
 }
