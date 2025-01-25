@@ -8,23 +8,23 @@ import ToolsSection from "./components/Tools/ToolsSection";
 
 const App = () => {
   return (
-      <main className="overflow-clip">
-        <HomeSection />
-        <DivierSection />
-        <AboutSection />
-        <DivierSection />
-        <ToolsSection />
-        <DivierSection />
-        <ProjectSection />
-        <DivierSection />
-        <ContactSection />
-      </main>
+    <main className="overflow-clip">
+      <HomeSection />
+      <DivierSection />
+      <AboutSection />
+      <DivierSection />
+      <ToolsSection />
+      <DivierSection />
+      <ProjectSection />
+      <DivierSection />
+      <ContactSection />
+    </main>
   );
 };
 
 export const metadata: Metadata = {
-  title: "🛠️ Donovan Courtney 🛠️",
-  description: "Vertical scrolling portfolio website",
+  title: "Donovan Courtney",
+  description: "I made this stuff",
 };
 
 export default App;

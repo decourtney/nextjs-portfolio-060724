@@ -24,7 +24,7 @@ const ArchivePage = async () => {
 };
 
 export const metadata: Metadata = {
-  title: "💾 Portfolio Graveyard 💾",
+  title: "Portfolio Graveyard",
   description: "Information and links to previous version of this portfolio",
 };
 

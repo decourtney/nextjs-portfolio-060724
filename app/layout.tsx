@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     title: "Donovan Courtney",
     description: "I make stuff",
     type: "website",
+    locale: "en_US",
     url: "https://donovancourtney.dev",
     images: [
       {
@@ -67,7 +68,7 @@ export default function RootLayout({
   return (
     <html lang={"en"} suppressHydrationWarning={true}>
       <body
-        className={`font-roboto font-bold ${roboto.variable} ${playfairDisplay.variable} ${montserrat.variable}`}
+        className={`font-roboto font-bold ${roboto.variable} ${playfairDisplay.variable} ${montserrat.variable} scroll-smooth`}
       >
         <Providers>
           <LoadingWrapper>
