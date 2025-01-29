@@ -13,21 +13,23 @@ const AboutContent = () => {
       <div className="grid grid-cols-2 w-full lg:w-[80%] xl:w-[70%] 2xl:w-[60%] mx-auto gap-4">
         <div
           ref={ref}
-          className="col-span-2 md:col-span-1 lg:w-[100%] mx-auto lg:ml-auto lg:mr-0 rounded-xl shadow-md shadow-[hsl(var(--nextui-primary-100))]"
+          className="col-span-2 md:col-span-1 lg:w-[100%] mx-auto lg:ml-auto lg:mr-0"
           style={{
             scale: isInView ? 1 : 0.98,
             transition: "all 0.5s ease",
           }}
         >
-          <Image
-            src={"/images/profilepic.jpg"}
-            className="w-full h-full rounded-xl object-cover"
-            alt="Lake"
-          />
+          <div className="rounded-xl shadow-md shadow-[hsl(var(--nextui-primary-100))]">
+            <Image
+              src={"/images/profilepic.jpg"}
+              className="rounded-xl object-cover"
+              alt="Lake"
+            />
+          </div>
         </div>
 
         <p className="col-span-2 md:col-span-1 lg:w-[100%] lg:text-xl xl:text-xl 2xl:text-3xl font-normal leading-tight xl:leading-relaxed">
-          I&apos;m a software developer passionate about creating engaging user
+          I&apos;m a developer passionate about creating engaging user
           experiences and visually appealing designs. With a rich history in IT
           and a solid foundation in web development, I&apos;m always seeking new
           opportunities to learn and grow as a developer.
